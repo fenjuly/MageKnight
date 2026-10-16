@@ -1376,8 +1376,11 @@ test("allows undoing a voluntary challenge against an already revealed rampaging
 
   combatHistory = applyGameActionWithRevert(combatHistory, { type: "MAP_CLICK", cellId: "1,0" });
   combatHistory = applyGameActionWithRevert(combatHistory, { type: "COMBAT_ADVANCE" });
-  assert.equal(combatHistory.past.length, 0, "首次战斗结算后不能再退回行动阶段");
-  assert.match(combatHistory.boundaryReason, /战斗阶段已经结算/);
+  assert.equal(combatHistory.past.length, 3, "确定性的阶段推进不应锁定此前历史");
+  combatHistory = revertLastAction(combatHistory);
+  assert.equal(combatHistory.present.combat?.step, "ranged");
+  combatHistory = revertLastAction(combatHistory);
+  assert.equal(combatHistory.present.phase, "planning");
 });
 
 test("keeps a two-step movement chain reversible after cancelling a known rampager challenge", () => {

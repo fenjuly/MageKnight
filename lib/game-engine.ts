@@ -4491,11 +4491,12 @@ const REVERT_HISTORY_LIMIT = 60;
  * The physical rulebook allows decisions made during the current turn to be
  * taken back, but locks every earlier decision as soon as new information is
  * revealed, a die is rolled, or another player reacts. Challenging an already
- * revealed rampaging enemy is therefore reversible until the player resolves
- * the first combat step. The same applies when a move deterministically
+ * revealed rampaging enemy and deterministic combat steps are reversible.
+ * The same applies when a move deterministically
  * provokes an already-public rampaging enemy: combat is mandatory if the move
  * stands, but the move itself may still be taken back. Hidden information and
- * resolved combat remain explicit commitment points.
+ * random results (including summons, loot and level-up choices) remain explicit
+ * commitment points. Merely advancing a combat phase reveals nothing new.
  */
 export function createRevertHistory(
   present: GameState,
@@ -4560,6 +4561,13 @@ function revertActionLabel(action: GameAction, before: GameState, after: GameSta
     }
     case "START_MULTI_COMBAT": return action.assaultCellId ? "规划并发动多敌人强攻" : "主动挑战多支游荡敌人";
     case "COMBAT_GROUP_ATTACK": return "结算合并攻击组";
+    case "COMBAT_ADVANCE": return "跳过当前敌人的远程攻击";
+    case "COMBAT_RANGED": return "结算远程或攻城攻击";
+    case "COMBAT_BLOCK": return "结算当前敌人的格挡";
+    case "COMBAT_DAMAGE": return before.combat?.step === "block" ? "选择承受伤害" : "分配英雄承伤";
+    case "ASSIGN_DAMAGE_UNIT": return `分配「${getUnit(action.unitId)?.name ?? "盟军"}」承伤`;
+    case "COMBAT_ATTACK": return "结算近战攻击";
+    case "COMBAT_RETREAT": return "战斗撤退";
     case "ASSIGN_DEFEND": return "分配敌人的防卫能力";
     case "ADD_REGULAR_UNIT_TO_OFFER": return "扩充营地盟军供应";
     case "PURSUE_VOLKARE_ENEMIES": return "在沃尔卡雷营地周边追猎";
@@ -4624,23 +4632,47 @@ function boundaryReason(action: GameAction, before: GameState, after: GameState)
     case "END_TURN": return "结束回合会补牌并随机推进虚拟玩家；上一回合已经锁定。";
     case "FORFEIT_ROUND": return "进入新一轮会洗牌、刷新供应并重掷源泉；上一轮已经锁定。";
     case "REGENERATE_MAP": return "重新生成地图会随机创建新的板块牌库；旧预览已经锁定。";
-    case "COMBAT_ADVANCE":
-    case "COMBAT_RANGED":
-    case "COMBAT_BLOCK":
-    case "COMBAT_DAMAGE":
-    case "ASSIGN_DAMAGE_UNIT":
-    case "COMBAT_ATTACK":
-    case "COMBAT_GROUP_ATTACK":
-    case "COMBAT_RETREAT":
-      return "战斗阶段已经结算；不能回到本次结算之前。";
     default: return "新的公开信息或结算结果已经产生；此前操作已经锁定。";
   }
+}
+
+/** Compare actual information changes, not the name of a combat command.
+ * Wound tokens and face-up enemy discards are known; drawing a new enemy,
+ * receiving hidden loot or exposing a replacement offer is not. */
+function combatInformationBoundary(before: GameState, action: GameAction, after: GameState): string | undefined {
+  if (!before.combat) return undefined;
+  const changed = (a: readonly string[], b: readonly string[]) => a.length !== b.length || a.some((id, i) => id !== b[i]);
+  if (ENEMY_COLORS.some((color) => changed(before.enemyDecks[color], after.enemyDecks[color]))) {
+    return "战斗抽取了新的敌人标记（召唤或地点补充）；不能回到标记公开之前。";
+  }
+  if (newlyRevealedMapInformation(before, after).length) return "战斗公开了新的地图或敌人信息；公开前的操作已经锁定。";
+  if (after.hand.some((id) => !before.hand.includes(id) && before.deck.includes(id) && !id.startsWith("wound#"))) {
+    return "战斗中抽牌公开了牌库的新信息；不能回到抽牌之前。";
+  }
+  if (changed(before.artifactDeck, after.artifactDeck)) return "战斗奖励公开了新的圣器；不能回到奖励公开之前。";
+  const offers = ["advancedOffer", "spellOffer", "unitOffer", "monasteryOffer"] as const;
+  if (offers.some((key) => after[key].some((id) => !before[key].includes(id)))) {
+    return "战斗奖励刷新供应并公开了新卡牌；不能回到供应公开之前。";
+  }
+  if (changed(before.pendingSkillChoices, after.pendingSkillChoices) && after.pendingSkillChoices.length) {
+    return "战斗奖励令英雄升级并随机公开了技能选择；不能回到技能公开之前。";
+  }
+  const randomReward = before.map.some((cell) => !cell.conquered && after.map.some((next) => next.id === cell.id && next.conquered)
+    && (["monsterDen", "dungeon", "spawningGrounds"].includes(cell.site) || (cell.site === "ruins" && cell.ruinsReward === "crystals")));
+  if (randomReward) return "战斗结算产生了掷骰或随机水晶奖励；不能回到随机结果公开之前。";
+  const rerolledCard = action.type === "PLAY_CARD" && action.mode !== "sideways"
+    && (action.mode === "powered" ? getCard(action.instanceId)?.powered : getCard(action.instanceId)?.basic)?.special === "mana-storm";
+  const rerolledSkill = action.type === "ACTIVATE_SKILL" && getSkill(action.skillId)?.special === "source-opening";
+  if (rerolledCard || rerolledSkill) return "战斗中重掷了源泉骰；不能回到掷骰之前，即使骰面没有改变。";
+  return undefined;
 }
 
 export function classifyRevertTransition(before: GameState, action: GameAction, after: GameState): RevertClassification {
   if (before === after || differsOnlyByLog(before, after)) {
     return { kind: "unchanged", label: "没有产生可撤回的状态变化" };
   }
+  const combatInformation = combatInformationBoundary(before, action, after);
+  if (combatInformation) return { kind: "boundary", label: revertActionLabel(action, before, after), reason: combatInformation };
 
   const movementReveals = action.type === "MAP_CLICK" || action.type === "START_MULTI_COMBAT" ? newlyRevealedMapInformation(before, after) : [];
   const combatStartAction = action.type === "MAP_CLICK" || action.type === "START_MULTI_COMBAT";
@@ -4664,14 +4696,6 @@ export function classifyRevertTransition(before: GameState, action: GameAction, 
     "EXPLORE_TILE",
     "ENTER_ADVENTURE",
     "BURN_MONASTERY",
-    "COMBAT_ADVANCE",
-    "COMBAT_RANGED",
-    "COMBAT_BLOCK",
-    "COMBAT_DAMAGE",
-    "ASSIGN_DAMAGE_UNIT",
-    "COMBAT_ATTACK",
-    "COMBAT_GROUP_ATTACK",
-    "COMBAT_RETREAT",
     "END_TURN",
     "USE_DRAW",
     "ADD_REGULAR_UNIT_TO_OFFER",
@@ -4692,7 +4716,8 @@ export function applyGameActionWithRevert(history: RevertHistoryState, action: G
   if (classification.kind === "unchanged") return { ...history, present: next };
   if (classification.kind === "boundary") {
     return {
-      present: next,
+      // Direct card-unplay must not bypass the same information boundary.
+      present: { ...next, played: next.played.map((play) => ({ ...play, lockedByCombat: true })) },
       past: [],
       boundaryReason: classification.reason ?? history.boundaryReason,
     };

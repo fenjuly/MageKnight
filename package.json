@@ -12,7 +12,7 @@
     "build:mobile": "vite build --config vite.mobile.config.ts",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs tests/map-layout-ui.test.mjs && npm run test:rules",
-    "test:rules": "node --import tsx --test tests/game-engine.test.ts tests/comprehensive-rules.test.ts tests/special-card-rules.test.ts tests/unit-special-rules.test.ts tests/skill-special-rules.test.ts tests/site-combat-regression.test.ts",
+    "test:rules": "node --import tsx --test tests/game-engine.test.ts tests/comprehensive-rules.test.ts tests/special-card-rules.test.ts tests/unit-special-rules.test.ts tests/skill-special-rules.test.ts tests/site-combat-regression.test.ts tests/combat-revert.test.ts",
     "test:full": "npm run lint && npm test && npm run test:3d && npm run test:official-assets && npm run test:mobile",
     "test:3d": "node --import tsx --test tests/three-models.test.ts tests/realistic-models.test.ts tests/model-coverage.test.ts tests/map-intel.test.ts",
     "models:coverage": "node --import tsx scripts/report-model-coverage.ts",
