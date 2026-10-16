@@ -1,0 +1,466 @@
+[
+  {
+    "file": "env-site-village.glb",
+    "bytes": 2290164,
+    "triangles": 23000,
+    "primitives": 6,
+    "sha256": "679919e4d5ef0a03fff6c00ce3cd3204f0732400c9477027439c3bf2bd9705da",
+    "animations": []
+  },
+  {
+    "file": "env-site-village-mobile.glb",
+    "bytes": 641568,
+    "triangles": 5372,
+    "primitives": 6,
+    "sha256": "98419b8ce6380aa74f1e7c5ccd1d02389221b75fc5cc8b7439bca626fb1a2184",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-portal.glb",
+    "bytes": 712304,
+    "triangles": 4198,
+    "primitives": 3,
+    "sha256": "73c6adb07ec178fd84d07ebde08b96ec4ac28f98c66602993d41f2badb30dc7f",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-portal-mobile.glb",
+    "bytes": 387844,
+    "triangles": 1850,
+    "primitives": 3,
+    "sha256": "f7ff58969ef7f6854cefab61d149da89886ee871dd62be3d9d1624ac823b6b57",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-forest.glb",
+    "bytes": 1343552,
+    "triangles": 12974,
+    "primitives": 3,
+    "sha256": "9f1cb675c4b33777433eb2bab0b18bb2df4b3e2e650a072e11c6e9959174869e",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-forest-mobile.glb",
+    "bytes": 531168,
+    "triangles": 4658,
+    "primitives": 3,
+    "sha256": "ba82f92037c8ae14bea0965fa9019cbfd6ff84a4ca323629e97d8b4f279a0855",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-desert.glb",
+    "bytes": 490380,
+    "triangles": 2910,
+    "primitives": 2,
+    "sha256": "c8a320a249aaa54fa6643a6081f688d50040550d9d96898d37814b57dec97f86",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-desert-mobile.glb",
+    "bytes": 278860,
+    "triangles": 1038,
+    "primitives": 2,
+    "sha256": "ee2a91b6d072ae03ff97195f6866bdf1238827a559404c8e9eb8ea744e75f969",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-hills.glb",
+    "bytes": 927760,
+    "triangles": 5806,
+    "primitives": 3,
+    "sha256": "95ccebdfc839893cc60c315911d46d347caf133a36140d646e2d1d897b3a2832",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-hills-mobile.glb",
+    "bytes": 394180,
+    "triangles": 2038,
+    "primitives": 3,
+    "sha256": "3f1e9cbfc32662c2be1b8ceba4574e77a3593771196de4e382b1a14aea034629",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-swamp.glb",
+    "bytes": 764908,
+    "triangles": 3614,
+    "primitives": 4,
+    "sha256": "b731b3988a62acc49c05ca0a5a651b1bbcdf06bc046ce41ec07ee5c31aa22dfd",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-swamp-mobile.glb",
+    "bytes": 351100,
+    "triangles": 1758,
+    "primitives": 4,
+    "sha256": "71e95f1622eb5338ff1b12336a0e0a2cbfba8f61bb4675ef7ecdb01489b670e9",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-wasteland.glb",
+    "bytes": 717656,
+    "triangles": 4238,
+    "primitives": 3,
+    "sha256": "89583f0a0b7629736c0574700c46c1d2f6545863d819ff573d74c0ae890e714e",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-wasteland-mobile.glb",
+    "bytes": 359768,
+    "triangles": 1594,
+    "primitives": 3,
+    "sha256": "4641794f45702d9fe9dce7b5376b6f1946f015894146315fd70ac1a66bb8cf5b",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-lake.glb",
+    "bytes": 574612,
+    "triangles": 3600,
+    "primitives": 2,
+    "sha256": "a9eb95407947f7a3ac17aba341336c36086fedbc522824f614a265d3f9efe4b6",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-lake-mobile.glb",
+    "bytes": 264240,
+    "triangles": 1668,
+    "primitives": 2,
+    "sha256": "c8791308d4fb2edbfa4908f866921e4189b531b2c7be00a8960ea83624544b47",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-mountain.glb",
+    "bytes": 493288,
+    "triangles": 3070,
+    "primitives": 1,
+    "sha256": "2115d6e96645f903ae71886f633ca88d796677bd9ba05bb054d2e4390b807c4c",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-mountain-mobile.glb",
+    "bytes": 259292,
+    "triangles": 1078,
+    "primitives": 1,
+    "sha256": "a85ce2dea20abd7173d9f339107b50a97263d67af7c8c48a31e4fa4675b393b6",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-city.glb",
+    "bytes": 1066028,
+    "triangles": 10366,
+    "primitives": 2,
+    "sha256": "24cd3f5365e8dedba1f5688e756706dff674ca4c9cf00faaa84be1efa6b9fbb1",
+    "animations": []
+  },
+  {
+    "file": "env-terrain-city-mobile.glb",
+    "bytes": 478088,
+    "triangles": 4126,
+    "primitives": 2,
+    "sha256": "c00184b343b6b1691ba166b9bf6ec6528195ef0c9ed4a480596186133190ec98",
+    "animations": []
+  },
+  {
+    "file": "env-site-monastery.glb",
+    "bytes": 1108048,
+    "triangles": 15412,
+    "primitives": 4,
+    "sha256": "9d9896eaa1bf0da206de81dabd405e1e8c6abbef6b743653ff75d6610ed09759",
+    "animations": []
+  },
+  {
+    "file": "env-site-monastery-mobile.glb",
+    "bytes": 445108,
+    "triangles": 3536,
+    "primitives": 4,
+    "sha256": "d21b63ef60017ee4c402053b0468d623e4f9a8e51e86d64ea3896a12c6bb6aa6",
+    "animations": []
+  },
+  {
+    "file": "env-site-mageTower.glb",
+    "bytes": 563476,
+    "triangles": 8024,
+    "primitives": 4,
+    "sha256": "be553661a1ac701429146a04bba66ee55923e061301c4076675aef6d9c4abb9c",
+    "animations": []
+  },
+  {
+    "file": "env-site-mageTower-mobile.glb",
+    "bytes": 282408,
+    "triangles": 2072,
+    "primitives": 4,
+    "sha256": "2ced2c3514105e0661ac70e85f8ba6cf7edc9c53869bf066fbd5f5d08ee69099",
+    "animations": []
+  },
+  {
+    "file": "env-site-mine.glb",
+    "bytes": 664892,
+    "triangles": 1492,
+    "primitives": 4,
+    "sha256": "32695e18c498092259168816fddf8054387ea9e6c750fce563c1addb503f564a",
+    "animations": []
+  },
+  {
+    "file": "env-site-mine-mobile.glb",
+    "bytes": 341680,
+    "triangles": 596,
+    "primitives": 4,
+    "sha256": "7df6378e2e1e38a9296e2d1ab628cc28c37b614200c0389b1f9c118e25b1223a",
+    "animations": []
+  },
+  {
+    "file": "env-site-glade.glb",
+    "bytes": 749848,
+    "triangles": 7968,
+    "primitives": 4,
+    "sha256": "06ff5d6d2525a1d81552c3cd122b3a501ee17a300fc55379bc09a4a78be3caad",
+    "animations": []
+  },
+  {
+    "file": "env-site-glade-mobile.glb",
+    "bytes": 343512,
+    "triangles": 2820,
+    "primitives": 4,
+    "sha256": "75a6e78f0c61172b663711db75585c253cfdd4bca81dcc8447215465772c3209",
+    "animations": []
+  },
+  {
+    "file": "env-site-ruins.glb",
+    "bytes": 394800,
+    "triangles": 6520,
+    "primitives": 3,
+    "sha256": "1033320d5c026a2195e61bc7af5ef7f1e118a92cf9564aec9a3e2a8ef827f33d",
+    "animations": []
+  },
+  {
+    "file": "env-site-ruins-mobile.glb",
+    "bytes": 191116,
+    "triangles": 1956,
+    "primitives": 3,
+    "sha256": "1afa790b53af89e41aa22b75583d90901b64468cfe898359010b5fce6357bec7",
+    "animations": []
+  },
+  {
+    "file": "env-site-monsterDen.glb",
+    "bytes": 633268,
+    "triangles": 1292,
+    "primitives": 4,
+    "sha256": "31af3d948604423a9b94b2667cfb68817a0058818d4837e1bb3cba4edda6e88a",
+    "animations": []
+  },
+  {
+    "file": "env-site-monsterDen-mobile.glb",
+    "bytes": 326332,
+    "triangles": 388,
+    "primitives": 4,
+    "sha256": "5bc6a62f7c8e4b92a5d06347023eefa36c15ec71ef4184f3094ab71b5a294067",
+    "animations": []
+  },
+  {
+    "file": "env-site-tomb.glb",
+    "bytes": 182820,
+    "triangles": 1764,
+    "primitives": 1,
+    "sha256": "adbe0a4f711fc17f0a4da2a3bac56eb9b3c93ef9af0652c42ed4173e9c180886",
+    "animations": []
+  },
+  {
+    "file": "env-site-tomb-mobile.glb",
+    "bytes": 144156,
+    "triangles": 756,
+    "primitives": 1,
+    "sha256": "a24042562c59aaa0cc2662a0ff836e290de0d75113fa2aa3fee46d64be121b3c",
+    "animations": []
+  },
+  {
+    "file": "env-site-spawningGrounds.glb",
+    "bytes": 645740,
+    "triangles": 1788,
+    "primitives": 4,
+    "sha256": "a4fcc6d98ce317cddb37e12dfeee61249568e8e4b727c6da3215eb43f3dd6144",
+    "animations": []
+  },
+  {
+    "file": "env-site-spawningGrounds-mobile.glb",
+    "bytes": 329620,
+    "triangles": 464,
+    "primitives": 4,
+    "sha256": "c9273c0004a8b06588a19eb42862929dcd4db3e5dd3b7fbd30704c532267fa81",
+    "animations": []
+  },
+  {
+    "file": "env-site-dungeon.glb",
+    "bytes": 397628,
+    "triangles": 5984,
+    "primitives": 2,
+    "sha256": "f7f9a8fc25a72da777aabe9eaf8767d0b9c8d92cb3d2b5f554c7385b96def984",
+    "animations": []
+  },
+  {
+    "file": "env-site-dungeon-mobile.glb",
+    "bytes": 188728,
+    "triangles": 1500,
+    "primitives": 2,
+    "sha256": "70db623946b498a52626d105eac69043dd8a27fa133d5fe9ec9eee72aeb4303f",
+    "animations": []
+  },
+  {
+    "file": "env-site-maze.glb",
+    "bytes": 154552,
+    "triangles": 972,
+    "primitives": 2,
+    "sha256": "aedb293d83192b48c2675b62f770e84d0c677e4f094a58d668afa73624f20e29",
+    "animations": []
+  },
+  {
+    "file": "env-site-maze-mobile.glb",
+    "bytes": 133932,
+    "triangles": 396,
+    "primitives": 2,
+    "sha256": "5b9a558890c48f371ba8cb06e25ee904f61ae499ea8295591124dc1fc35e0cab",
+    "animations": []
+  },
+  {
+    "file": "env-site-labyrinth.glb",
+    "bytes": 198152,
+    "triangles": 2196,
+    "primitives": 2,
+    "sha256": "ce76a77e7337e8d46e7b1ab008cc842c78bac4923f590da3ea832e4a7119a5b7",
+    "animations": []
+  },
+  {
+    "file": "env-site-labyrinth-mobile.glb",
+    "bytes": 151196,
+    "triangles": 904,
+    "primitives": 2,
+    "sha256": "0917579c51b6031f781f9c382036c8846764999b387f45cc2ed715c46fea7623",
+    "animations": []
+  },
+  {
+    "file": "env-site-deepMine.glb",
+    "bytes": 684104,
+    "triangles": 2004,
+    "primitives": 4,
+    "sha256": "1a2d7f1a4d8c8621392d5fd57b5ace1eb9aba2a732d7cd5ee4ab29266fa4edb7",
+    "animations": []
+  },
+  {
+    "file": "env-site-deepMine-mobile.glb",
+    "bytes": 352344,
+    "triangles": 852,
+    "primitives": 4,
+    "sha256": "4cc26147f4c0ff58265ce4e455a58349de2d842190166df271b8a7ee5c53bc0a",
+    "animations": []
+  },
+  {
+    "file": "env-site-refugeeCamp.glb",
+    "bytes": 349204,
+    "triangles": 1304,
+    "primitives": 4,
+    "sha256": "a3501a7e3adb6cd866dbb1d5d22e43e7b9d4097eec72004a9ae7faa945f7d238",
+    "animations": []
+  },
+  {
+    "file": "env-site-refugeeCamp-mobile.glb",
+    "bytes": 218436,
+    "triangles": 500,
+    "primitives": 4,
+    "sha256": "a2b27e36937fe446cbeb3a0dcb08efe7dba7fba657000e90ec03a2ddccfb8e1a",
+    "animations": []
+  },
+  {
+    "file": "env-site-graveyard.glb",
+    "bytes": 1059344,
+    "triangles": 5928,
+    "primitives": 4,
+    "sha256": "6eaf789d856e169fc591fed39ac1f2f4d719484202f34ff302f2a8332a3482a8",
+    "animations": []
+  },
+  {
+    "file": "env-site-graveyard-mobile.glb",
+    "bytes": 493736,
+    "triangles": 1668,
+    "primitives": 4,
+    "sha256": "76f4bb63348e21cbc75a9ba1e73e50dc12a2ea1e17e8155743150f3b90fbf1c9",
+    "animations": []
+  },
+  {
+    "file": "env-site-necropolis.glb",
+    "bytes": 1907868,
+    "triangles": 23000,
+    "primitives": 4,
+    "sha256": "d46da91ad7953d3dab12670b085df331410eef0cb302da4684ad8bbbcedbc48d",
+    "animations": []
+  },
+  {
+    "file": "env-site-necropolis-mobile.glb",
+    "bytes": 691684,
+    "triangles": 5868,
+    "primitives": 4,
+    "sha256": "719b2426cf1df8f9dcb4c836039bc5ef457565536bf18613dee2739dbf632a66",
+    "animations": []
+  },
+  {
+    "file": "env-site-hiddenValley.glb",
+    "bytes": 1690704,
+    "triangles": 12996,
+    "primitives": 8,
+    "sha256": "1c951f3e724856aa35246c7e7f5a188fd082cc683ca73f68f7e66e489e6fa0e3",
+    "animations": []
+  },
+  {
+    "file": "env-site-hiddenValley-mobile.glb",
+    "bytes": 708456,
+    "triangles": 3492,
+    "primitives": 8,
+    "sha256": "aa2eb0b2914702a14880304e30ccdde09a3617c6f9a9b90a41d58dd7e20fd2d7",
+    "animations": []
+  },
+  {
+    "file": "env-site-volkareCamp.glb",
+    "bytes": 388156,
+    "triangles": 2559,
+    "primitives": 5,
+    "sha256": "0b6d4dbb08fa58b11c6e3e0f9bf0e9ec672df13b1df37d6629e53befe387101f",
+    "animations": []
+  },
+  {
+    "file": "env-site-volkareCamp-mobile.glb",
+    "bytes": 236820,
+    "triangles": 1015,
+    "primitives": 5,
+    "sha256": "5df37658d46b53412805ba75d4b76618892bd6aa51aef21abfd2e647ecd347bf",
+    "animations": []
+  },
+  {
+    "file": "env-site-city1.glb",
+    "bytes": 2122652,
+    "triangles": 23000,
+    "primitives": 5,
+    "sha256": "05667de5b2dd85499ec2f9aefb8a9fece3a9c5622ac462fa7768a79256b31714",
+    "animations": []
+  },
+  {
+    "file": "env-site-city1-mobile.glb",
+    "bytes": 809396,
+    "triangles": 10000,
+    "primitives": 5,
+    "sha256": "ac668b689aced85def61994094ee66660751a41305a4f24de1cea34ccd0cb439",
+    "animations": []
+  },
+  {
+    "file": "env-site-city2.glb",
+    "bytes": 2146236,
+    "triangles": 23000,
+    "primitives": 5,
+    "sha256": "be7dd9717fd03ab409eeaad64d6f130a2cdb804e289d3f9879c83b77f3a4d4eb",
+    "animations": []
+  },
+  {
+    "file": "env-site-city2-mobile.glb",
+    "bytes": 782676,
+    "triangles": 10000,
+    "primitives": 5,
+    "sha256": "aaf38e786ba0e37a9395a2ca0d3f70913739169a1548ff67552bad73ae6c28ef",
+    "animations": []
+  }
+]

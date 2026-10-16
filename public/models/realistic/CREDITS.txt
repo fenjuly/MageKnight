@@ -1,0 +1,864 @@
+REALISTIC TABLETOP MODELS — attribution, adaptation and sharing notices
+
+These are third-party/adapted and original tabletop representations, not official Mage Knight assets or an AAA quality certification. Most poses are static; color families share meshes. Original authors do not endorse this project.
+
+armored-knight: Knight, piacenti, CC-BY-3.0, https://opengameart.org/content/knight-2
+https://creativecommons.org/licenses/by/3.0/
+
+orc-digger: Orc (3D), Guillaume "GuieA_7" Englert, CC-BY-SA-4.0, https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+The adapted GLB files remain licensed CC BY-SA 4.0.
+
+gatehouse: Daniel Andersson, CC0-1.0, https://opengameart.org/content/medieval-gatehouse
+rocky-ground / ground-*.jpg: Poly Haven Rocky Terrain 02, CC0-1.0, https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Changes to licensed assets: restored textures and PBR materials, safe posed-mesh baking, role equipment, UV normalization, geometry merging, embedded texture compression and mobile LOD. Original authors retain attribution; adapted GLB files remain under their listed source/ShareAlike licenses. Source scripts were never executed.
+
+environments / env-site-village: 村庄
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-portal: 传送门地表
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-forest: 林地
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-desert: 沙丘
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-hills: 丘陵
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-swamp: 沼泽
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-wasteland: 荒地
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-lake: 湖泊
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-mountain: 山脉
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-terrain-city: 城市石路
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-monastery: 修道院
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-mageTower: 法师塔
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-mine: 水晶矿
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-glade: 魔法林地
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-ruins: 古代遗迹
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-monsterDen: 怪物巢穴
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-tomb: 古墓
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-spawningGrounds: 怪物繁殖地
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-dungeon: 地下城
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-maze: 迷宫
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-labyrinth: 深层迷宫
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-deepMine: 深层矿井
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-refugeeCamp: 难民营
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-graveyard: 墓地
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-necropolis: 墓园城
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-hiddenValley: 隐秘山谷
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-volkareCamp: 沃尔卡营地
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-city1: 第一城市
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+environments / env-site-city2: 第二城市
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-environments.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Poly Haven — CC0-1.0
+https://polyhaven.com/a/rocky_terrain_02
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Daniel Andersson — CC0-1.0
+https://opengameart.org/content/medieval-gatehouse
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset.
+
+actors / actor-wolfhawk: 狼鹰 · 双刃猎手
+Contmike, Danimal; bow/quiver: Yd; hair: MajorNightmare — CC-BY-SA-3.0
+https://opengameart.org/content/elf-game-ready-and-animated
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-arythea: 艾莉希娅 · 血火女战士
+Contmike, Danimal; bow/quiver: Yd; hair: MajorNightmare — CC-BY-SA-3.0
+https://opengameart.org/content/elf-game-ready-and-animated
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-goldyx: 戈迪克斯 · 有翼龙人
+thecubber, commissioned by the OpenGameArt.org community (http://opengameart.org) — CC-BY-3.0
+https://opengameart.org/content/rigged-textured-reptile
+https://creativecommons.org/licenses/by/3.0/
+
+Composite / adapted GLB license: CC-BY-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-norowas: 诺洛瓦斯 · 精灵统帅
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-elven-archer
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-krang: 克朗 · 兽人萨满
+Guillaume "GuieA_7" Englert — CC-BY-SA-4.0
+https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-braevalar: 布雷瓦拉 · 德鲁伊
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-mage
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-female-mage: 女性施法者 · 德尔法娜大师
+Contmike, Danimal; bow/quiver: Yd; hair: MajorNightmare — CC-BY-SA-3.0
+https://opengameart.org/content/elf-game-ready-and-animated
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-hag: 诅咒女巫
+Contmike, Danimal; bow/quiver: Yd; hair: MajorNightmare — CC-BY-SA-3.0
+https://opengameart.org/content/elf-game-ready-and-animated
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-mage: 法师 · 奥术权杖
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-mage
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-monk: 战斗僧侣 · 环杖
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-mage
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-necromancer: 蒙面死灵法师 · 骨饰
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-mage
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-peasant: 农民 · 劳作长叉
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-mage
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-herbalist: 草药师 · 药篓与木杖
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-mage
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-archer: 森林弓手 · 弓与箭囊
+thecubber; rig: Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-elven-archer
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-crossbowman: 弩手 · 机弩
+piacenti — CC-BY-3.0
+https://opengameart.org/content/knight-2
+https://creativecommons.org/licenses/by/3.0/
+
+Composite / adapted GLB license: CC-BY-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-guardsman: 卫兵 · 长枪和盾
+piacenti — CC-BY-3.0
+https://opengameart.org/content/knight-2
+https://creativecommons.org/licenses/by/3.0/
+
+Composite / adapted GLB license: CC-BY-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-swordsman: 剑士 · 双刃护手剑
+piacenti — CC-BY-3.0
+https://opengameart.org/content/knight-2
+https://creativecommons.org/licenses/by/3.0/
+
+Composite / adapted GLB license: CC-BY-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-gunner: 炮手 · 符文火铳
+piacenti — CC-BY-3.0
+https://opengameart.org/content/knight-2
+https://creativecommons.org/licenses/by/3.0/
+
+Composite / adapted GLB license: CC-BY-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-orc-shaman: 兽人召唤师 · 颅骨权杖
+Guillaume "GuieA_7" Englert — CC-BY-SA-4.0
+https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-orc-armored: 铁甲兽人 · 分层肩甲
+Guillaume "GuieA_7" Englert — CC-BY-SA-4.0
+https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-orc-tracker: 兽人追踪者 · 猎弓
+Guillaume "GuieA_7" Englert — CC-BY-SA-4.0
+https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-orc-skirmisher: 兽人散兵 · 双斧
+Guillaume "GuieA_7" Englert — CC-BY-SA-4.0
+https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-orc-stonethrower: 兽人投石手 · 岩石背篓
+Guillaume "GuieA_7" Englert — CC-BY-SA-4.0
+https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-dragon: 有翼巨龙
+Guillaume "GuieA_7" Englert — CC-BY-SA-4.0
+https://opengameart.org/content/dragon-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-werewolf: 狼人 · 毛皮与锁链
+ThetankOmeter, TripleSnail — CC0-1.0
+https://opengameart.org/content/warwolf
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+actors / actor-wolf-rider: 兽人狼骑兵 · 巨狼与骑手
+Guillaume "GuieA_7" Englert; wolf: Danimal, Micket, Poss — CC-BY-SA-4.0
+https://opengameart.org/content/orc-3d
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Composite / adapted GLB license: CC-BY-SA-4.0
+Compatible CC BY-SA 4.0 orc and real quadruped wolf combined into a static mounted rider; scaled seated orc, bent legs, fitted saddle and hand-held reins. Composite remains CC BY-SA 4.0.
+
+actors / actor-dragon-summoner: 龙族召唤者 · 龙人法杖
+thecubber, commissioned by the OpenGameArt.org community (http://opengameart.org) — CC-BY-3.0
+https://opengameart.org/content/rigged-textured-reptile
+https://creativecommons.org/licenses/by/3.0/
+
+Composite / adapted GLB license: CC-BY-3.0
+Posed licensed mesh with newly modeled role equipment; static tabletop adaptation, not an official likeness; shared anatomy is disclosed.
+
+creatures / creature-zombie: 僵尸
+Rosswet Mobile (submitted by dogchicken) — CC-BY-3.0
+https://opengameart.org/content/thin-zombie-awake-zombie-asset
+https://creativecommons.org/licenses/by/3.0/
+Thin Zombie by Rosswet Mobile, CC BY 3.0. Converted and adapted by this project. | CC-BY-3.0
+Composite / adapted GLB license: CC-BY-3.0
+Textured and rigged actual mobile-game model. Modern civilian zombie clothing may need medieval material/mesh adaptation. Preserve author credit.
+
+creatures / creature-demon: 夜魔
+Morgan Strauss (nubux) — CC-BY-3.0
+https://opengameart.org/content/night-demon
+https://creativecommons.org/licenses/by/3.0/
+Night Demon by Morgan Strauss (nubux), CC BY 3.0. Converted and adapted by this project. | CC-BY-3.0
+Composite / adapted GLB license: CC-BY-3.0
+1520 faces, color/normal/specular maps. Experimental Rigify rig; no production-ready animation claim. Formal creator name is present in bundled license.
+
+creatures / creature-skeleton: 骷髅
+Gord Goodwin — CC0-1.0
+https://opengameart.org/content/skeleton-with-rig
+https://creativecommons.org/publicdomain/zero/1.0/
+Gord Goodwin | CC0-1.0; original bone PBR textures by this project CC0-1.0
+Composite / adapted GLB license: CC0-1.0
+Detailed anatomical rigged skeleton. Requires suitable bone material and game-pose adaptation; do not present as textured ready-made medieval warrior.
+
+creatures / creature-gargoyle: 石像鬼
+yd (shared adaptation of a public-domain BlendSwap model) — CC0-1.0
+https://opengameart.org/content/gargoyle
+https://creativecommons.org/publicdomain/zero/1.0/
+yd (shared adaptation of a public-domain BlendSwap model) | CC0-1.0; Stone.jpg by Daniel Andersson CC0-1.0, adapted normal/roughness maps CC0-1.0
+Composite / adapted GLB license: CC0-1.0
+Original 3D Blend is supplied despite page category 2D Art. Suitable for a carved-stone gargoyle after material conversion.
+
+creatures / creature-minotaur: 牛头人
+Clint Bellanger — CC-BY-3.0
+https://opengameart.org/content/minotaur
+https://creativecommons.org/licenses/by/3.0/
+Minotaur by Clint Bellanger, CC BY 3.0. Converted and adapted by this project. | CC-BY-3.0
+Composite / adapted GLB license: CC-BY-3.0
+1212-triangle creature plus 736-triangle axe; model is older/low-resolution, but has correct bovine anatomy, fur texture and muscle normal. Requires visual QA before calling it realistic.
+
+creatures / creature-wolf: 巨狼
+Danimal (animation/adaptation), Micket (CC0 base model), Poss (fur textures) — CC-BY-SA-4.0
+https://opengameart.org/content/wolf-monsters-animated
+https://creativecommons.org/licenses/by-sa/4.0/
+Wolf monsters animated by Micket, Poss and Danimal, CC BY-SA 4.0: https://opengameart.org/content/wolf-monsters-animated . Converted/adapted GLB remains CC BY-SA 4.0. | CC-BY-SA-4.0
+Composite / adapted GLB license: CC-BY-SA-4.0
+Real quadruped mesh with fur diffuse/normal maps; source geometry is still low-poly and should not be called AAA. Sprite PNGs named Wolf*.png are not 3D surface textures. ShareAlike applies to adapted asset, not automatically to unrelated game code.
+
+creatures / creature-bone-golem: 骨骸魔像
+Mophs (model and texture), Nubux (concept) — CC-BY-3.0
+https://opengameart.org/content/bone-golem
+https://creativecommons.org/licenses/by/3.0/
+Model & Texture by Mophs @ Open Game Art. Concept art by Nubux: https://opengameart.org/content/bone-gollem-concept-art . CC BY 3.0. Converted and adapted by this project. | CC-BY-3.0
+Composite / adapted GLB license: CC-BY-3.0
+Around 4k triangles, 512x512 hand-painted texture and basic posing rig. Stylized/comical bone silhouette: optional specialist asset, not a faithful realistic skeleton substitute.
+
+creatures / creature-earth-elemental: 土元素魔像
+piacenti — CC-BY-3.0
+https://opengameart.org/content/earth-elemental-golem
+https://creativecommons.org/licenses/by/3.0/
+Earth Elemental / Golem by piacenti, CC BY 3.0. Converted and adapted by this project. | CC-BY-3.0
+Composite / adapted GLB license: CC-BY-3.0
+Two 3872-3882-triangle models and diffuse/normal textures. Actual archive contains only Blender FBX 6.1 ASCII, no Blend, despite later source comments. The converter narrowly parses numeric mesh and UV arrays into a static pose, preserving the licensed mesh/UVs/material rather than executing source or claiming animation conversion.
+
+specials / special-hydra: 多头蛇
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-medusa: 美杜莎
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Contmike, Danimal; bow Yd; hair MajorNightmare — CC-BY-SA-3.0
+https://opengameart.org/content/elf-game-ready-and-animated
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts. Licensed clothed female elf anatomy adapted, weapon faces removed; Medusa lower half replaced by serpent body; crystal sprite wings added. Whole composite CC-BY-SA-3.0.
+
+specials / special-centaur: 半人马
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+thecubber; rig Julius; commissioned by the OpenGameArt.org community — CC-BY-SA-3.0
+https://opengameart.org/content/rigged-textured-elven-archer
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts. Licensed clothed elf anatomy adapted, old weapon faces removed; female upper body for Medusa, full female for sprite, male upper body for centaur. Original species-specific serpent/equine lower body or crystal wings added. Whole composite CC-BY-SA-3.0.
+
+specials / special-griffon: 狮鹫
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-manticore: 蝎尾狮
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-crypt-worm: 墓穴蠕虫
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-spirit: 幽魂
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-air-elemental: 风元素
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-fire-elemental: 火元素
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-water-elemental: 水元素
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-earth-elemental: 土元素
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-catapult: 投石车
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-siege: 攻城器械
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-mummy: 木乃伊
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Composite / adapted GLB license: CC0-1.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts.
+
+specials / special-sprite: 水晶精灵
+Mage Knight Solo project — CC0-1.0
+scripts/build-realistic-specials.py
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Contmike, Danimal; bow Yd; hair MajorNightmare — CC-BY-SA-3.0
+https://opengameart.org/content/elf-game-ready-and-animated
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Composite / adapted GLB license: CC-BY-SA-3.0
+Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts. Licensed clothed female elf anatomy adapted, weapon faces removed; Medusa lower half replaced by serpent body; crystal sprite wings added. Whole composite CC-BY-SA-3.0.
+

@@ -1,0 +1,146 @@
+[
+  {
+    "file": "creature-zombie.glb",
+    "bytes": 981460,
+    "sha256": "78d64758f80da78ee2b5b865cf16fdc3f6ee6079c5959b7cc83160f252c1290e",
+    "triangles": 3340,
+    "drawCalls": 1,
+    "textures": 1,
+    "animations": []
+  },
+  {
+    "file": "creature-zombie-mobile.glb",
+    "bytes": 658400,
+    "sha256": "c8173b1a69efe64b1231f53a7a619f94289acd4b6d446871fc5f2e53496e4245",
+    "triangles": 3340,
+    "drawCalls": 1,
+    "textures": 1,
+    "animations": []
+  },
+  {
+    "file": "creature-demon.glb",
+    "bytes": 452244,
+    "sha256": "1bc6f87235d0c61a22b6bfb838c8cf180f45e77cb8af8a5d5b7a7b376e4b86ef",
+    "triangles": 2948,
+    "drawCalls": 1,
+    "textures": 2,
+    "animations": []
+  },
+  {
+    "file": "creature-demon-mobile.glb",
+    "bytes": 300356,
+    "sha256": "50971b55222b7486d13d122633d9132cd09541dbb41761eab6a12e18040e9a0f",
+    "triangles": 2948,
+    "drawCalls": 1,
+    "textures": 2,
+    "animations": []
+  },
+  {
+    "file": "creature-skeleton.glb",
+    "bytes": 763224,
+    "sha256": "4d9e68d8910b5ebd009eb5ad01e94b1c49dd586cdf0c372b0866c1d36c801028",
+    "triangles": 15585,
+    "drawCalls": 1,
+    "textures": 3,
+    "animations": []
+  },
+  {
+    "file": "creature-skeleton-mobile.glb",
+    "bytes": 503724,
+    "sha256": "c6adbc28eb4c2f1d7c018fde8172d8a6e027f2b618014b213ca0df97d44226e0",
+    "triangles": 8724,
+    "drawCalls": 1,
+    "textures": 3,
+    "animations": []
+  },
+  {
+    "file": "creature-gargoyle.glb",
+    "bytes": 865132,
+    "sha256": "b536eb9c6b63ee61e34a54276cc70e54f5b106da58a45015f63c217ef13d551c",
+    "triangles": 21339,
+    "drawCalls": 1,
+    "textures": 3,
+    "animations": []
+  },
+  {
+    "file": "creature-gargoyle-mobile.glb",
+    "bytes": 502232,
+    "sha256": "c15101cb653a10a27c4f5ac9fa7851d07826cddc5e1eb4915529fd9151bbaf69",
+    "triangles": 8729,
+    "drawCalls": 1,
+    "textures": 3,
+    "animations": []
+  },
+  {
+    "file": "creature-minotaur.glb",
+    "bytes": 453060,
+    "sha256": "87902013d3eb071901732a9b9266dad11b260c74ef304d5d4d2d10891b888198",
+    "triangles": 1984,
+    "drawCalls": 10,
+    "textures": 2,
+    "animations": []
+  },
+  {
+    "file": "creature-minotaur-mobile.glb",
+    "bytes": 453060,
+    "sha256": "87902013d3eb071901732a9b9266dad11b260c74ef304d5d4d2d10891b888198",
+    "triangles": 1984,
+    "drawCalls": 10,
+    "textures": 2,
+    "animations": []
+  },
+  {
+    "file": "creature-wolf.glb",
+    "bytes": 698168,
+    "sha256": "e683ae5e0dbd4d5b79cc2320f08449ecba6a8c37d2f2aabdc0ebbdf0b95920bd",
+    "triangles": 3312,
+    "drawCalls": 5,
+    "textures": 4,
+    "animations": []
+  },
+  {
+    "file": "creature-wolf-mobile.glb",
+    "bytes": 632616,
+    "sha256": "0e4e753c7e1c8b5d53c81356b39e4f0868523df760bb827e8da982aad391a6f2",
+    "triangles": 696,
+    "drawCalls": 5,
+    "textures": 4,
+    "animations": []
+  },
+  {
+    "file": "creature-bone-golem.glb",
+    "bytes": 225100,
+    "sha256": "b28a3aac9d773c526e624af4992ed80783c103c16e3648512d3ec2454222befb",
+    "triangles": 4586,
+    "drawCalls": 2,
+    "textures": 2,
+    "animations": []
+  },
+  {
+    "file": "creature-bone-golem-mobile.glb",
+    "bytes": 225100,
+    "sha256": "b28a3aac9d773c526e624af4992ed80783c103c16e3648512d3ec2454222befb",
+    "triangles": 4586,
+    "drawCalls": 2,
+    "textures": 2,
+    "animations": []
+  },
+  {
+    "file": "creature-earth-elemental.glb",
+    "bytes": 4793908,
+    "sha256": "fa875bb6ac0d125d54d9b480de49c7bd0c42e1fb47c8cef9cc5255769ec6ccb1",
+    "triangles": 3892,
+    "drawCalls": 1,
+    "textures": 2,
+    "animations": []
+  },
+  {
+    "file": "creature-earth-elemental-mobile.glb",
+    "bytes": 1413352,
+    "sha256": "d1200a4b742041c57ff2beba654c9d3da8e07fa54cb127c33cdbb661ac9ec4ca",
+    "triangles": 3892,
+    "drawCalls": 1,
+    "textures": 2,
+    "animations": []
+  }
+]

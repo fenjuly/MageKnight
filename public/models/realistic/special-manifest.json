@@ -1,0 +1,242 @@
+[
+  {
+    "file": "special-hydra.glb",
+    "bytes": 763744,
+    "sha256": "b5a35c2530394245181734c07b09aabb0c18e0eb741dcabc2eb057db7701addd",
+    "triangles": 21374,
+    "primitives": 4,
+    "animations": []
+  },
+  {
+    "file": "special-hydra-mobile.glb",
+    "bytes": 288676,
+    "sha256": "5d180a0cd25fcf323915347016d6130aea83e4c0bd35aed406603df4ce51afaa",
+    "triangles": 8958,
+    "primitives": 4,
+    "animations": []
+  },
+  {
+    "file": "special-medusa.glb",
+    "bytes": 874012,
+    "sha256": "a362b01e68721d3ef40e7029fa907dc9e142efa598c93017e5b3b0cb321ff9fb",
+    "triangles": 13172,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-medusa-mobile.glb",
+    "bytes": 433064,
+    "sha256": "742ed695e2ac0e206e25ff08f46fbfbeedf09ea6fb097bd57636cf497c7935ea",
+    "triangles": 7811,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-centaur.glb",
+    "bytes": 1168944,
+    "sha256": "7029c497dc79cedd45ce3b72a239fe327d3425bb348e3d71b433d0f23f3d8f79",
+    "triangles": 13245,
+    "primitives": 9,
+    "animations": []
+  },
+  {
+    "file": "special-centaur-mobile.glb",
+    "bytes": 484980,
+    "sha256": "f8144ec73c171b0e896cc130c309cd972407022eae320825faf3745459e554fb",
+    "triangles": 7649,
+    "primitives": 9,
+    "animations": []
+  },
+  {
+    "file": "special-griffon.glb",
+    "bytes": 547832,
+    "sha256": "836143ebee66b11d638c27dd3b10f94364ace0d04afa4c50ba1d9ea31fe78c31",
+    "triangles": 7172,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-griffon-mobile.glb",
+    "bytes": 159388,
+    "sha256": "2fed5e82a63d728d81b3142ee18689ee2db8c593171bed9afded63b3b25c55c3",
+    "triangles": 3234,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-manticore.glb",
+    "bytes": 509184,
+    "sha256": "0ffc3e23228f8665f2ee810d1a570039bc1b5f30c6d137b54a8898efcdbdf4d5",
+    "triangles": 7840,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-manticore-mobile.glb",
+    "bytes": 161248,
+    "sha256": "3d1fa301c7b343ce9cf5a1684c686e5390822fb223fe9bf470925327307fafb3",
+    "triangles": 3708,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-crypt-worm.glb",
+    "bytes": 309328,
+    "sha256": "2abbb7e323343742b4737a4f79a45f59c428789bda68d65a9c19b03d6b114b70",
+    "triangles": 5400,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-crypt-worm-mobile.glb",
+    "bytes": 94888,
+    "sha256": "1bb50ddadb4ab303a9d8fddfb4824cfb3a4881c5383746796d4b7b8c884136a3",
+    "triangles": 2204,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-spirit.glb",
+    "bytes": 249868,
+    "sha256": "d00d70511eb6ac6801f038cc8b1403a71ac70997a2e043c10bf1e9fee046f635",
+    "triangles": 3008,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-spirit-mobile.glb",
+    "bytes": 90340,
+    "sha256": "6f47dbe490d89633c290962ed7133f622aed52bfd708a9055152f8ce3a2a8c34",
+    "triangles": 1966,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-air-elemental.glb",
+    "bytes": 271200,
+    "sha256": "e27fe619aec463f4814f1bea176c8af3b1c939435d4412207e5749d66ea6f21a",
+    "triangles": 3688,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-air-elemental-mobile.glb",
+    "bytes": 91548,
+    "sha256": "c961b727fe653ee1278d4a8e310edfc8744ada18c21f416d8609f58005959820",
+    "triangles": 1938,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-fire-elemental.glb",
+    "bytes": 296252,
+    "sha256": "55798c503d56f161900921456fb9f3681c8a72b730021c28ce8139656fcce0eb",
+    "triangles": 3072,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-fire-elemental-mobile.glb",
+    "bytes": 78632,
+    "sha256": "99175edec69ac9e94e8ede1093c8b9b3cb0378ec756e5fee348491834c57d7af",
+    "triangles": 1250,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-water-elemental.glb",
+    "bytes": 257816,
+    "sha256": "d05534f77701bcbbb8f24567f71dff98b036f3037be1295558d1a82c8d5206a8",
+    "triangles": 3612,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-water-elemental-mobile.glb",
+    "bytes": 74548,
+    "sha256": "35a08da3fac0d8975b528d45ee08659dd2baf652edf274781b79893144e36a99",
+    "triangles": 1476,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-earth-elemental.glb",
+    "bytes": 343936,
+    "sha256": "f1c874f13bcf31163057e36d92b87d4f61928d805029be9d50cb6039b938a642",
+    "triangles": 2168,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-earth-elemental-mobile.glb",
+    "bytes": 154772,
+    "sha256": "1ea77a98de3ec20dc40f473846230b26417d376a8cfbef265ad6050e28e17725",
+    "triangles": 1832,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-catapult.glb",
+    "bytes": 574352,
+    "sha256": "ce8fcdb9d0e417e98cb28d0df007d5fbb92057cc71f64eaf92decde32e64a178",
+    "triangles": 3336,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-catapult-mobile.glb",
+    "bytes": 255256,
+    "sha256": "8d684cf15b1fddaa10b875a3edad2e9ee508712d3566bf123534df76b9143541",
+    "triangles": 3336,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-siege.glb",
+    "bytes": 560504,
+    "sha256": "83e50a7c3081c94ee9f75f534ce32151b09297c5fb0fe7c0d5937bdf1b04997d",
+    "triangles": 3146,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-siege-mobile.glb",
+    "bytes": 241408,
+    "sha256": "68550de2be0f426c6ebd0744c6c24b4c2d7aed1440150de58ddba894a5b3ff8c",
+    "triangles": 3146,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-mummy.glb",
+    "bytes": 435676,
+    "sha256": "45159e1d741d28b61a28f93bc00445ccf2e36720ab6b593a1486c57a05604ea0",
+    "triangles": 7936,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-mummy-mobile.glb",
+    "bytes": 172612,
+    "sha256": "af28d13dfe090288308a1b739856e5e4b7c547b89109472ea203da2acca96752",
+    "triangles": 4528,
+    "primitives": 3,
+    "animations": []
+  },
+  {
+    "file": "special-sprite.glb",
+    "bytes": 955912,
+    "sha256": "64c8866f966da6790c7a2cd868f6f479897bb0c53119a260d45be6ab890c3f9f",
+    "triangles": 15287,
+    "primitives": 5,
+    "animations": []
+  },
+  {
+    "file": "special-sprite-mobile.glb",
+    "bytes": 510108,
+    "sha256": "7b3f59371d2fb7bbe6325630200a56f0957f8a0ce6ab161f6afdb73af897a80f",
+    "triangles": 8841,
+    "primitives": 5,
+    "animations": []
+  }
+]

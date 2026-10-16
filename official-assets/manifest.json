@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-13",
+  "publisher": "WizKids/NECA",
+  "policy": {
+    "productPage": "https://wizkids.com/mage-knight-ultimate-edition/",
+    "termsUrl": "https://win.wizkids.com/terms.php",
+    "defaultRule": "Official hosting or public downloadability does not grant UI reuse rights.",
+    "uiIntegrationRequires": "express-written-permission"
+  },
+  "allowedHosts": [
+    "wizkids.com",
+    "www.wizkids.com",
+    "eadn-wc03-13179282.nxedge.io"
+  ],
+  "sources": [
+    {
+      "id": "mkue-rulebook-en",
+      "title": "Mage Knight Ultimate Edition Rulebook",
+      "category": "reference-document",
+      "url": "https://eadn-wc03-13179282.nxedge.io/posters/repository/wizkids/MKUE%20Rulebook%20BOOKLET.pdf",
+      "landingPage": "https://wizkids.com/mage-knight-ultimate-edition/",
+      "status": "approved-local-reference-download",
+      "evidence": {
+        "kind": "publisher-download-link",
+        "label": "Download Rules",
+        "observedAt": "2026-08-13"
+      },
+      "usage": "local-reference-only",
+      "redistributable": false,
+      "uiEligible": false,
+      "download": true,
+      "destination": "reference/mkue-rulebook-en.pdf",
+      "expectedContentType": "application/pdf"
+    },
+    {
+      "id": "mkue-expansion-rulebook-en",
+      "title": "Mage Knight Ultimate Edition Expansion Rulebook",
+      "category": "reference-document",
+      "url": "https://eadn-wc03-13179282.nxedge.io/posters/repository/wizkids/MKUE_Expansions_Rulebook_BOOKLET-Online2.pdf",
+      "landingPage": "https://wizkids.com/mage-knight-ultimate-edition/",
+      "status": "approved-local-reference-download",
+      "evidence": {
+        "kind": "publisher-download-link",
+        "label": "Download Expansion Rules",
+        "observedAt": "2026-08-13"
+      },
+      "usage": "local-reference-only",
+      "redistributable": false,
+      "uiEligible": false,
+      "download": true,
+      "destination": "reference/mkue-expansion-rulebook-en.pdf",
+      "expectedContentType": "application/pdf"
+    },
+    {
+      "id": "mkue-walkthrough-en",
+      "title": "Mage Knight Ultimate Edition Walkthrough Booklet",
+      "category": "reference-document",
+      "url": "https://eadn-wc03-13179282.nxedge.io/posters/repository/wizkids/MKUE_WalkThrough_BOOKLET-WEB.pdf",
+      "landingPage": "https://wizkids.com/mage-knight-ultimate-edition/",
+      "status": "approved-local-reference-download",
+      "evidence": {
+        "kind": "publisher-download-link",
+        "label": "Download Walkthrough Booklet",
+        "observedAt": "2026-08-13"
+      },
+      "usage": "local-reference-only",
+      "redistributable": false,
+      "uiEligible": false,
+      "download": true,
+      "destination": "reference/mkue-walkthrough-en.pdf",
+      "expectedContentType": "application/pdf"
+    },
+    {
+      "id": "mkue-official-gallery",
+      "title": "Mage Knight Ultimate Edition official product gallery",
+      "category": "promotional-art-candidates",
+      "url": "https://wizkids.com/mage-knight-ultimate-edition/",
+      "landingPage": "https://wizkids.com/mage-knight-ultimate-edition/",
+      "status": "pending-written-permission",
+      "evidence": {
+        "kind": "publisher-gallery",
+        "label": "Gallery",
+        "observedAt": "2026-08-13"
+      },
+      "usage": "metadata-only",
+      "redistributable": false,
+      "uiEligible": false,
+      "download": false,
+      "discovery": {
+        "urlFragments": [
+          "/Mage-KNight-Ult-",
+          "/MKUE-Header",
+          "/MKUE_Components"
+        ],
+        "extensions": [
+          ".jpg",
+          ".jpeg",
+          ".png",
+          ".webp"
+        ]
+      }
+    }
+  ]
+}

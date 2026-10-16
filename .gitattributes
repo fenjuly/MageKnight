@@ -1,0 +1,13 @@
+# Normalize text in the repository; preserve platform-specific working copies.
+* text=auto
+*.sh text eol=lf
+android/gradlew text eol=lf
+*.bat text eol=crlf
+
+# Game art and offline models are binary, not text merge targets.
+*.glb binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.jar binary

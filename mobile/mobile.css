@@ -1,0 +1,781 @@
+/* Native shell adjustments. The live game is a fixed-height application shell:
+   the board never turns into a vertically scrolling web page, and secondary
+   information opens beside it from a narrow command rail. */
+html.capacitor-app,
+html.capacitor-app body,
+html.capacitor-app #root {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #0c1818;
+}
+
+html.capacitor-app {
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.capacitor-app body {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+}
+
+html.capacitor-app button,
+html.capacitor-app summary,
+html.capacitor-app .hex-cell {
+  touch-action: manipulation;
+}
+
+html.capacitor-app .setup-shell {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+html.capacitor-app .game-shell {
+  --mobile-panel-width: clamp(236px, 42vw, 480px);
+  --mobile-command-width: 44px;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) var(--mobile-command-width);
+  grid-template-rows: 44px 28px minmax(0, 1fr) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+/* Compact status header: persistent, but never taller than two narrow rows. */
+html.capacitor-app .topbar {
+  position: relative;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  height: 44px;
+  min-height: 44px;
+  grid-template-columns: minmax(78px, .72fr) minmax(132px, 1fr) auto;
+  overflow: hidden;
+}
+
+html.capacitor-app .topbar > * {
+  min-width: 0;
+  height: 44px;
+  padding: 0 6px;
+}
+
+html.capacitor-app .brand-lockup,
+html.capacitor-app .hero-summary,
+html.capacitor-app .round-pips {
+  display: none;
+}
+
+html.capacitor-app .round-clock {
+  grid-column: 1;
+  gap: 5px;
+  justify-content: flex-start;
+  border-right: 1px solid rgba(211, 182, 119, .12);
+}
+
+html.capacitor-app .round-clock > span { font-size: 19px; }
+html.capacitor-app .round-clock strong { font-size: 11px; white-space: nowrap; }
+html.capacitor-app .round-clock small { font-size: 6px; white-space: nowrap; }
+
+html.capacitor-app .top-stats {
+  grid-column: 2;
+  display: grid;
+  min-height: 0;
+  grid-template-columns: repeat(3, minmax(40px, 1fr));
+  border-top: 0;
+}
+
+html.capacitor-app .top-stats div { min-width: 0; }
+html.capacitor-app .top-stats small { font-size: 6px; }
+html.capacitor-app .top-stats strong { margin: 0; font-size: 13px; line-height: 1; }
+html.capacitor-app .top-stats em {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 5px;
+  text-overflow: ellipsis;
+}
+
+html.capacitor-app .header-actions {
+  position: static;
+  grid-column: 3;
+  gap: 2px;
+  padding: 0 4px;
+}
+
+html.capacitor-app .header-actions button {
+  width: 27px;
+  height: 27px;
+}
+
+html.capacitor-app .mission-strip {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: block;
+  height: 28px;
+  min-height: 28px;
+  overflow: hidden;
+  padding: 0 7px;
+}
+
+html.capacitor-app .mission-strip > div:first-child,
+html.capacitor-app .mission-progress { display: none; }
+
+html.capacitor-app .mission-metrics {
+  height: 27px;
+  gap: clamp(8px, 2.5vw, 22px);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 6px;
+  white-space: nowrap;
+}
+
+html.capacitor-app .mission-metrics b { font-size: 11px; }
+html.capacitor-app .mission-metrics span > small { display: none; }
+
+/* The board owns all remaining height. Rails become internal overlay drawers. */
+html.capacitor-app .game-layout {
+  position: relative;
+  grid-column: 1;
+  grid-row: 3;
+  display: block;
+  width: auto;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 4px;
+  transition: margin-right .16s ease;
+}
+
+html.capacitor-app .mobile-panel-hand .game-layout,
+html.capacitor-app .mobile-panel-resources .game-layout,
+html.capacitor-app .mobile-panel-hero .game-layout,
+html.capacitor-app .mobile-panel-site .game-layout,
+html.capacitor-app .mobile-panel-turn .game-layout {
+  margin-right: var(--mobile-panel-width);
+}
+
+html.capacitor-app .center-stage {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: 4px;
+  overflow: hidden;
+}
+
+html.capacitor-app .map-card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 0;
+  flex-direction: column;
+  order: 0;
+}
+
+html.capacitor-app .map-heading {
+  min-height: 34px;
+  flex: 0 0 34px;
+  padding: 4px 6px;
+}
+
+html.capacitor-app .map-heading > div:first-child,
+html.capacitor-app .map-legend,
+html.capacitor-app .map-seed,
+html.capacitor-app .drag-help,
+html.capacitor-app .map-focus-toggle { display: none; }
+
+html.capacitor-app .map-tools {
+  width: 100%;
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+
+html.capacitor-app .map-deck-status {
+  min-width: 0;
+  margin-right: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html.capacitor-app .map-zoom-controls { min-width: 88px; height: 28px; }
+html.capacitor-app .map-tools > button { min-height: 28px; }
+
+html.capacitor-app .map-scroll {
+  min-height: 0;
+  flex: 1 1 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+html.capacitor-app .map-pan-layer { min-width: 610px; }
+html.capacitor-app .map-caption { display: none; }
+
+html.capacitor-app .map-inspector {
+  position: absolute;
+  z-index: 72;
+  right: 6px;
+  bottom: 6px;
+  left: 6px;
+  display: grid;
+  max-height: min(58%, 280px);
+  overflow-y: auto;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 7px;
+  margin: 0;
+  padding: 7px;
+  border-color: rgba(219,188,120,.38);
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(155deg,rgba(30,67,57,.94),rgba(8,20,19,.9));
+  box-shadow: 0 12px 34px rgba(0,0,0,.42);
+  backdrop-filter: blur(8px);
+  transform: translateY(6px);
+  transition: opacity .14s ease, transform .14s ease, visibility 0s linear .14s;
+}
+
+html.capacitor-app .map-inspector.visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+html.capacitor-app .map-inspector .inspector-art { width: 52px; height: 48px; }
+html.capacitor-app .map-inspector .inspector-actions {
+  grid-column: 1 / -1;
+  padding: 6px 0 0;
+  border-top: 1px solid rgba(212,182,116,.14);
+  border-left: 0;
+}
+
+html.capacitor-app .left-rail,
+html.capacitor-app .right-rail {
+  position: fixed;
+  z-index: 76;
+  top: calc(env(safe-area-inset-top) + 72px);
+  right: calc(env(safe-area-inset-right) + var(--mobile-command-width));
+  bottom: env(safe-area-inset-bottom);
+  left: auto;
+  display: none !important;
+  width: var(--mobile-panel-width);
+  height: auto;
+  min-height: 0;
+  gap: 6px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid rgba(218,187,121,.3);
+  border-radius: 5px;
+  background: linear-gradient(155deg,rgba(20,46,41,.97),rgba(7,18,17,.98));
+  box-shadow: 0 15px 42px rgba(0,0,0,.56);
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
+}
+
+html.capacitor-app .mobile-panel-hero .left-rail,
+html.capacitor-app .mobile-panel-site .right-rail,
+html.capacitor-app .mobile-panel-turn .right-rail { display: flex !important; }
+
+html.capacitor-app .mobile-panel-site .right-rail > .turn-panel { display: none; }
+html.capacitor-app .mobile-panel-turn .right-rail > :not(.turn-panel) { display: none; }
+html.capacitor-app .mobile-panel-turn .right-rail { justify-content: flex-end; }
+html.capacitor-app .mobile-panel-turn .turn-panel {
+  position: static;
+  display: grid;
+  width: 100%;
+  max-width: 620px;
+  margin: auto;
+}
+
+html.capacitor-app .left-rail .panel,
+html.capacitor-app .right-rail .panel { flex: 0 0 auto; }
+
+/* Secondary areas share the screen with the board. They occupy a right column
+   rather than covering the map or combat information. */
+html.capacitor-app .mobile-hand-panel {
+  position: fixed;
+  z-index: 84;
+  top: calc(env(safe-area-inset-top) + 72px);
+  right: calc(env(safe-area-inset-right) + var(--mobile-command-width));
+  bottom: env(safe-area-inset-bottom);
+  left: auto;
+  display: none;
+  width: var(--mobile-panel-width);
+  min-height: 0;
+  overflow: hidden;
+}
+
+html.capacitor-app .mobile-panel-hand .mobile-hand-panel { display: block; }
+
+html.capacitor-app .hand-zone {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 5px 8px;
+  border: 1px solid rgba(221,187,115,.38);
+  background: linear-gradient(180deg,rgba(13,29,26,.97),rgba(5,14,13,.98));
+}
+
+html.capacitor-app .hand-content {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  grid-template-rows: 25px minmax(0, 1fr);
+}
+
+html.capacitor-app .hand-heading { height: 25px; }
+html.capacitor-app .hand-heading small { display: none; }
+html.capacitor-app .hand-scroll {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 7px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 8px;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+html.capacitor-app .hand-scroll .hand-card,
+html.capacitor-app .hand-scroll .hand-card.played,
+html.capacitor-app .hand-scroll .hand-card:hover,
+html.capacitor-app .hand-scroll .hand-card:focus,
+html.capacitor-app .hand-scroll .hand-card:focus-within {
+  width: 164px;
+  min-width: 164px;
+  height: min(198px, calc(100dvh - 132px));
+  padding: 7px;
+  scroll-snap-align: start;
+  transform: none;
+}
+
+html.capacitor-app .mobile-resource-panel {
+  position: fixed;
+  z-index: 78;
+  top: calc(env(safe-area-inset-top) + 72px);
+  right: calc(env(safe-area-inset-right) + var(--mobile-command-width));
+  bottom: env(safe-area-inset-bottom);
+  left: auto;
+  display: none;
+  width: var(--mobile-panel-width);
+  max-height: none;
+  overflow-y: auto;
+  border-radius: 5px;
+  overscroll-behavior-y: contain;
+}
+
+html.capacitor-app .mobile-panel-resources .mobile-resource-panel { display: block; }
+html.capacitor-app .mobile-resource-panel .resource-bar {
+  position: static !important;
+  display: grid !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  gap: 8px !important;
+  overflow: visible !important;
+  padding: 9px !important;
+  border-color: rgba(219,188,120,.4) !important;
+  background: linear-gradient(155deg,rgba(25,58,50,.97),rgba(7,20,18,.97)) !important;
+  backdrop-filter: blur(9px);
+}
+
+html.capacitor-app .mobile-resource-panel .resource-title {
+  width: 58px !important;
+  padding: 0 7px 0 0 !important;
+  border-right: 1px solid rgba(212,182,116,.14) !important;
+  border-bottom: 0 !important;
+}
+
+html.capacitor-app .mobile-resource-panel .resource-values {
+  display: grid !important;
+  min-width: 0 !important;
+  grid-template-columns: repeat(auto-fit, minmax(58px, 1fr)) !important;
+  gap: 5px !important;
+}
+
+html.capacitor-app .mobile-resource-panel .resource-values > div { justify-content: center; }
+html.capacitor-app .mobile-resource-panel .resource-actions { min-width: 84px; }
+
+/* During battle the map yields the whole work area to combat; combat itself
+   scrolls internally on very short landscape phones. */
+html.capacitor-app .center-stage.in-combat .map-card { display: none; }
+html.capacitor-app .center-stage.in-combat .combat-panel {
+  width: 100%;
+  min-height: 0;
+  flex: 1 1 0;
+  order: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+html.capacitor-app .combat-actions { flex-wrap: wrap; }
+
+/* A narrow vertical rail preserves scarce landscape height and keeps the
+   selected panel adjacent to the board it controls. */
+html.capacitor-app .mobile-command-rail {
+  position: relative;
+  z-index: 90;
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  width: var(--mobile-command-width);
+  height: 100%;
+  min-height: 0;
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+  border-left: 1px solid rgba(221,187,115,.34);
+  background: rgba(7,17,16,.98);
+  box-shadow: -8px 0 24px rgba(0,0,0,.3);
+}
+
+html.capacitor-app .mobile-command-rail button {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-rows: minmax(18px, 1fr) 11px;
+  align-content: center;
+  justify-items: center;
+  padding: 1px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(211,182,119,.1);
+  background: transparent;
+  color: #74857e;
+}
+
+html.capacitor-app .mobile-command-rail button:last-child { border-bottom: 0; }
+html.capacitor-app .mobile-command-rail button.active {
+  background: linear-gradient(90deg,rgba(53,103,88,.68),rgba(25,52,47,.5));
+  color: #f0d494;
+  box-shadow: inset 2px 0 #d2aa59;
+}
+
+html.capacitor-app .mobile-command-rail i {
+  align-self: end;
+  font: normal 15px/20px var(--serif);
+}
+
+html.capacitor-app .mobile-command-rail span {
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html.capacitor-app .mobile-command-rail b {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: grid;
+  min-width: 13px;
+  height: 13px;
+  padding: 0 3px;
+  border-radius: 7px;
+  background: #9b493f;
+  color: #fff1d5;
+  font-size: 6px;
+  place-items: center;
+}
+
+/* Full-screen overlays keep scrolling inside themselves instead of restoring
+   document scrolling. */
+html.capacitor-app .modal-backdrop,
+html.capacitor-app .drawer-backdrop,
+html.capacitor-app .wiki-backdrop { overflow: hidden; }
+html.capacitor-app .tactic-modal,
+html.capacitor-app .skill-modal,
+html.capacitor-app .gameover-modal {
+  max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 16px);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+@media (max-width: 560px) {
+  html.capacitor-app .topbar { grid-template-columns: 74px minmax(116px, 1fr) auto; }
+  html.capacitor-app .top-stats em { display: none; }
+  html.capacitor-app .header-actions button { width: 27px; height: 27px; }
+  html.capacitor-app .mission-metrics { gap: 7px; }
+  html.capacitor-app .mission-metrics > span:nth-child(n + 5) { display: none; }
+  html.capacitor-app .mobile-resource-panel .resource-bar { grid-template-columns: minmax(0, 1fr) !important; }
+  html.capacitor-app .mobile-resource-panel .resource-title {
+    width: auto !important;
+    padding: 0 0 5px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(212,182,116,.14) !important;
+  }
+  html.capacitor-app .mobile-resource-panel .resource-actions { min-width: 0; }
+}
+
+/* Unified landscape workbench: core information never becomes a tab. */
+html.capacitor-app .game-shell {
+  --mobile-command-width: 38px;
+  --mobile-context-width: clamp(258px, 39vw, 380px);
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: 40px 24px minmax(0, 1fr) 78px !important;
+}
+html.capacitor-app .topbar { grid-column:1; grid-row:1; height:40px; min-height:40px; }
+html.capacitor-app .topbar > * { height:40px; }
+html.capacitor-app .mission-strip { grid-column:1; grid-row:2; height:24px; min-height:24px; }
+html.capacitor-app .mission-metrics { height:23px; }
+html.capacitor-app .game-layout {
+  position:relative;
+  grid-column:1;
+  grid-row:3;
+  display:grid;
+  width:100%;
+  height:100%;
+  min-height:0;
+  grid-template-columns:minmax(0,1fr) var(--mobile-command-width);
+  gap:4px;
+  margin:0 !important;
+  padding:4px;
+  overflow:hidden;
+}
+html.capacitor-app .center-stage {
+  display:grid;
+  width:100%;
+  height:100%;
+  min-height:0;
+  grid-template-columns:minmax(0,1fr) var(--mobile-context-width);
+  gap:4px;
+  overflow:hidden;
+}
+html.capacitor-app .tactical-board { min-width:0; min-height:0; overflow:hidden; }
+html.capacitor-app .map-card,
+html.capacitor-app .center-stage.in-combat .map-card { display:flex !important; width:100%; height:100%; min-height:0; }
+html.capacitor-app .map-scroll { min-height:0; flex:1 1 0; }
+html.capacitor-app .map-pan-layer { min-width:560px; }
+html.capacitor-app .tactical-context {
+  display:grid;
+  min-width:0;
+  min-height:0;
+  grid-template-rows:auto minmax(126px,1fr) auto auto;
+  gap:4px;
+  overflow:hidden;
+}
+html.capacitor-app .center-stage.in-combat .tactical-context {
+  grid-template-rows:minmax(104px,1fr) auto auto;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+/* In combat the card workbench uses the lower-left part of the map column.
+   It is explicitly reserved in the map's layout, never layered over enemies
+   or phase commands. The right rail no longer splits its height with a card. */
+html.capacitor-app .center-stage.in-combat { position:relative; --combat-card-height:140px; }
+html.capacitor-app .center-stage.in-combat .tactical-board { padding-bottom:calc(var(--combat-card-height) + 4px); }
+html.capacitor-app .center-stage.in-combat .selected-card-panel {
+  position:absolute;
+  z-index:10;
+  left:0;
+  bottom:0;
+  width:calc(100% - var(--mobile-context-width) - 4px);
+  height:var(--combat-card-height);
+  grid-template-rows:minmax(0,1fr) auto;
+  padding:4px;
+}
+html.capacitor-app .center-stage.in-combat .selected-card-panel .context-section-title { display:none; }
+html.capacitor-app .center-stage.in-combat .selected-card-panel .selected-card { padding:3px 5px; }
+html.capacitor-app .center-stage.in-combat .selected-card .card-illustration,
+html.capacitor-app .center-stage.in-combat .selected-card .card-stars,
+html.capacitor-app .center-stage.in-combat .selected-card h3 small { display:none; }
+html.capacitor-app .center-stage.in-combat .selected-card .card-effect strong { font-size:10px; }
+html.capacitor-app .center-stage.in-combat .selected-card-panel .card-actions > button,
+html.capacitor-app .center-stage.in-combat .selected-card-panel .card-actions summary { min-height:32px; font-size:10px; }
+html.capacitor-app .tactical-summary { padding:6px; }
+html.capacitor-app .context-section-title { padding-bottom:3px; }
+html.capacitor-app .tactical-summary-identity { grid-template-columns:42px minmax(0,1fr) auto; gap:5px; margin-top:4px; }
+html.capacitor-app .tactical-summary-identity > i { width:42px; height:38px; }
+html.capacitor-app .tactical-summary-identity strong { font-size:11px; }
+html.capacitor-app .tactical-summary-identity p { font-size:6px; -webkit-line-clamp:1; }
+html.capacitor-app .tactical-summary-identity button { padding:5px; font-size:6px; }
+html.capacitor-app .tactical-enemy-stack { max-height:92px; margin-top:4px; padding-top:3px; }
+html.capacitor-app .inspector-enemy-heading strong { font-size:8px; }
+html.capacitor-app .inspector-enemy-heading > span { font-size:6px; }
+html.capacitor-app .inspector-enemy-intel > p,
+html.capacitor-app .inspector-trait-details { display:none; }
+html.capacitor-app .inspector-trait-tags { margin-top:2px; }
+html.capacitor-app .inspector-trait-tags em { padding:2px 3px; font-size:5px; }
+html.capacitor-app .selected-card-panel { padding:5px; }
+html.capacitor-app .selected-card-panel .selected-card { min-height:0; max-height:none; overflow:hidden; margin-top:0; padding:5px; transform:none; }
+html.capacitor-app .selected-card-panel .selected-card h3 { margin-block:2px; font-size:9px; }
+html.capacitor-app .selected-card-panel .selected-card .card-illustration { height:34px; }
+html.capacitor-app .selected-card-panel .selected-card .card-effect { padding:1px 3px; }
+html.capacitor-app .selected-card-panel .selected-card .card-effect small { font-size:4px; }
+html.capacitor-app .selected-card-panel .selected-card .card-effect strong { font-size:6px; }
+html.capacitor-app .selected-card-panel .card-actions { right:auto; bottom:auto; left:auto; gap:2px; }
+html.capacitor-app .selected-card-panel .card-actions > button,
+html.capacitor-app .selected-card-panel .card-actions summary { min-height:24px; padding:3px 1px; font-size:5px; }
+html.capacitor-app .card-resolution-preview { margin-top:3px; padding:4px; }
+html.capacitor-app .card-resolution-preview > strong { font-size:7px; }
+html.capacitor-app .card-resolution-preview > small { font-size:5px; }
+html.capacitor-app .card-resolution-preview button { min-height:23px; padding:3px; font-size:5px; }
+/* Confirmation temporarily replaces the editable card so it can never fall
+   behind the hand dock. Cancel restores the full card and all its choices. */
+html.capacitor-app .selected-card-panel.has-pending-play { grid-template-rows:auto minmax(0,1fr); }
+html.capacitor-app .selected-card-panel.has-pending-play > .selected-card { display:none; }
+html.capacitor-app .center-stage.in-combat .selected-card-panel.has-pending-play { grid-template-rows:minmax(0,1fr); }
+html.capacitor-app .selected-card-panel .card-resolution-preview { min-height:0; overflow-y:auto; margin-top:0; }
+html.capacitor-app .selected-card-panel .card-resolution-preview > strong { font-size:10px; }
+html.capacitor-app .selected-card-panel .card-resolution-preview > small { font-size:9px; }
+html.capacitor-app .selected-card-panel .card-resolution-preview button { min-height:32px; font-size:10px; }
+html.capacitor-app .persistent-resource-panel .resource-bar { padding:4px !important; }
+html.capacitor-app .persistent-resource-panel .resource-title { width:34px !important; }
+html.capacitor-app .persistent-resource-panel .resource-title small { display:none; }
+html.capacitor-app .persistent-resource-panel .resource-values > div { min-width:34px !important; }
+html.capacitor-app .persistent-resource-panel .resource-values i { width:16px !important; height:16px !important; flex-basis:16px !important; }
+html.capacitor-app .persistent-resource-panel .resource-values strong { font-size:10px !important; }
+html.capacitor-app .persistent-resource-panel .resource-actions { display:none; }
+html.capacitor-app .tactical-context > .turn-panel { min-height:39px; padding:4px; }
+html.capacitor-app .tactical-context > .turn-panel .rest-button { display:none; }
+html.capacitor-app .tactical-context > .turn-panel button { min-height:27px; padding:3px 5px; font-size:5px; }
+html.capacitor-app .tactical-context > .turn-panel .revert-button span { max-width:72px; }
+html.capacitor-app .tactical-context > .turn-panel kbd { display:none; }
+html.capacitor-app .persistent-hand-panel {
+  grid-column:1;
+  grid-row:4;
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+}
+html.capacitor-app .persistent-hand-panel .hand-zone { width:100%; height:100%; padding:2px 5px; border-top:1px solid rgba(221,187,115,.28); background:rgba(7,18,17,.97); }
+html.capacitor-app .persistent-hand-panel .hand-content { grid-template-rows:17px minmax(0,1fr); }
+html.capacitor-app .persistent-hand-panel .hand-heading { height:17px; }
+html.capacitor-app .persistent-hand-panel .hand-heading small { display:none; }
+html.capacitor-app .persistent-hand-panel .hand-heading span { font-size:7px; }
+html.capacitor-app .persistent-hand-panel .hand-summary { font-size:5px; }
+html.capacitor-app .persistent-hand-panel .hand-scroll { gap:3px; justify-content:flex-start; overflow-x:auto; overflow-y:hidden; padding-bottom:2px; }
+html.capacitor-app .hand-card-tab { min-width:96px; max-width:142px; grid-template-columns:30px minmax(0,1fr) 15px; margin-left:0; padding:2px 4px; transform:none; }
+html.capacitor-app .hand-card-tab-art { width:27px; min-height:31px; }
+html.capacitor-app .hand-card-tab-copy { gap:0; padding-inline:3px; }
+html.capacitor-app .hand-card-tab-copy strong { font-size:8px; }
+html.capacitor-app .hand-card-tab-effect { grid-template-columns:10px minmax(0,1fr); gap:2px; }
+html.capacitor-app .hand-card-tab-effect small { width:10px; height:8px; font-size:4px; }
+html.capacitor-app .hand-card-tab-effect b { font-size:5px; line-height:1.1; }
+html.capacitor-app .hand-card-tab-effect.wound { grid-template-columns:minmax(0,1fr); }
+html.capacitor-app .hand-card-hover-preview { display:none; }
+html.capacitor-app .hand-card-tab > em { width:15px; height:15px; font-size:6px; }
+html.capacitor-app .hand-card-tab:hover,
+html.capacitor-app .hand-card-tab:focus-visible,
+html.capacitor-app .hand-card-tab.selected { transform:none; }
+
+/* Touch uses a stable, shallow 2.5D angle; pointer parallax is intentionally
+   disabled so dragging the map remains direct and does not wobble. */
+html.capacitor-app .map-perspective-layer {
+  transform:perspective(1200px) rotateX(3deg) !important;
+  transition:none !important;
+}
+html.capacitor-app .cinematic-fx { inset:64px 38px 78px 0; }
+html.capacitor-app .three-camera-tools { right:5px; bottom:20px; padding:2px; gap:2px; }
+html.capacitor-app .three-camera-tools button { min-width:27px; min-height:24px; font-size:8px; padding:3px 5px; }
+html.capacitor-app .three-camera-tools label { font-size:9px; }
+html.capacitor-app .three-camera-tools select { min-height:26px; }
+html.capacitor-app .three-map-help { right:5px; bottom:4px; font-size:5px; }
+html.capacitor-app .map-tools .map-view-toggle { display:block; padding:3px 5px; font-size:6px; }
+html.capacitor-app .utility-command-rail {
+  grid-column:2;
+  display:grid;
+  width:var(--mobile-command-width);
+  height:100%;
+  min-height:0;
+  grid-template-rows:repeat(4,minmax(0,1fr));
+}
+html.capacitor-app .utility-command-rail i { font-size:13px; line-height:16px; }
+html.capacitor-app .utility-command-rail span { font-size:5px; }
+html.capacitor-app .utility-command-rail b { min-width:12px; height:12px; font-size:5px; }
+html.capacitor-app .utility-drawer {
+  position:absolute;
+  z-index:92;
+  top:4px;
+  right:calc(var(--mobile-command-width) + 4px);
+  bottom:4px;
+  width:min(420px,56vw);
+}
+html.capacitor-app .utility-drawer-heading { height:32px; }
+html.capacitor-app .utility-drawer-heading strong { font-size:10px; }
+html.capacitor-app .utility-drawer-scroll { height:calc(100% - 32px); padding:5px; }
+html.capacitor-app .utility-drawer-scroll .panel { padding:7px; }
+html.capacitor-app .map-inspector { display:none !important; }
+html.capacitor-app .map-action-preview { right:6px; bottom:6px; left:6px; grid-template-columns:minmax(0,1fr) auto auto; gap:4px; padding:6px; }
+html.capacitor-app .map-action-preview .map-revert-hint { display:none; }
+html.capacitor-app .map-action-preview strong { font-size:8px; }
+html.capacitor-app .map-action-preview span { font-size:5px; }
+html.capacitor-app .map-action-preview button { min-height:26px; padding:4px 6px; font-size:5px; }
+html.capacitor-app .map-3d-active .map-action-preview { bottom:58px; }
+html.capacitor-app .map-3d-active .map-action-preview small { font-size:9px; }
+html.capacitor-app .map-3d-active .map-action-preview strong { font-size:11px; }
+html.capacitor-app .map-3d-active .map-action-preview span { font-size:9px; }
+html.capacitor-app .map-3d-active .map-action-preview button { min-height:32px; font-size:10px; padding:5px 8px; }
+html.capacitor-app .tactical-context > .combat-panel { display:grid; width:100%; height:100%; min-height:0; max-height:none; flex:none; grid-template-rows:minmax(0,1fr) auto; overflow:hidden; padding:0; }
+html.capacitor-app .tactical-context > .combat-panel .combat-scroll-region { min-height:0; overflow-x:hidden; overflow-y:auto; padding:5px; overscroll-behavior:contain; scrollbar-gutter:stable; }
+html.capacitor-app .tactical-context > .combat-panel .combat-command-region { max-height:none; overflow:visible; padding:2px 5px 5px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-banner { margin:-5px -5px 4px; padding:4px 6px; }
+html.capacitor-app .tactical-context > .combat-panel .enemy-card { grid-template-columns:38px minmax(0,1fr); gap:4px; }
+html.capacitor-app .tactical-context > .combat-panel .enemy-art { width:36px; height:42px; }
+html.capacitor-app .tactical-context > .combat-panel .enemy-info h3 { font-size:10px; }
+html.capacitor-app .tactical-context > .combat-panel .enemy-info p:not(.eyebrow),
+html.capacitor-app .tactical-context > .combat-panel .combat-command-region > .combat-tip { display:none; }
+html.capacitor-app .tactical-context > .combat-panel .trait-explainer { display:block; font-size:6px; }
+html.capacitor-app .tactical-context > .combat-panel .trait-explainer summary { display:flex; min-height:22px; align-items:center; padding:3px 4px; border:1px solid rgba(212,182,116,.2); background:rgba(8,20,18,.72); }
+html.capacitor-app .tactical-context > .combat-panel .enemy-stats div { min-width:34px; padding:3px; }
+html.capacitor-app .tactical-context > .combat-panel .enemy-stats strong { font-size:10px; }
+html.capacitor-app .tactical-context > .combat-panel .trait-row span { padding:2px 3px; font-size:5px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-flow { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:3px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-flow div { padding:2px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-flow span { font-size:9px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-actions { margin-top:3px; gap:3px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-actions button { min-height:32px; min-width:0; padding:4px; font-size:11px; white-space:normal; overflow-wrap:anywhere; }
+html.capacitor-app .tactical-context > .combat-panel .combat-actions small { display:block; margin:2px 0 0; font-size:9px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-scroll-region > .damage-assignment { display:grid; gap:4px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-scroll-region button,
+html.capacitor-app .tactical-context > .combat-panel .combat-scroll-region select { min-height:32px; font-size:11px; }
+html.capacitor-app .tactical-context > .combat-panel .group-target-list { display:grid; gap:4px; }
+html.capacitor-app .tactical-context > .combat-panel .group-target-list label { min-height:32px; font-size:11px; }
+html.capacitor-app .tactical-context > .combat-panel .trait-row { flex-wrap:wrap; }
+html.capacitor-app .tactical-context > .combat-panel .trait-explainer { font-size:10px; }
+html.capacitor-app .tactical-context > .combat-panel .trait-explainer summary { min-height:32px; }
+
+/* Small landscape WebViews: reduce decorative card height, not battle controls.
+   The two scrollable panes have real zero minima; no percentage-capped footer. */
+@media (max-height:460px) {
+  html.capacitor-app .game-shell { grid-template-rows:40px 24px minmax(0,1fr) 64px !important; }
+  html.capacitor-app .center-stage.in-combat { --combat-card-height:112px; }
+  html.capacitor-app .center-stage.in-combat .tactical-context > .turn-panel { min-height:28px; padding:2px; }
+  html.capacitor-app .center-stage.in-combat .turn-status { display:none; }
+  html.capacitor-app .center-stage.in-combat .tactical-context > .turn-panel { grid-template-columns:1fr auto; }
+}
+html.capacitor-app .combat-forecast { margin-bottom:3px; padding:3px 5px; }
+html.capacitor-app .combat-forecast strong { font-size:11px; }
+html.capacitor-app .combat-target-strip { margin-bottom:3px; }
+html.capacitor-app .combat-target-strip > span { min-width:75px; grid-template-columns:20px 1fr; padding:2px; }
+html.capacitor-app .combat-target-strip i { width:20px; height:24px; }
+html.capacitor-app .game-shell.map-focus { grid-template-rows:40px minmax(0,1fr) 78px !important; }
+html.capacitor-app .game-shell.map-focus .game-layout { grid-row:2; grid-template-columns:minmax(0,1fr) !important; }
+html.capacitor-app .game-shell.map-focus .persistent-hand-panel { grid-row:3; }
+html.capacitor-app .game-shell.map-focus .tactical-context,
+html.capacitor-app .game-shell.map-focus .utility-command-rail,
+html.capacitor-app .game-shell.map-focus .utility-drawer { display:none; }

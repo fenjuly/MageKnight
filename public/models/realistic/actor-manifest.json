@@ -1,0 +1,380 @@
+[
+  {
+    "file": "actor-wolfhawk.glb",
+    "bytes": 1063788,
+    "triangles": 16573,
+    "sha256": "1bf6ecca20c70a5bcbea6f1439d5dfd16c2245160acd81f9341cc023740e1bd4",
+    "animations": []
+  },
+  {
+    "file": "actor-wolfhawk-mobile.glb",
+    "bytes": 547912,
+    "triangles": 9496,
+    "sha256": "9345bde8e4e5757ed8b70e0ffdd54d42116c47bc8764e4da322422d6b1b55146",
+    "animations": []
+  },
+  {
+    "file": "actor-arythea.glb",
+    "bytes": 1045960,
+    "triangles": 16173,
+    "sha256": "e3299089d2e18c8fc3fb97268d449982e41d41925d2c8240f8fb9de1b421790f",
+    "animations": []
+  },
+  {
+    "file": "actor-arythea-mobile.glb",
+    "bytes": 546964,
+    "triangles": 9496,
+    "sha256": "6a18e7af8f2d3a90a4651700fae7cb828e4f5704b78b9b8cecf5c6d04af3ead7",
+    "animations": []
+  },
+  {
+    "file": "actor-goldyx.glb",
+    "bytes": 1029384,
+    "triangles": 13656,
+    "sha256": "e5767a238e7110c7b65c35124fae9c5707e8df69164d7d29721ff5702e8b9977",
+    "animations": []
+  },
+  {
+    "file": "actor-goldyx-mobile.glb",
+    "bytes": 474220,
+    "triangles": 9500,
+    "sha256": "83a19df2b021317bd87a83aed3f858d9c756f363fd7bb914ac2335d2da1fa67a",
+    "animations": []
+  },
+  {
+    "file": "actor-norowas.glb",
+    "bytes": 2043360,
+    "triangles": 13122,
+    "sha256": "31575569c02083e54fee274dc6b41f95046a35a194fce7dec3dad16dc05a831c",
+    "animations": []
+  },
+  {
+    "file": "actor-norowas-mobile.glb",
+    "bytes": 1010148,
+    "triangles": 9500,
+    "sha256": "b9c3fba81090de75bad02bf24cf75474a2694fe057b09a3900dbee0729c16f6c",
+    "animations": []
+  },
+  {
+    "file": "actor-krang.glb",
+    "bytes": 267448,
+    "triangles": 3298,
+    "sha256": "cb98d4567890af0aabb02d26c10df58cab00062565543c8967ff4127f1b4faf4",
+    "animations": []
+  },
+  {
+    "file": "actor-krang-mobile.glb",
+    "bytes": 172972,
+    "triangles": 3298,
+    "sha256": "6bef55b2a18c1304381760b492918328669f1c1f9007aab6a67f44c5b938a21a",
+    "animations": []
+  },
+  {
+    "file": "actor-braevalar.glb",
+    "bytes": 1050236,
+    "triangles": 11946,
+    "sha256": "5b45b6ee907e70eaad589792f28b67fb785f9d7b4ead5db14a099a56c045f5d4",
+    "animations": []
+  },
+  {
+    "file": "actor-braevalar-mobile.glb",
+    "bytes": 429520,
+    "triangles": 9499,
+    "sha256": "3ffe348def2af7e3fb2c5ac8c5ceb9b9f99eb3b43c9f1742ec8895a408727cd2",
+    "animations": []
+  },
+  {
+    "file": "actor-female-mage.glb",
+    "bytes": 1070688,
+    "triangles": 16901,
+    "sha256": "dfa3dcac44249df75f9165ef25748601f12c81c842d92fdef277454836fe2f0a",
+    "animations": []
+  },
+  {
+    "file": "actor-female-mage-mobile.glb",
+    "bytes": 545064,
+    "triangles": 9497,
+    "sha256": "1e382ba02bf4c675f1c62bdaee85a7f7089e961af935405e924bdf70fc2a2d7e",
+    "animations": []
+  },
+  {
+    "file": "actor-hag.glb",
+    "bytes": 1069360,
+    "triangles": 17041,
+    "sha256": "261a9b8dd6faab4374974ffdbb89ee5116a1dd8af58392c9cb24f6b1fa1fce9c",
+    "animations": []
+  },
+  {
+    "file": "actor-hag-mobile.glb",
+    "bytes": 541180,
+    "triangles": 9497,
+    "sha256": "25929cc39b31b95c52271390f6a726254edd519b329b5fec4aac21824ba7a4f3",
+    "animations": []
+  },
+  {
+    "file": "actor-mage.glb",
+    "bytes": 1042852,
+    "triangles": 11666,
+    "sha256": "1bac04379b9c3bfacd7a51efb0dc240db99e6e8d34baff1523ec653db0b295ff",
+    "animations": []
+  },
+  {
+    "file": "actor-mage-mobile.glb",
+    "bytes": 429668,
+    "triangles": 9499,
+    "sha256": "4772db2569af6c1e4b55d2a24fbffcc0d2fd63630b1fb4d49319206f63dbb866",
+    "animations": []
+  },
+  {
+    "file": "actor-monk.glb",
+    "bytes": 1033264,
+    "triangles": 11346,
+    "sha256": "ceddeb5453466479a9e98b43b03cd31684fbeb095c7a2c6097a035b24be70638",
+    "animations": []
+  },
+  {
+    "file": "actor-monk-mobile.glb",
+    "bytes": 428244,
+    "triangles": 9499,
+    "sha256": "88a32979246f8de430dbc895698c674089d90017ab23e1b598458262f1eba2f8",
+    "animations": []
+  },
+  {
+    "file": "actor-necromancer.glb",
+    "bytes": 1055152,
+    "triangles": 12114,
+    "sha256": "ea7eb29c1107242f7909ed5469fc4912dd943ebb80b4fbf233891779cfe76407",
+    "animations": []
+  },
+  {
+    "file": "actor-necromancer-mobile.glb",
+    "bytes": 429940,
+    "triangles": 9499,
+    "sha256": "0a1622e485a4b3615a183791b22ecd2a76b38dd4d03a23ee6f6ef203451c4ca1",
+    "animations": []
+  },
+  {
+    "file": "actor-peasant.glb",
+    "bytes": 1031516,
+    "triangles": 11190,
+    "sha256": "12893cc9ecb2e93abd05503f429184e61d3387faa9d2e30c0b3c31269b53c2cd",
+    "animations": []
+  },
+  {
+    "file": "actor-peasant-mobile.glb",
+    "bytes": 430312,
+    "triangles": 9499,
+    "sha256": "3cf6276ed7d297c580dff1ede69bb52778f57d28f618944ddc6f03b9edcd6795",
+    "animations": []
+  },
+  {
+    "file": "actor-herbalist.glb",
+    "bytes": 1067600,
+    "triangles": 12434,
+    "sha256": "b4bb08705d8f2e75544b6a60b87259f3a03586175143fe9d77af32ce61c30969",
+    "animations": []
+  },
+  {
+    "file": "actor-herbalist-mobile.glb",
+    "bytes": 433492,
+    "triangles": 9499,
+    "sha256": "251da6842c315a98c1165dcd3eba99d6eb205cda7a333636aa0a93c841075777",
+    "animations": []
+  },
+  {
+    "file": "actor-archer.glb",
+    "bytes": 2796240,
+    "triangles": 15234,
+    "sha256": "5e6feb6b775da56aa1359e87984bb3d5f44b03a9f04ed1963c8819ff3ac6a675",
+    "animations": []
+  },
+  {
+    "file": "actor-archer-mobile.glb",
+    "bytes": 1159732,
+    "triangles": 9500,
+    "sha256": "fe3651bda396ff749d02cc383f6eff39377f421e42cd047afa93eb2fa89ba5b2",
+    "animations": []
+  },
+  {
+    "file": "actor-crossbowman.glb",
+    "bytes": 1351156,
+    "triangles": 19689,
+    "sha256": "9941e3ed4f36d7d862cb292aa55befb2622a60582dfce2c38a8be130fbf45ba8",
+    "animations": []
+  },
+  {
+    "file": "actor-crossbowman-mobile.glb",
+    "bytes": 569664,
+    "triangles": 9496,
+    "sha256": "fed2a4783f6452bd6dbb8fd1ce713b2b2d8b34b2e0efa4661d9dbeee875810f9",
+    "animations": []
+  },
+  {
+    "file": "actor-guardsman.glb",
+    "bytes": 1340732,
+    "triangles": 19305,
+    "sha256": "8f4aebb8662cc34990f7644811e6014687abb8b57b01ad954020b3fe0ca7ee7b",
+    "animations": []
+  },
+  {
+    "file": "actor-guardsman-mobile.glb",
+    "bytes": 569480,
+    "triangles": 9497,
+    "sha256": "b1ce7e21ffe146af0b9b5adce78aad121929a9036c25aabb011c3485bc11da04",
+    "animations": []
+  },
+  {
+    "file": "actor-swordsman.glb",
+    "bytes": 1342096,
+    "triangles": 19315,
+    "sha256": "bb08ec2d9795e8a3acbd9179ad8531dd177e7c1193e265a6b53679bb1a6341c5",
+    "animations": []
+  },
+  {
+    "file": "actor-swordsman-mobile.glb",
+    "bytes": 570536,
+    "triangles": 9497,
+    "sha256": "31c961db8417ad2b66c26643d6490da57b3d3b2e66757ee47a438c7a37cfba08",
+    "animations": []
+  },
+  {
+    "file": "actor-gunner.glb",
+    "bytes": 1360216,
+    "triangles": 19977,
+    "sha256": "0ba7638a586cf52831c7d990b62950dc58f10b3ea01e62d8ed6c988ad98af37a",
+    "animations": []
+  },
+  {
+    "file": "actor-gunner-mobile.glb",
+    "bytes": 570224,
+    "triangles": 9497,
+    "sha256": "d30623bf55d4cdc5734af650faf28da0d165eade869e3c0b400a294f09fa9297",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-shaman.glb",
+    "bytes": 267448,
+    "triangles": 3298,
+    "sha256": "6a917406d5055c1135e503651b4a4333b4b54e83b9759807632741adc03ab75c",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-shaman-mobile.glb",
+    "bytes": 172972,
+    "triangles": 3298,
+    "sha256": "6bef55b2a18c1304381760b492918328669f1c1f9007aab6a67f44c5b938a21a",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-armored.glb",
+    "bytes": 244704,
+    "triangles": 2314,
+    "sha256": "e3a950b310797c7981b2db18b96ced95188f35157d901b4ca103f9a3608d7fc1",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-armored-mobile.glb",
+    "bytes": 150228,
+    "triangles": 2314,
+    "sha256": "582bda596dc9ea2a6fa4f1e3d36305eacc7992af9b3faf65427f96303b9f10dc",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-tracker.glb",
+    "bytes": 241836,
+    "triangles": 2626,
+    "sha256": "c864d403ba2aa90d2ec8d22d67e2b36d3018ab244116161048624eb3e7da5989",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-tracker-mobile.glb",
+    "bytes": 147360,
+    "triangles": 2626,
+    "sha256": "54b677d5f7beaf6168625cd9135fec15691d0da439336e1914238467450d72a4",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-skirmisher.glb",
+    "bytes": 238748,
+    "triangles": 2394,
+    "sha256": "b11da379e5a30cd33c55d1fd322a22a86d305f9c7b054116ec2e7bfb8d3184bf",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-skirmisher-mobile.glb",
+    "bytes": 144272,
+    "triangles": 2394,
+    "sha256": "fac807aefd5cc6e0c98ef23b36e1b88a429f28cee824395c15ed002692b25649",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-stonethrower.glb",
+    "bytes": 297916,
+    "triangles": 4030,
+    "sha256": "8d62eb7c09c37d4ab331281ac9855cb68fc3213fe4fb1f789935092f8e7872b4",
+    "animations": []
+  },
+  {
+    "file": "actor-orc-stonethrower-mobile.glb",
+    "bytes": 203440,
+    "triangles": 4030,
+    "sha256": "33edb935ff4ddd265c0dc919c4ff11a58038c9c19c864c2dae7a47e4bd075793",
+    "animations": []
+  },
+  {
+    "file": "actor-dragon.glb",
+    "bytes": 256520,
+    "triangles": 2252,
+    "sha256": "9bb25f165456e17dcb150e10f7c9865c147a781c4051afcc186772d1a03de804",
+    "animations": []
+  },
+  {
+    "file": "actor-dragon-mobile.glb",
+    "bytes": 125384,
+    "triangles": 2252,
+    "sha256": "f955192b6ed2a9986da0bbb251b91a6d13d93dce950434a1b8cc34b1d7305f94",
+    "animations": []
+  },
+  {
+    "file": "actor-werewolf.glb",
+    "bytes": 624280,
+    "triangles": 4418,
+    "sha256": "12155ad4bc7c8c3e8ebff1d3a465ff4043c75f5b4536ff7dfe09e8efd20ad50d",
+    "animations": []
+  },
+  {
+    "file": "actor-werewolf-mobile.glb",
+    "bytes": 309540,
+    "triangles": 4418,
+    "sha256": "3b2614a91dcd2b772cb74e732e20f584c78fb3cb4d45ef9f3ddf37d04d32fd9e",
+    "animations": []
+  },
+  {
+    "file": "actor-wolf-rider.glb",
+    "bytes": 901484,
+    "triangles": 6118,
+    "sha256": "f306c0dbe9256bca5c9df86e265c5dfb1d17a041a081728b62b07cb100a7a3e2",
+    "animations": []
+  },
+  {
+    "file": "actor-wolf-rider-mobile.glb",
+    "bytes": 480392,
+    "triangles": 3502,
+    "sha256": "96b49d9063f86fc4bcb0c028d28a29655f0b9c926547cf0b4f7bda0ed843649f",
+    "animations": []
+  },
+  {
+    "file": "actor-dragon-summoner.glb",
+    "bytes": 852752,
+    "triangles": 9828,
+    "sha256": "73b64aa35ef237d8318d4a25631c6e1f7cfe61d8aa801226719a2918cf20db69",
+    "animations": []
+  },
+  {
+    "file": "actor-dragon-summoner-mobile.glb",
+    "bytes": 401396,
+    "triangles": 9500,
+    "sha256": "b18524c6256074b892c2a7eaf0296ec692fba334562b19e1424ed40f8cf3b990",
+    "animations": []
+  }
+]

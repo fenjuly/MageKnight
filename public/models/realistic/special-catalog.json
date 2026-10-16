@@ -1,0 +1,368 @@
+[
+  {
+    "id": "special-hydra",
+    "kind": "creature",
+    "key": "hydra",
+    "label": "多头蛇",
+    "file": "special-hydra.glb",
+    "mobile": "special-hydra-mobile.glb",
+    "species": "hydra",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-medusa",
+    "kind": "creature",
+    "key": "medusa",
+    "label": "美杜莎",
+    "file": "special-medusa.glb",
+    "mobile": "special-medusa-mobile.glb",
+    "species": "medusa",
+    "role": "fantasy creature",
+    "sourceKind": "licensed-anatomy-original-composite",
+    "license": "CC-BY-SA-3.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Contmike, Danimal; bow Yd; hair MajorNightmare",
+        "title": "Elf - game ready and animated",
+        "license": "CC-BY-SA-3.0",
+        "source": "https://opengameart.org/content/elf-game-ready-and-animated",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts. Licensed clothed female elf anatomy adapted, weapon faces removed; Medusa lower half replaced by serpent body; crystal sprite wings added. Whole composite CC-BY-SA-3.0."
+  },
+  {
+    "id": "special-centaur",
+    "kind": "creature",
+    "key": "centaur",
+    "label": "半人马",
+    "file": "special-centaur.glb",
+    "mobile": "special-centaur-mobile.glb",
+    "species": "centaur",
+    "role": "fantasy creature",
+    "sourceKind": "licensed-anatomy-original-composite",
+    "license": "CC-BY-SA-3.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "thecubber; rig Julius; commissioned by the OpenGameArt.org community",
+        "title": "Rigged textured elven archer",
+        "license": "CC-BY-SA-3.0",
+        "source": "https://opengameart.org/content/rigged-textured-elven-archer",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts. Licensed clothed elf anatomy adapted, old weapon faces removed; female upper body for Medusa, full female for sprite, male upper body for centaur. Original species-specific serpent/equine lower body or crystal wings added. Whole composite CC-BY-SA-3.0."
+  },
+  {
+    "id": "special-griffon",
+    "kind": "creature",
+    "key": "griffon",
+    "label": "狮鹫",
+    "file": "special-griffon.glb",
+    "mobile": "special-griffon-mobile.glb",
+    "species": "griffon",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-manticore",
+    "kind": "creature",
+    "key": "manticore",
+    "label": "蝎尾狮",
+    "file": "special-manticore.glb",
+    "mobile": "special-manticore-mobile.glb",
+    "species": "manticore",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-crypt-worm",
+    "kind": "creature",
+    "key": "crypt-worm",
+    "label": "墓穴蠕虫",
+    "file": "special-crypt-worm.glb",
+    "mobile": "special-crypt-worm-mobile.glb",
+    "species": "crypt-worm",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-spirit",
+    "kind": "creature",
+    "key": "spirit",
+    "label": "幽魂",
+    "file": "special-spirit.glb",
+    "mobile": "special-spirit-mobile.glb",
+    "species": "spirit",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-air-elemental",
+    "kind": "creature",
+    "key": "air-elemental",
+    "label": "风元素",
+    "file": "special-air-elemental.glb",
+    "mobile": "special-air-elemental-mobile.glb",
+    "species": "air-elemental",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-fire-elemental",
+    "kind": "creature",
+    "key": "fire-elemental",
+    "label": "火元素",
+    "file": "special-fire-elemental.glb",
+    "mobile": "special-fire-elemental-mobile.glb",
+    "species": "fire-elemental",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-water-elemental",
+    "kind": "creature",
+    "key": "water-elemental",
+    "label": "水元素",
+    "file": "special-water-elemental.glb",
+    "mobile": "special-water-elemental-mobile.glb",
+    "species": "water-elemental",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-earth-elemental",
+    "kind": "creature",
+    "key": "earth-elemental",
+    "label": "土元素",
+    "file": "special-earth-elemental.glb",
+    "mobile": "special-earth-elemental-mobile.glb",
+    "species": "earth-elemental",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-catapult",
+    "kind": "creature",
+    "key": "catapult",
+    "label": "投石车",
+    "file": "special-catapult.glb",
+    "mobile": "special-catapult-mobile.glb",
+    "species": "catapult",
+    "role": "siege engine",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-siege",
+    "kind": "creature",
+    "key": "siege",
+    "label": "攻城器械",
+    "file": "special-siege.glb",
+    "mobile": "special-siege-mobile.glb",
+    "species": "siege",
+    "role": "siege engine",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-mummy",
+    "kind": "creature",
+    "key": "mummy",
+    "label": "木乃伊",
+    "file": "special-mummy.glb",
+    "mobile": "special-mummy-mobile.glb",
+    "species": "mummy",
+    "role": "fantasy creature",
+    "sourceKind": "original-procedural-sculpt",
+    "license": "CC0-1.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts."
+  },
+  {
+    "id": "special-sprite",
+    "kind": "creature",
+    "key": "sprite",
+    "label": "水晶精灵",
+    "file": "special-sprite.glb",
+    "mobile": "special-sprite-mobile.glb",
+    "species": "sprite",
+    "role": "fantasy creature",
+    "sourceKind": "licensed-anatomy-original-composite",
+    "license": "CC-BY-SA-3.0",
+    "artisticReview": "Not AAA realism; original detailed static miniature. Species silhouette verified separately; not official artwork.",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original anatomically themed fantasy miniature meshes and PBR surface textures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-specials.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Contmike, Danimal; bow Yd; hair MajorNightmare",
+        "title": "Elf - game ready and animated",
+        "license": "CC-BY-SA-3.0",
+        "source": "https://opengameart.org/content/elf-game-ready-and-animated",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ],
+    "modifications": "Original anatomical lofts, modeled feather vanes/scales/cloth and authored PBR textures; static near/mobile detail levels; no animation or source model scripts. Licensed clothed female elf anatomy adapted, weapon faces removed; Medusa lower half replaced by serpent body; crystal sprite wings added. Whole composite CC-BY-SA-3.0."
+  }
+]

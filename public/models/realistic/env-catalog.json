@@ -1,0 +1,930 @@
+[
+  {
+    "id": "env-site-village",
+    "kind": "site",
+    "key": "village",
+    "label": "村庄",
+    "file": "env-site-village.glb",
+    "mobile": "env-site-village-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-portal",
+    "kind": "terrain",
+    "key": "portal",
+    "label": "传送门地表",
+    "file": "env-terrain-portal.glb",
+    "mobile": "env-terrain-portal-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-forest",
+    "kind": "terrain",
+    "key": "forest",
+    "label": "林地",
+    "file": "env-terrain-forest.glb",
+    "mobile": "env-terrain-forest-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-desert",
+    "kind": "terrain",
+    "key": "desert",
+    "label": "沙丘",
+    "file": "env-terrain-desert.glb",
+    "mobile": "env-terrain-desert-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-hills",
+    "kind": "terrain",
+    "key": "hills",
+    "label": "丘陵",
+    "file": "env-terrain-hills.glb",
+    "mobile": "env-terrain-hills-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-swamp",
+    "kind": "terrain",
+    "key": "swamp",
+    "label": "沼泽",
+    "file": "env-terrain-swamp.glb",
+    "mobile": "env-terrain-swamp-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-wasteland",
+    "kind": "terrain",
+    "key": "wasteland",
+    "label": "荒地",
+    "file": "env-terrain-wasteland.glb",
+    "mobile": "env-terrain-wasteland-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-lake",
+    "kind": "terrain",
+    "key": "lake",
+    "label": "湖泊",
+    "file": "env-terrain-lake.glb",
+    "mobile": "env-terrain-lake-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-mountain",
+    "kind": "terrain",
+    "key": "mountain",
+    "label": "山脉",
+    "file": "env-terrain-mountain.glb",
+    "mobile": "env-terrain-mountain-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-terrain-city",
+    "kind": "terrain",
+    "key": "city",
+    "label": "城市石路",
+    "file": "env-terrain-city.glb",
+    "mobile": "env-terrain-city-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-monastery",
+    "kind": "site",
+    "key": "monastery",
+    "label": "修道院",
+    "file": "env-site-monastery.glb",
+    "mobile": "env-site-monastery-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-mageTower",
+    "kind": "site",
+    "key": "mageTower",
+    "label": "法师塔",
+    "file": "env-site-mageTower.glb",
+    "mobile": "env-site-mageTower-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-mine",
+    "kind": "site",
+    "key": "mine",
+    "label": "水晶矿",
+    "file": "env-site-mine.glb",
+    "mobile": "env-site-mine-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-glade",
+    "kind": "site",
+    "key": "glade",
+    "label": "魔法林地",
+    "file": "env-site-glade.glb",
+    "mobile": "env-site-glade-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-ruins",
+    "kind": "site",
+    "key": "ruins",
+    "label": "古代遗迹",
+    "file": "env-site-ruins.glb",
+    "mobile": "env-site-ruins-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-monsterDen",
+    "kind": "site",
+    "key": "monsterDen",
+    "label": "怪物巢穴",
+    "file": "env-site-monsterDen.glb",
+    "mobile": "env-site-monsterDen-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-tomb",
+    "kind": "site",
+    "key": "tomb",
+    "label": "古墓",
+    "file": "env-site-tomb.glb",
+    "mobile": "env-site-tomb-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-spawningGrounds",
+    "kind": "site",
+    "key": "spawningGrounds",
+    "label": "怪物繁殖地",
+    "file": "env-site-spawningGrounds.glb",
+    "mobile": "env-site-spawningGrounds-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-dungeon",
+    "kind": "site",
+    "key": "dungeon",
+    "label": "地下城",
+    "file": "env-site-dungeon.glb",
+    "mobile": "env-site-dungeon-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-maze",
+    "kind": "site",
+    "key": "maze",
+    "label": "迷宫",
+    "file": "env-site-maze.glb",
+    "mobile": "env-site-maze-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-labyrinth",
+    "kind": "site",
+    "key": "labyrinth",
+    "label": "深层迷宫",
+    "file": "env-site-labyrinth.glb",
+    "mobile": "env-site-labyrinth-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-deepMine",
+    "kind": "site",
+    "key": "deepMine",
+    "label": "深层矿井",
+    "file": "env-site-deepMine.glb",
+    "mobile": "env-site-deepMine-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-refugeeCamp",
+    "kind": "site",
+    "key": "refugeeCamp",
+    "label": "难民营",
+    "file": "env-site-refugeeCamp.glb",
+    "mobile": "env-site-refugeeCamp-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-graveyard",
+    "kind": "site",
+    "key": "graveyard",
+    "label": "墓地",
+    "file": "env-site-graveyard.glb",
+    "mobile": "env-site-graveyard-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-necropolis",
+    "kind": "site",
+    "key": "necropolis",
+    "label": "墓园城",
+    "file": "env-site-necropolis.glb",
+    "mobile": "env-site-necropolis-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-hiddenValley",
+    "kind": "site",
+    "key": "hiddenValley",
+    "label": "隐秘山谷",
+    "file": "env-site-hiddenValley.glb",
+    "mobile": "env-site-hiddenValley-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-volkareCamp",
+    "kind": "site",
+    "key": "volkareCamp",
+    "label": "沃尔卡营地",
+    "file": "env-site-volkareCamp.glb",
+    "mobile": "env-site-volkareCamp-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-city1",
+    "kind": "site",
+    "key": "city1",
+    "label": "第一城市",
+    "file": "env-site-city1.glb",
+    "mobile": "env-site-city1-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  },
+  {
+    "id": "env-site-city2",
+    "kind": "site",
+    "key": "city2",
+    "label": "第二城市",
+    "file": "env-site-city2.glb",
+    "mobile": "env-site-city2-mobile.glb",
+    "credits": [
+      {
+        "author": "Mage Knight Solo project",
+        "title": "Original modeled environment miniatures",
+        "license": "CC0-1.0",
+        "source": "scripts/build-realistic-environments.py",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Poly Haven",
+        "title": "Rocky Terrain 02",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/rocky_terrain_02",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "author": "Daniel Andersson",
+        "title": "Medieval Gatehouse (stone and wood textures)",
+        "license": "CC0-1.0",
+        "source": "https://opengameart.org/content/medieval-gatehouse",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "modifications": "Original detailed beveled mesh with modeled architectural detail/vegetation; CC0 source stone, wood and ground PBR textures; mobile LOD and JPEG packing. Static environment model, not an official Mage Knight asset."
+  }
+]
