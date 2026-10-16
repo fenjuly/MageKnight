@@ -46,7 +46,7 @@ test("Android keeps exceptional long views internally scrollable", () => {
   assert.match(mobileCss, /\.combat-scroll-region \{[^}]*overflow-y:auto/s);
   assert.match(mobileCss, /\.combat-command-region \{[^}]*max-height:none;[^}]*overflow:visible/s);
   assert.doesNotMatch(mobileCss, /\.combat-command-region \{[^}]*max-height:\s*\d+%/s);
-  assert.match(mobileCss, /\.center-stage\.in-combat \.tactical-context \{[^}]*grid-template-rows:minmax\(104px,1fr\) auto auto/);
+  assert.match(mobileCss, /\.center-stage\.in-combat \.tactical-context \{[^}]*grid-template-rows:minmax\(0,1fr\) auto auto/);
   assert.match(mobileCss, /\.tactical-context > \.combat-panel \{[\s\S]*height:100%;[\s\S]*max-height:none/);
   assert.doesNotMatch(mobileCss, /\.tactical-context > \.combat-panel \{[^}]*max-height:\s*45%/s);
   assert.match(mobileCss, /\.trait-explainer \{ display:block; font-size:6px; \}/);
@@ -55,8 +55,8 @@ test("Android keeps exceptional long views internally scrollable", () => {
 });
 
 test("Android battle reserves card space outside the enemy rail and keeps touch actions readable", () => {
-  assert.match(mobileCss, /\.center-stage\.in-combat \.tactical-board \{ padding-bottom:calc\(var\(--combat-card-height\) \+ 4px\)/);
-  assert.match(mobileCss, /\.center-stage\.in-combat \.selected-card-panel \{[^}]*position:absolute;[^}]*left:0;[^}]*bottom:0;[^}]*height:var\(--combat-card-height\)/s);
+  assert.match(mobileCss, /\.center-stage \.tactical-board \{ padding-bottom:calc\(var\(--combat-card-height\) \+ 4px\)/);
+  assert.match(mobileCss, /\.center-stage \.selected-card-panel \{[^}]*position:absolute;[^}]*left:0;[^}]*bottom:0;[^}]*height:var\(--combat-card-height\)/s);
   assert.match(mobileCss, /\.combat-actions button \{[^}]*min-height:32px;[^}]*font-size:11px/s);
   assert.match(mobileCss, /@media \(max-height:460px\)/);
   assert.match(mobileCss, /--combat-card-height:112px/);

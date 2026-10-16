@@ -260,9 +260,21 @@ function enemyTraitLabels(enemy: NonNullable<MapCell["enemy"]>) {
   ].filter((trait): trait is string => Boolean(trait));
 }
 
-function EnemyMapIntel({ enemy }: { enemy: NonNullable<MapCell["enemy"]> }) {
-  const traits = enemyTraitLabels(enemy);
+function EnemyTraitHelp({ enemy, className = "inspector-trait-details", compact = false }: { enemy: NonNullable<MapCell["enemy"]>; className?: string; compact?: boolean }) {
+  const dialog = useRef<HTMLDialogElement>(null);
   const details = enemyTraitDetails(enemy);
+  if (!details.length) return null;
+  return <div className={className}>
+    <button type="button" className="trait-help-trigger" aria-label="查看特性如何结算" aria-haspopup="dialog" data-ui-action="enemy-traits" onClick={() => dialog.current?.showModal()}>{compact ? "特性说明" : "查看特性如何结算"}</button>
+    <dialog ref={dialog} className="enemy-traits-dialog" aria-label={`${enemy.name}的特性结算`} onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }}>
+      <header><strong>{enemy.name} · 特性结算</strong><button type="button" aria-label="关闭特性说明" onClick={() => dialog.current?.close()}>×</button></header>
+      <div className="enemy-traits-body" tabIndex={0}>{details.map((detail) => <p key={detail}>{detail}</p>)}</div>
+    </dialog>
+  </div>;
+}
+
+export function EnemyMapIntel({ enemy }: { enemy: NonNullable<MapCell["enemy"]> }) {
+  const traits = enemyTraitLabels(enemy);
   const attackCount = enemy.attackCount ?? 1;
   return (
     <article className="inspector-enemy-intel">
@@ -270,9 +282,9 @@ function EnemyMapIntel({ enemy }: { enemy: NonNullable<MapCell["enemy"]> }) {
         <strong>{enemy.name}</strong>
         <span>护甲 {enemy.armor}{enemy.elusiveArmor ? ` / ${enemy.elusiveArmor}` : ""} · 攻击 {enemy.attack}{attackCount > 1 ? ` × ${attackCount}` : ""} · 名望 +{enemy.fame}</span>
       </div>
+      <EnemyTraitHelp enemy={enemy} />
       <p>{enemy.description}</p>
       <div className="inspector-trait-tags">{traits.length ? traits.map((trait) => <em key={trait}>{trait}</em>) : <em>无特殊特性</em>}</div>
-      {details.length > 0 && <details className="inspector-trait-details"><summary>查看特性如何结算</summary>{details.map((detail) => <p key={detail}>{detail}</p>)}</details>}
     </article>
   );
 }
@@ -1014,18 +1026,19 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
 
 export function ResourceBar({ state, dispatch }: { state: GameState; dispatch: Dispatch<GameAction> }) {
   const resources = availableResources(state);
+  const actionCount = Number(resources.heal > 0 && woundCount(state) > 0) + Number(resources.draw > 0 && state.deck.length > 0) + Number(resources.crystal > 0);
   const combatKeys: ResourceKey[] = ["range", "fireRange", "iceRange", "coldfireRange", "siege", "fireSiege", "iceSiege", "coldfireSiege", "block", "fireBlock", "iceBlock", "coldfireBlock", "attack", "fireAttack", "iceAttack", "coldfireAttack"];
   const keys: ResourceKey[] = ["move", ...combatKeys.filter((key) => resources[key] > 0), "influence", "heal", "draw", "crystal"];
   return (
-    <section className="resource-bar">
+    <section className={`resource-bar ${actionCount ? "has-resource-actions" : ""} ${actionCount > 1 ? "multiple-resource-actions" : ""}`}>
       <div className="resource-title"><small>本回合</small><strong>资源池</strong></div>
       <div className="resource-values">
         {keys.map((key) => <div key={key} className={resources[key] > 0 ? "active" : ""}><i>{RESOURCE_ICONS[key]}</i><span><strong>{resources[key]}</strong><small>{RESOURCE_LABELS[key]}</small></span></div>)}
       </div>
       <div className="resource-actions">
-        {resources.heal > 0 && woundCount(state) > 0 && <button onClick={() => dispatch({ type: "USE_HEAL" })}>治疗伤势</button>}
-        {resources.draw > 0 && state.deck.length > 0 && <button onClick={() => dispatch({ type: "USE_DRAW" })}>抽 1 张</button>}
-        {resources.crystal > 0 && <div className="gain-crystal"><span>凝晶</span>{BASIC_MANA.map((color) => <button key={color} className={`mana-${color}`} onClick={() => dispatch({ type: "GAIN_CRYSTAL", color })}>◆</button>)}</div>}
+        {resources.heal > 0 && woundCount(state) > 0 && <button data-ui-action="heal" onClick={() => dispatch({ type: "USE_HEAL" })}>治疗伤势 · {resources.heal}</button>}
+        {resources.draw > 0 && state.deck.length > 0 && <button data-ui-action="draw" onClick={() => dispatch({ type: "USE_DRAW" })}>抽 1 张 · {resources.draw}</button>}
+        {resources.crystal > 0 && <div className="gain-crystal"><span>凝晶</span>{BASIC_MANA.map((color) => <button key={color} aria-label={`凝聚${MANA_LABELS[color]}色水晶`} data-ui-action={`crystal-${color}`} className={`mana-${color}`} onClick={() => dispatch({ type: "GAIN_CRYSTAL", color })}>◆</button>)}</div>}
       </div>
     </section>
   );
@@ -1074,7 +1087,6 @@ export function CombatPanel({ state, dispatch }: { state: GameState; dispatch: D
           <div className="enemy-stats"><div><small>有效护甲</small><strong>{armorNeed}</strong></div><div><small>本次攻击{(enemy.attackCount ?? 1) > 1 ? ` ${attackNumber}/${enemy.attackCount}` : ""}</small><strong>{shownAttack}</strong></div><div><small>名望</small><strong>+{enemy.fame}</strong></div></div>
           <div className="trait-row">{enemy.fortified && <span>防御工事</span>}{enemy.swift && <span>迅捷</span>}{shownBrutal && <span>残暴</span>}{shownPoison && <span>剧毒</span>}{enemy.paralyze && <span>麻痹</span>}{enemy.summon && <span>召唤</span>}{(enemy.attackCount ?? 1) > 1 && <span>{enemy.attackCount} 重攻击</span>}{enemy.arcaneImmunity && <span>奥术免疫</span>}{enemy.assassination && <span>刺杀</span>}{enemy.defend && <span>防卫</span>}{enemy.cumbersome && <span>笨重</span>}{enemy.elusiveArmor && <span>飘忽 {enemy.elusiveArmor}</span>}{enemy.faction && <span>{enemy.faction === "elementalists" ? "元素派" : "黑暗十字军"}</span>}{enemy.attackElement && enemy.attackElement !== "physical" && <span>{enemy.attackElement === "fire" ? "火焰攻击" : enemy.attackElement === "ice" ? "寒冰攻击" : "冷热火攻击"}</span>}{enemy.resistances?.map((item) => <span key={item}>{item === "physical" ? "物理抗性" : item === "fire" ? "火焰抗性" : "寒冰抗性"}</span>)}</div>
           {cityBonusText && <p className="combat-tip">{cityBonusText}</p>}
-          {enemyTraitDetails(enemy).length > 0 && <details className="trait-explainer"><summary>特性如何结算</summary>{enemyTraitDetails(enemy).map((detail) => <p key={detail}>{detail}</p>)}</details>}
         </div>
         {(step === "ranged" || step === "attack") && <DefendAssignmentControls state={state} dispatch={dispatch} />}
         {(step === "ranged" || step === "attack") && <GroupAttackControls state={state} dispatch={dispatch} />}
@@ -1089,16 +1101,16 @@ export function CombatPanel({ state, dispatch }: { state: GameState; dispatch: D
         </div>}
       </div>
       <div className="combat-command-region" role="group" aria-label="当前战斗阶段操作">
-        <div className="combat-flow">
+        <div className="combat-command-heading"><div className="combat-flow">
           {(["ranged", "block", "damage", "attack"] as const).map((item, index) => <div key={item} className={`${step === item ? "current" : ""} ${["ranged", "block", "damage", "attack"].indexOf(step) > index ? "done" : ""}`}><i>{index + 1}</i><span>{item === "ranged" ? "远程" : item === "block" ? "格挡" : item === "damage" ? "承伤" : "近战"}</span></div>)}
-        </div>
+        </div><EnemyTraitHelp enemy={enemy} className="trait-explainer" compact /></div>
         <div className="combat-actions">
           {step === "ranged" && <>
             <button className="primary-button" disabled={!defendReady || rangedAvailable < armorNeed} onClick={() => dispatch({ type: "COMBAT_RANGED" })}>远程击破 <small>{defendReady ? `有效 ${rangedAvailable}/${armorNeed}` : "先分配防卫"}</small></button>
             <button className="ghost-button" onClick={() => dispatch({ type: "COMBAT_ADVANCE" })}>跳过远程 →</button>
           </>}
           {step === "block" && <>
-            {enemy.cumbersome && <button className="ghost-button" disabled={availableResources(state).move < 1 || blockNeed === 0} onClick={() => dispatch({ type: "COMBAT_REDUCE_CUMBERSOME" })}>花 1 移动降低笨重攻击 <small>已降低 {cumbersomeReduction}</small></button>}
+            {enemy.cumbersome && <button className="ghost-button" aria-label={`花 1 移动降低笨重攻击；已降低 ${cumbersomeReduction}`} disabled={availableResources(state).move < 1 || blockNeed === 0} onClick={() => dispatch({ type: "COMBAT_REDUCE_CUMBERSOME" })}>笨重 −1 <small>1 移 · {cumbersomeReduction}</small></button>}
             <button className="primary-button" disabled={blockAvailable < blockNeed} onClick={() => dispatch({ type: "COMBAT_BLOCK" })}>{blockNeed === 0 ? "确认取消攻击" : "完整格挡"} <small>有效 {blockAvailable}/{blockNeed}</small></button>
             <button className="danger-button" onClick={() => dispatch({ type: "COMBAT_DAMAGE" })}>承受伤害</button>
           </>}

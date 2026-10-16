@@ -574,21 +574,21 @@ html.capacitor-app .tactical-context {
   display:grid;
   min-width:0;
   min-height:0;
-  grid-template-rows:auto minmax(126px,1fr) auto auto;
+  grid-template-rows:minmax(0,1fr) auto auto;
   gap:4px;
   overflow:hidden;
 }
 html.capacitor-app .center-stage.in-combat .tactical-context {
-  grid-template-rows:minmax(104px,1fr) auto auto;
-  overflow-y:auto;
+  grid-template-rows:minmax(0,1fr) auto auto;
+  overflow:hidden;
   overscroll-behavior:contain;
 }
 /* In combat the card workbench uses the lower-left part of the map column.
    It is explicitly reserved in the map's layout, never layered over enemies
    or phase commands. The right rail no longer splits its height with a card. */
-html.capacitor-app .center-stage.in-combat { position:relative; --combat-card-height:140px; }
-html.capacitor-app .center-stage.in-combat .tactical-board { padding-bottom:calc(var(--combat-card-height) + 4px); }
-html.capacitor-app .center-stage.in-combat .selected-card-panel {
+html.capacitor-app .center-stage { position:relative; --combat-card-height:140px; }
+html.capacitor-app .center-stage .tactical-board { padding-bottom:calc(var(--combat-card-height) + 4px); }
+html.capacitor-app .center-stage .selected-card-panel {
   position:absolute;
   z-index:10;
   left:0;
@@ -598,7 +598,7 @@ html.capacitor-app .center-stage.in-combat .selected-card-panel {
   grid-template-rows:minmax(0,1fr) auto;
   padding:4px;
 }
-html.capacitor-app .center-stage.in-combat .selected-card-panel .context-section-title { display:none; }
+html.capacitor-app .center-stage .selected-card-panel .context-section-title { display:none; }
 html.capacitor-app .center-stage.in-combat .selected-card-panel .selected-card { padding:3px 5px; }
 html.capacitor-app .center-stage.in-combat .selected-card .card-illustration,
 html.capacitor-app .center-stage.in-combat .selected-card .card-stars,
@@ -606,7 +606,7 @@ html.capacitor-app .center-stage.in-combat .selected-card h3 small { display:non
 html.capacitor-app .center-stage.in-combat .selected-card .card-effect strong { font-size:10px; }
 html.capacitor-app .center-stage.in-combat .selected-card-panel .card-actions > button,
 html.capacitor-app .center-stage.in-combat .selected-card-panel .card-actions summary { min-height:32px; font-size:10px; }
-html.capacitor-app .tactical-summary { padding:6px; }
+html.capacitor-app .tactical-summary { min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:6px; }
 html.capacitor-app .context-section-title { padding-bottom:3px; }
 html.capacitor-app .tactical-summary-identity { grid-template-columns:42px minmax(0,1fr) auto; gap:5px; margin-top:4px; }
 html.capacitor-app .tactical-summary-identity > i { width:42px; height:38px; }
@@ -616,8 +616,11 @@ html.capacitor-app .tactical-summary-identity button { padding:5px; font-size:6p
 html.capacitor-app .tactical-enemy-stack { max-height:92px; margin-top:4px; padding-top:3px; }
 html.capacitor-app .inspector-enemy-heading strong { font-size:8px; }
 html.capacitor-app .inspector-enemy-heading > span { font-size:6px; }
-html.capacitor-app .inspector-enemy-intel > p,
-html.capacitor-app .inspector-trait-details { display:none; }
+html.capacitor-app .inspector-enemy-intel > p { display:none; }
+html.capacitor-app .inspector-trait-details { display:block; margin-top:4px; font-size:11px; }
+html.capacitor-app .tactical-enemy-stack { max-height:none; overflow:visible; }
+html.capacitor-app .inspector-enemy-heading { flex-wrap:wrap; }
+html.capacitor-app .inspector-enemy-heading > span { white-space:normal; }
 html.capacitor-app .inspector-trait-tags { margin-top:2px; }
 html.capacitor-app .inspector-trait-tags em { padding:2px 3px; font-size:5px; }
 html.capacitor-app .selected-card-panel { padding:5px; }
@@ -649,12 +652,28 @@ html.capacitor-app .persistent-resource-panel .resource-title small { display:no
 html.capacitor-app .persistent-resource-panel .resource-values > div { min-width:34px !important; }
 html.capacitor-app .persistent-resource-panel .resource-values i { width:16px !important; height:16px !important; flex-basis:16px !important; }
 html.capacitor-app .persistent-resource-panel .resource-values strong { font-size:10px !important; }
-html.capacitor-app .persistent-resource-panel .resource-actions { display:none; }
+html.capacitor-app .persistent-resource-panel .resource-actions { display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; gap:3px; grid-column:auto; }
+html.capacitor-app .persistent-resource-panel .resource-actions:empty { display:none; }
+html.capacitor-app .persistent-resource-panel .has-resource-actions .resource-title { display:none; }
+html.capacitor-app .persistent-resource-panel .has-resource-actions .resource-values > div:not(.active) { display:none; }
+html.capacitor-app .persistent-resource-panel .resource-actions > button,
+html.capacitor-app .persistent-resource-panel .gain-crystal button { min-height:32px; min-width:32px; padding:4px 6px; font-size:11px; }
+html.capacitor-app .persistent-resource-panel .gain-crystal { flex-wrap:wrap; }
+html.capacitor-app .persistent-resource-panel .gain-crystal button { height:32px; width:32px; }
+html.capacitor-app .persistent-resource-panel .resource-actions .gain-crystal > span { display:none; }
+html.capacitor-app .persistent-resource-panel .multiple-resource-actions { grid-template-columns:minmax(0,1fr) !important; }
+html.capacitor-app .persistent-resource-panel .multiple-resource-actions .resource-values { display:none !important; }
+html.capacitor-app .persistent-resource-panel .multiple-resource-actions .resource-actions { width:100%; }
+html.capacitor-app .persistent-resource-panel .multiple-resource-actions .gain-crystal { flex-wrap:nowrap; }
 html.capacitor-app .tactical-context > .turn-panel { min-height:39px; padding:4px; }
 html.capacitor-app .tactical-context > .turn-panel .rest-button { display:none; }
 html.capacitor-app .tactical-context > .turn-panel button { min-height:27px; padding:3px 5px; font-size:5px; }
 html.capacitor-app .tactical-context > .turn-panel .revert-button span { max-width:72px; }
 html.capacitor-app .tactical-context > .turn-panel kbd { display:none; }
+html.capacitor-app .tactical-context > .turn-panel { grid-template-columns:minmax(0,1fr) auto; }
+html.capacitor-app .tactical-context > .turn-panel .turn-status { grid-column:1 / -1; }
+html.capacitor-app .tactical-context > .turn-panel .revert-button,
+html.capacitor-app .tactical-context > .turn-panel .end-turn-button { grid-column:auto; }
 html.capacitor-app .persistent-hand-panel {
   grid-column:1;
   grid-row:4;
@@ -745,8 +764,9 @@ html.capacitor-app .tactical-context > .combat-panel .enemy-stats div { min-widt
 html.capacitor-app .tactical-context > .combat-panel .enemy-stats strong { font-size:10px; }
 html.capacitor-app .tactical-context > .combat-panel .trait-row span { padding:2px 3px; font-size:5px; }
 html.capacitor-app .tactical-context > .combat-panel .combat-flow { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:3px; }
-html.capacitor-app .tactical-context > .combat-panel .combat-flow div { padding:2px; }
-html.capacitor-app .tactical-context > .combat-panel .combat-flow span { font-size:9px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-flow div { min-width:0; gap:2px; padding:2px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-flow i { flex:0 0 14px; width:14px; height:14px; font-size:9px; }
+html.capacitor-app .tactical-context > .combat-panel .combat-flow span { font-size:9px; white-space:nowrap; }
 html.capacitor-app .tactical-context > .combat-panel .combat-actions { margin-top:3px; gap:3px; }
 html.capacitor-app .tactical-context > .combat-panel .combat-actions button { min-height:32px; min-width:0; padding:4px; font-size:11px; white-space:normal; overflow-wrap:anywhere; }
 html.capacitor-app .tactical-context > .combat-panel .combat-actions small { display:block; margin:2px 0 0; font-size:9px; }
@@ -763,9 +783,9 @@ html.capacitor-app .tactical-context > .combat-panel .trait-explainer summary { 
    The two scrollable panes have real zero minima; no percentage-capped footer. */
 @media (max-height:460px) {
   html.capacitor-app .game-shell { grid-template-rows:40px 24px minmax(0,1fr) 70px !important; }
-  html.capacitor-app .center-stage.in-combat { --combat-card-height:112px; }
+  html.capacitor-app .center-stage { --combat-card-height:112px; }
   html.capacitor-app .center-stage.in-combat .tactical-context > .turn-panel { min-height:28px; padding:2px; }
-  html.capacitor-app .center-stage.in-combat .turn-status { display:none; }
+  html.capacitor-app .center-stage .turn-status { display:none; }
   html.capacitor-app .center-stage.in-combat .tactical-context > .turn-panel { grid-template-columns:1fr auto; }
 }
 html.capacitor-app .combat-forecast { margin-bottom:3px; padding:3px 5px; }
