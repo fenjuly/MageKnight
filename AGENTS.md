@@ -19,6 +19,7 @@
 ## 验证与记录
 
 - 修复 bug 时补充最小复现场景；规则与界面迭代遵循 `TESTING.md` 中的回归合同。
+- Android/UI相关变更必须执行真实浏览器验收：运行`npm run test:ui`，在页面点击“运行全部检查”，80组全部通过后再运行全量测试。`npm run test:full`会核对报告与当前界面源码的指纹，缺失、过期或不完整的报告均不通过；不得用CSS正则、SSR测试或旧截图替代。报告保存在忽略的`outputs/qa/`，操作说明见`UI_TESTING.md`。
 - 大改动执行 `npm run test:full`；Android 或移动端交互改动还需执行 `npm run android:apk` 与 `npm run android:verify`。
 - 记录真实完成的验证，明确区分组件测试、浏览器尺寸模拟与 Android 真机测试，不宣称未执行的检查。
 - 纯文档或 Git 配置变更按影响范围验证，无需伪造或重复记录未执行的运行测试。
