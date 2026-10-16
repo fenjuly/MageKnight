@@ -1559,7 +1559,7 @@ export function CardHand({ state, selectedCardId, onSelectCard, onOpenWiki }: { 
     const play = state.played.find((item) => item.instanceId === instanceId);
     const cardType = card ? card.tier === "basic" ? "基础" : card.tier === "advanced" ? "进阶" : card.tier === "spell" ? "法术" : "圣器" : "伤势";
     const playStatus = play ? `已打出 · ${play.mode === "sideways" ? RESOURCE_LABELS[play.sideResource!] : play.mode === "powered" ? "强化" : "基础"}` : cardType;
-    const cardDescription = card ? `${card.name}。基础：${card.basicLabel}。强化：${card.poweredLabel}。点击选择；长按或右键打开百科` : "伤势。不可作为普通行动牌打出";
+    const cardDescription = card ? `${card.name}。基础：${card.basicLabel}。强化：${card.poweredLabel}。当前状态：${playStatus}。点击选择；长按或右键打开百科` : "伤势。不可作为普通行动牌打出";
     return <button key={instanceId} type="button" className={`hand-card-tab ${selectedCardId === instanceId ? "selected" : ""} ${play ? "played" : ""} ${card ? `mana-${card.color}` : "wound"}`} aria-label={cardDescription} aria-pressed={selectedCardId === instanceId} onClick={() => onSelectCard(instanceId)} onContextMenu={(event) => { event.preventDefault(); onSelectCard(instanceId); onOpenWiki(); }} title={cardDescription}>
       {card ? <i className={`hand-card-tab-art ${cardArtClass(card)}`} style={cardArtStyle(card)} aria-hidden="true" /> : <i className="hand-card-tab-art wound-tab-art" aria-hidden="true">✚</i>}
       <span className="hand-card-tab-copy"><small>{playStatus}</small><strong>{card?.name ?? "伤势"}</strong>{card ? <><span className="hand-card-tab-effect basic"><small>基</small><b>{card.basicLabel}</b></span><span className="hand-card-tab-effect powered"><small>强</small><b>{card.poweredLabel}</b></span></> : <span className="hand-card-tab-effect wound"><b>不可作为普通行动牌打出</b></span>}</span>

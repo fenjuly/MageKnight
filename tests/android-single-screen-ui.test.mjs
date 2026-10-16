@@ -33,7 +33,7 @@ test("Android uses touch-first card selection without hiding the board", () => {
   assert.match(gameSource, /<SelectedCardPanel[\s\S]*instanceId=\{activeSelectedCardId\}/);
   assert.match(mobileCss, /\.hand-card-tab \{ min-width:96px/);
   assert.match(mobileCss, /\.hand-card-tab-effect \{ grid-template-columns:10px minmax\(0,1fr\)/);
-  assert.match(mobileCss, /\.hand-card-tab-effect b \{ font-size:5px; line-height:1\.1; \}/);
+  assert.match(mobileCss, /\.hand-card-tab-effect b \{ font-size:5px; line-height:1\.4; \}/);
   assert.match(mobileCss, /\.hand-card-hover-preview \{ display:none; \}/);
   assert.match(mobileCss, /\.selected-card-panel \.selected-card \{ min-height:0;[^}]*overflow:hidden/);
   assert.match(mobileCss, /\.map-inspector \{ display:none !important; \}/);
