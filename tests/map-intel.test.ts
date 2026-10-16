@@ -2,14 +2,64 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import * as T from "three";
-import { ALL_ENEMY_TOKENS, ALL_RUIN_TOKEN_BY_ID, type MapCell } from "../lib/game-data";
-import { createGame, cityLevel } from "../lib/game-engine";
-import { MAP_MANA_COLORS, mineColorsForCell, publicCellIntel, publicSiteAccent, mapSelectionContext, type CrystalColor } from "../lib/map-intel";
-import { createBoardSelectionOverlay, resolveBoardHit } from "../lib/three-board";
+import { ALL_ENEMY_TOKENS, ALL_RUIN_TOKEN_BY_ID, EMPTY_RESOURCES, SITE_LABELS, TERRAIN_LABELS, type MapCell } from "../lib/game-data";
+import { applyGameActionWithRevert, createGame, createRevertHistory, revertLastAction, cityLevel, type GameState } from "../lib/game-engine";
+import { MAP_MANA_COLORS, mapDisplaySite, mineColorsForCell, publicCellIntel, publicCellMapLabel, publicSiteAccent, mapSelectionContext, type CrystalColor } from "../lib/map-intel";
+import { createBoardSelectionOverlay, resolveBoardHit, visibleCellModelData } from "../lib/three-board";
 import { normalizeRealisticModel } from "../lib/three-realistic";
 import { visibleScreenLabels } from "../lib/three-quality";
 
 const cell: MapCell = {id:"0,0",q:0,r:0,terrain:"plains",site:"mine",revealed:true,conquered:false,tokenRevealed:false};
+
+for (const site of ["rampager", "dragon"] as const) for (const terrain of ["plains", "forest", "swamp", "hills", "desert"] as const) test(`${site} on ${terrain}: actual victory removes the token label and undo restores it`, () => {
+  const base=createGame("tovak","standard","classic","wedge",42,"ultimate");
+  const enemy={...ALL_ENEMY_TOKENS[0],id:"label-foe",name:"标签测试敌人",armor:1,fame:0,tokenColor:undefined};
+  const target:MapCell={...cell,id:"1,0",q:1,terrain,site,tokenRevealed:true,enemy,enemies:[enemy]};
+  const state:GameState={...base,phase:"combat",actionTaken:true,position:cell.id,map:[{...cell,site:"none"},target],
+    combat:{cellId:target.id,originId:cell.id,enemy,step:"attack",blocked:false,kind:"rampager",chainStartFame:0},
+    turnBonus:{...EMPTY_RESOURCES,attack:100},spent:{...EMPTY_RESOURCES},played:[]};
+  assert.equal(mapDisplaySite(target),site);
+  assert.ok(publicCellMapLabel(target,"day").startsWith(SITE_LABELS[site]));
+  const history=applyGameActionWithRevert(createRevertHistory(state),{type:"COMBAT_ATTACK"});
+  const cleared=history.present.map[1];
+  assert.equal(cleared.conquered,true); assert.equal(cleared.enemy,undefined); assert.deepEqual(cleared.enemies,[]);
+  assert.equal(cleared.site,site,"presentation must not mutate the original site used by rules, scoring and undo");
+  assert.equal(publicCellIntel(cleared).name,TERRAIN_LABELS[terrain]);
+  assert.equal(mapDisplaySite(cleared),"none"); assert.equal(visibleCellModelData(cleared).site,"none");
+  assert.deepEqual(visibleCellModelData(cleared).enemies,[]);
+  assert.ok(publicCellIntel(cleared).badges.some((b)=>b.text==="✓ 已清理"));
+  for (const time of ["day","night"] as const) {
+    const label=publicCellMapLabel(cleared,time);
+    assert.ok(label.startsWith(`${TERRAIN_LABELS[terrain]} · 移动 `));
+    assert.ok(!label.includes(SITE_LABELS[site])); assert.ok(!label.includes("守军"));
+  }
+  const restored=revertLastAction(history).present.map[1];
+  assert.equal(publicCellMapLabel(restored,"day"),publicCellMapLabel(target,"day"));
+  assert.equal(visibleCellModelData(restored).enemies[0].id,enemy.id);
+});
+
+test("swamp label explicitly identifies 5 as movement cost, not enemy strength",()=>{
+  assert.equal(publicCellMapLabel({...cell,terrain:"swamp",site:"rampager",conquered:true},"day"),"沼泽 · 移动 5");
+  assert.equal(publicCellMapLabel({...cell,terrain:"mountain",site:"none"},"day"),"山脉 · 不可进入");
+});
+test("empty roaming slots and legacy cleared slots never invent a living enemy",()=>{
+  for(const site of ["rampager","dragon"] as const) {
+    assert.equal(mapDisplaySite({...cell,site}),"none");
+    const stale={...cell,site,conquered:true,enemy:ALL_ENEMY_TOKENS[0],tokenRevealed:true};
+    assert.equal(publicCellIntel(stale).name,"平原"); assert.deepEqual(visibleCellModelData(stale).enemies,[]);
+    assert.ok(!publicCellMapLabel(stale,"day").includes(SITE_LABELS[site]));
+  }
+});
+test("permanent buildings survive conquest; only their enemy/state badges change",()=>{
+  for(const site of ["keep","mageTower","monastery","city1","city2","ruins","monsterDen","dungeon","tomb","maze","labyrinth","spawningGrounds","volkareCamp"] as const) {
+    const before={...cell,site,enemy:ALL_ENEMY_TOKENS[0],tokenRevealed:true};
+    const after={...before,conquered:true,enemy:undefined,enemies:[]};
+    assert.equal(mapDisplaySite(after),site);
+    assert.equal(publicCellIntel(after).name,publicCellIntel(before).name);
+    assert.ok(!publicCellIntel(after).badges.some((b)=>b.kind==="enemy"));
+    assert.ok(publicCellIntel(after).badges.some((b)=>b.kind==="state"));
+  }
+});
 for (const color of ["red","blue","green","white"] as CrystalColor[]) test(`3D public mine information: ${color} has both a named output and a color`,()=>{
   const intel=publicCellIntel({...cell,mineColor:color});
   assert.deepEqual(intel.colors,[color]); assert.ok(intel.shortMineLabel.endsWith("晶")); assert.ok(intel.badges[0].text.includes("水晶")); assert.ok(MAP_MANA_COLORS[color]);
