@@ -9,6 +9,7 @@ test("builds a self-contained Capacitor web bundle", async () => {
   assert.ok(!(await readdir(new URL("../dist-mobile/", import.meta.url))).includes("hand-ui-test.html"), "the hand regression fixture must not ship in the APK");
   assert.ok(!(await readdir(new URL("../dist-mobile/", import.meta.url))).includes("map-intel-test.html"), "the 3D map-intel regression fixture must not ship in the APK");
   assert.ok(!(await readdir(new URL("../dist-mobile/", import.meta.url))).includes("site-ui-test.html"), "the site-target regression fixture must not ship in the APK");
+  for(const file of ["android-ui-test.html","android-ui-case.html"])assert.ok(!(await readdir(new URL("../dist-mobile/",import.meta.url))).includes(file),"browser QA pages must not ship in the APK");
   assert.match(html, /<div id="root"><\/div>/);
   assert.match(html, /\.\/assets\/[^"']+\.js/);
 
