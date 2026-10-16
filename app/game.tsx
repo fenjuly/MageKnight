@@ -598,6 +598,7 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
   const [inspectorVisible, setInspectorVisible] = useState(false);
   const [pendingAction, setPendingAction] = useState<PendingMapAction | null>(null);
   const [mapSelection, setMapSelection] = useState<{ target: BoardTarget; context: string } | null>(null);
+  const mapSelectionValue = useRef<typeof mapSelection>(null);
   const selectionContext = mapSelectionContext(state);
   const activeSelection = mapSelection?.context === selectionContext ? mapSelection.target : null;
   const [mapPan, setMapPan] = useState({ x: 0, y: 0 });
@@ -662,22 +663,27 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
     window.clearTimeout(inspectorHideTimer.current);
     inspectorHideTimer.current = null;
   };
-  const showInspector = (cellId: string) => {
+  const showInspector = (cellId: string, select = false) => {
     cancelInspectorHide();
-    setInspectedCellId(cellId);
-    onInspectCell(cellId);
+    // Native 3D pointer events can arrive before React installs the next callback.
+    // Read the selection written by the click immediately, not that older closure.
+    const selection = mapSelectionValue.current?.context === selectionContext ? mapSelectionValue.current.target : null;
+    const targetId = !select && selection?.kind === "cell" ? selection.cellId : cellId;
+    setInspectedCellId(targetId);
+    onInspectCell(targetId);
     setInspectorVisible(true);
   };
-  const clearMapSelection = () => { setMapSelection(null); setPendingAction(null); };
+  const clearMapSelection = () => { mapSelectionValue.current = null; setMapSelection(null); setPendingAction(null); setInspectedCellId(current.id); onInspectCell(current.id); };
   const selectMapTarget = (target: BoardTarget) => {
-    setMapSelection({ target, context: selectionContext }); setPendingAction(null);
+    mapSelectionValue.current = { target, context: selectionContext };
+    setMapSelection(mapSelectionValue.current); setPendingAction(null);
     if (target.kind === "explore") {
       const exploration = explorations.find((candidate) => candidate.tq === target.tq && candidate.tr === target.tr);
       if (exploration && state.phase === "planning" && !state.actionTaken) setPendingAction({ kind: "explore", tq: target.tq, tr: target.tr, tileKind: exploration.kind });
       return;
     }
     const cell = state.map.find((candidate)=>candidate.id === target.cellId); if (!cell) return;
-    showInspector(cell.id);
+    showInspector(cell.id, true);
     if (isAdjacent(current, cell) && Number.isFinite(TERRAIN_COSTS[cell.terrain][state.time]) && state.phase === "planning" && !state.actionTaken) setPendingAction({ kind: "cell", cellId: cell.id });
   };
   const scheduleInspectorHide = () => {
@@ -862,7 +868,7 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
         role="region"
         aria-label="可拖动和缩放的征服地图。使用鼠标滚轮或触控板手势缩放；按住鼠标或触控拖动；方向键平移；加减键缩放；Home 或 0 键复位。3D 模式可按 R 旋转、T 切换俯仰，或通过键盘选格菜单选择地块。"
       >
-        {mapView === "3d" && <><ThreeMap state={state} selection={activeSelection} controlsRef={threeControls} onZoom={setThreeZoom} onInspect={showInspector} onOpenWiki={(cellId) => { showInspector(cellId); onOpenWiki(); }} onFailure={(message) => { setThreeError(message); setMapView("2d"); }} onSelect={selectMapTarget} /><details className="three-cell-picker" onPointerDown={(event) => event.stopPropagation()}><summary>键盘选格</summary><div>{state.map.map((cell) => <button key={cell.id} aria-pressed={activeSelection?.kind === "cell" && activeSelection.cellId === cell.id} onFocus={() => showInspector(cell.id)} onClick={() => selectMapTarget({kind:"cell",cellId:cell.id})}>{cell.q},{cell.r} · {publicCellIntel(cell,state.difficulty).name}{publicCellIntel(cell,state.difficulty).shortMineLabel ? ` · ${publicCellIntel(cell,state.difficulty).shortMineLabel}` : ""}</button>)}{explorations.map((target) => <button key={`${target.tq},${target.tr}`} disabled={state.phase !== "planning" || state.actionTaken} onClick={() => selectMapTarget({kind:"explore",tq:target.tq,tr:target.tr})}>探索 {target.tq},{target.tr} · {tileKindLabel(target.kind)}</button>)}</div></details>
+        {mapView === "3d" && <><ThreeMap state={state} selection={activeSelection} controlsRef={threeControls} onZoom={setThreeZoom} onInspect={showInspector} onOpenWiki={(cellId) => { showInspector(cellId, true); onOpenWiki(); }} onFailure={(message) => { setThreeError(message); setMapView("2d"); }} onSelect={selectMapTarget} /><details className="three-cell-picker" onPointerDown={(event) => event.stopPropagation()}><summary>键盘选格</summary><div>{state.map.map((cell) => <button key={cell.id} aria-pressed={activeSelection?.kind === "cell" && activeSelection.cellId === cell.id} onFocus={() => showInspector(cell.id)} onClick={() => selectMapTarget({kind:"cell",cellId:cell.id})}>{cell.q},{cell.r} · {publicCellIntel(cell,state.difficulty).name}{publicCellIntel(cell,state.difficulty).shortMineLabel ? ` · ${publicCellIntel(cell,state.difficulty).shortMineLabel}` : ""}</button>)}{explorations.map((target) => <button key={`${target.tq},${target.tr}`} disabled={state.phase !== "planning" || state.actionTaken} onClick={() => selectMapTarget({kind:"explore",tq:target.tq,tr:target.tr})}>探索 {target.tq},{target.tr} · {tileKindLabel(target.kind)}</button>)}</div></details>
         <div className="three-camera-tools" aria-label="3D 相机和画质" onPointerDown={(event) => event.stopPropagation()}>
           <button onClick={() => threeControls.current?.rotate(-Math.PI / 6)} aria-label="向左旋转地图">↶</button>
           <button onClick={() => threeControls.current?.tilt()} title="切换俯仰角度（T）">俯仰</button>
@@ -1141,12 +1147,15 @@ function GroupAttackControls({ state, dispatch }: { state: GameState; dispatch: 
   </div>;
 }
 
-function SitePanel({ state, dispatch }: { state: GameState; dispatch: Dispatch<GameAction> }) {
+export function SitePanel({ state, dispatch, cellId = state.position }: { state: GameState; dispatch: Dispatch<GameAction>; cellId?: string }) {
   const [mazeUnitId, setMazeUnitId] = useState("");
   const [mazeCrystalA, setMazeCrystalA] = useState<(typeof BASIC_MANA)[number]>("red");
   const [mazeCrystalB, setMazeCrystalB] = useState<(typeof BASIC_MANA)[number]>("blue");
   const [multiRampagerIds, setMultiRampagerIds] = useState<string[]>([]);
-  const cell = state.map.find((item) => item.id === state.position)!;
+  const current = state.map.find((item) => item.id === state.position)!;
+  const cell = state.map.find((item) => item.id === cellId) ?? current;
+  const atSite = cell.id === current.id;
+  const adjacent = isAdjacent(current, cell);
   const adjacentRampagers = state.map.filter((candidate) => isRampagingEnemyCell(candidate) && isAdjacent(cell, candidate));
   const adjacentAssaults = state.map.filter((candidate) => isAdjacent(cell, candidate) && !candidate.conquered && enemiesOnCell(candidate).length > 0 && ["keep", "mageTower", "city1", "city2", "volkareCamp"].includes(candidate.site));
   const help = SITE_HELP[mapDisplaySite(cell)];
@@ -1162,17 +1171,23 @@ function SitePanel({ state, dispatch }: { state: GameState; dispatch: Dispatch<G
   const campServices = hasConqueredVolkareCampServices(state);
   const campPursuitUsed = state.pursuedCampCellIds?.includes(cell.id);
   return (
-    <section className="panel site-panel">
-      <div className="panel-title"><span>当前位置</span><small>{TERRAIN_LABELS[cell.terrain]}</small></div>
+    <section className="panel site-panel" aria-label={`${publicCellIntel(cell,state.difficulty).name}地点行动`} data-cell-id={cell.id}>
+      <div className="panel-title"><span>{atSite ? "当前位置" : adjacent ? "相邻地点" : "查看地点"}</span><small>{TERRAIN_LABELS[cell.terrain]} · {cell.q},{cell.r}</small></div>
       <div className="site-identity">
-        {hasSiteArt(cell) ? <i className="site-preview site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" /> : cell.enemy && !cell.conquered ? <i className="site-preview enemy-sprite" style={enemyArtStyle(cell.enemy)} aria-hidden="true" /> : <i className={`terrain-preview terrain-preview-${cell.terrain}`}>{SITE_ICONS[mapDisplaySite(cell)] || "◇"}</i>}
+        {hasSiteArt(cell) ? <i className="site-preview site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" /> : cell.enemy && !cell.conquered && cell.tokenRevealed ? <i className="site-preview enemy-sprite" style={enemyArtStyle(cell.enemy)} aria-hidden="true" /> : cell.enemy && !cell.conquered ? <i className="site-preview token-back" aria-label="未公开敌人标记">?</i> : <i className={`terrain-preview terrain-preview-${cell.terrain}`}>{SITE_ICONS[mapDisplaySite(cell)] || "◇"}</i>}
         <div><strong>{publicCellIntel(cell,state.difficulty).name}</strong><small>{burnedMonastery ? "已焚毁 · 视为空地" : cell.conquered ? mapDisplaySite(cell) === "none" ? "已清理" : "已征服" : cell.enemy ? "敌军驻守" : "可安全行动"}</small></div>
       </div>
+      <MapPublicIntel cell={cell} difficulty={state.difficulty} />
+      {!cell.conquered && cell.tokenRevealed && enemiesOnCell(cell).length > 0 && <div className="site-enemy-intel">{enemiesOnCell(cell).map((enemy) => <EnemyMapIntel key={enemy.id} enemy={enemy} />)}</div>}
       <div className="site-guide">
         <p>{help.summary}</p>
         <strong>你可以在这里</strong>
         <ul>{help.actions.map((action) => <li key={action}>{action}</li>)}</ul>
       </div>
+      {!atSite ? <div className="site-remote-actions">
+        <p className="local-market-note">英雄当前位于{publicCellIntel(current,state.difficulty).name}（{current.q},{current.r}）。{adjacent && isRampagingEnemyCell(cell) ? "可以从当前格挑战这支游荡敌人。" : "需要先到达此地点，才能执行当地行动；移动或强攻请在地图上选择并确认。"}</p>
+        {isRampagingEnemyCell(cell) && <button className="wide-action challenge-action" disabled={!adjacent || state.phase !== "planning" || state.actionTaken} onClick={() => dispatch({ type: "MAP_CLICK", cellId: cell.id })}><span>挑战{cell.tokenRevealed ? ` ${cell.enemy?.name ?? publicCellIntel(cell,state.difficulty).name}` : "游荡敌人"}</span><strong>{adjacent ? "留在当前格" : "需要与目标相邻"}</strong></button>}
+      </div> : <>
       {adjacentRampagers.length > 0 && <div className="nearby-enemies">
         <div className="subheading"><span>相邻游荡敌人</span><small>可作为本回合行动挑战</small></div>
         {adjacentRampagers.map((enemyCell) => <button key={enemyCell.id} className="wide-action challenge-action" disabled={state.phase !== "planning" || state.actionTaken} onClick={() => dispatch({ type: "MAP_CLICK", cellId: enemyCell.id })}><span>挑战 {enemyCell.enemy?.name}</span><strong>留在当前格</strong></button>)}
@@ -1226,6 +1241,7 @@ function SitePanel({ state, dispatch }: { state: GameState; dispatch: Dispatch<G
         <p className="local-market-note">公开供应始终显示在下方供应区；开始互动后，可在同一次行动中继续购买，声誉修正只结算一次。</p>
       </>}
       {cell.enemy && !cell.conquered && !isAdventureEnemyCell(cell) && <p className="site-rule hostile">必须击败守军，才能使用这里的服务。</p>}
+      </>}
     </section>
   );
 }
@@ -1697,7 +1713,7 @@ function EventLog({ state }: { state: GameState }) {
   return <section className="panel log-panel"><div className="panel-title"><span>远征记录</span><small>最近事件</small></div><div className="log-list">{state.log.slice(0, 5).map((line, index) => <p key={`${line}-${index}`} className={index === 0 ? "latest" : ""}><i>{index === 0 ? "›" : "·"}</i>{line}</p>)}</div></section>;
 }
 
-function TacticalContextSummary({ state, inspectedCellId, onOpenSite }: { state: GameState; inspectedCellId: string; onOpenSite: () => void }) {
+export function TacticalContextSummary({ state, inspectedCellId, onOpenSite }: { state: GameState; inspectedCellId: string; onOpenSite: (cellId: string) => void }) {
   const current = state.map.find((cell) => cell.id === state.position);
   const cell = state.map.find((candidate) => candidate.id === inspectedCellId) ?? current;
   if (!cell || !current) return null;
@@ -1709,7 +1725,7 @@ function TacticalContextSummary({ state, inspectedCellId, onOpenSite }: { state:
     <div className="tactical-summary-identity">
       {hasSiteArt(cell) ? <i className="site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" /> : enemies[0] && cell.tokenRevealed && !cell.conquered ? <i className="enemy-sprite" style={enemyArtStyle(enemies[0])} aria-hidden="true" /> : <i className={`terrain-preview terrain-preview-${cell.terrain}`}>{SITE_ICONS[mapDisplaySite(cell)] || TERRAIN_GLYPHS[cell.terrain]}</i>}
       <div><strong>{publicCellIntel(cell,state.difficulty).name}</strong><p>{help.summary}</p><MapPublicIntel cell={cell} difficulty={state.difficulty} /></div>
-      <button onClick={onOpenSite}>地点行动</button>
+      <button onClick={() => onOpenSite(cell.id)}>地点行动</button>
     </div>
     {cell.enemy && !cell.conquered && <div className={`tactical-enemy-stack ${cell.tokenRevealed ? "" : "hidden"}`}>{cell.tokenRevealed ? enemies.map((enemy) => <EnemyMapIntel key={enemy.id} enemy={enemy} />) : <p>标记尚未公开；界面只会显示当前规则允许玩家知道的信息。</p>}</div>}
   </section>;
@@ -1743,11 +1759,11 @@ function UtilityCommandRail({ state, activePanel, onSelect }: { state: GameState
   );
 }
 
-function UtilityDrawer({ state, dispatch, panel, onClose }: { state: GameState; dispatch: Dispatch<GameAction>; panel: UtilityPanel; onClose: () => void }) {
+export function UtilityDrawer({ state, dispatch, panel, siteCellId, onClose }: { state: GameState; dispatch: Dispatch<GameAction>; panel: UtilityPanel; siteCellId?: string; onClose: () => void }) {
   if (!panel) return null;
   return <aside id="utility-drawer" className={`utility-drawer utility-${panel}`} aria-label="次要信息面板"><div className="utility-drawer-heading"><strong>{panel === "hero" ? "英雄、魔力与盟军" : panel === "site" ? "地点行动" : panel === "market" ? "公共供应" : "远征记录"}</strong><button onClick={onClose} aria-label="关闭面板">×</button></div><div className="utility-drawer-scroll">
     {panel === "hero" && <><ManaSource state={state} /><HeroSkillPanel state={state} dispatch={dispatch} /><UnitPanel state={state} dispatch={dispatch} /><DummyTimer state={state} /></>}
-    {panel === "site" && <SitePanel state={state} dispatch={dispatch} />}
+    {panel === "site" && <SitePanel key={siteCellId ?? state.position} state={state} dispatch={dispatch} cellId={siteCellId} />}
     {panel === "market" && <PublicOffersPanel state={state} dispatch={dispatch} />}
     {panel === "log" && <EventLog state={state} />}
   </div></aside>;
@@ -1766,6 +1782,7 @@ export default function Game() {
   const [showIntro, setShowIntro] = useState(false);
   const [mapFocus, setMapFocus] = useState(false);
   const [utilityPanel, setUtilityPanel] = useState<UtilityPanel>(null);
+  const [utilitySiteCellId, setUtilitySiteCellId] = useState<string>();
   const [selectedCardId, setSelectedCardId] = useState<string | undefined>();
   const [inspectedCellId, setInspectedCellId] = useState("");
   const [visualFeedback, setVisualFeedback] = useState<{ id: number; kind: GameFeedbackKind } | null>(null);
@@ -1915,6 +1932,7 @@ export default function Game() {
 
   const activeInspectedCellId = activeState.map.some((cell) => cell.id === inspectedCellId) ? inspectedCellId : activeState.position;
   const activeSelectedCardId = selectedCardId && activeState.hand.includes(selectedCardId) ? selectedCardId : (activeState.hand.find((id) => Boolean(getCard(id))) ?? activeState.hand[0]);
+  const openSiteActions = (cellId: string) => { setUtilitySiteCellId(cellId); setUtilityPanel("site"); };
 
   return (
     <main className={`game-shell ${effectiveMapFocus ? "map-focus" : ""} ${utilityPanel ? "utility-open" : ""}`} data-utility-panel={utilityPanel ?? "none"}>
@@ -1925,14 +1943,14 @@ export default function Game() {
         <section className={`center-stage ${activeState.combat ? "in-combat" : ""}`}>
           <div className="tactical-board"><MapBoard state={activeState} dispatch={wrappedDispatch} mapFocus={effectiveMapFocus} onToggleMapFocus={() => setMapFocus((focused) => !focused)} onInspectCell={handleInspectCell} onOpenWiki={() => setWikiOpen(true)} /></div>
           <aside className="tactical-context" aria-label="战术情报与卡牌操作">
-            {activeState.combat ? <CombatPanel state={activeState} dispatch={wrappedDispatch} /> : <TacticalContextSummary state={activeState} inspectedCellId={activeInspectedCellId} onOpenSite={() => setUtilityPanel("site")} />}
+            {activeState.combat ? <CombatPanel state={activeState} dispatch={wrappedDispatch} /> : <TacticalContextSummary state={activeState} inspectedCellId={activeInspectedCellId} onOpenSite={openSiteActions} />}
             <SelectedCardPanel key={activeSelectedCardId ?? "empty"} state={activeState} dispatch={wrappedDispatch} instanceId={activeSelectedCardId} />
             <div className="persistent-resource-panel"><ResourceBar state={activeState} dispatch={wrappedDispatch} /></div>
             <TurnPanel state={activeState} dispatch={wrappedDispatch} revertHistory={session!} onRevert={() => { setSession((current) => current ? revertLastAction(current) : current); triggerFeedback("ui"); }} />
           </aside>
         </section>
-        <UtilityCommandRail state={activeState} activePanel={utilityPanel} onSelect={(panel) => setUtilityPanel((current) => current === panel ? null : panel)} />
-        <UtilityDrawer state={activeState} dispatch={wrappedDispatch} panel={utilityPanel} onClose={() => setUtilityPanel(null)} />
+        <UtilityCommandRail state={activeState} activePanel={utilityPanel} onSelect={(panel) => { if (panel === "site") setUtilitySiteCellId(activeInspectedCellId); setUtilityPanel((current) => current === panel ? null : panel); }} />
+        <UtilityDrawer state={activeState} dispatch={wrappedDispatch} panel={utilityPanel} siteCellId={utilitySiteCellId} onClose={() => setUtilityPanel(null)} />
       </div>
       <div className="persistent-hand-panel"><CardHand state={activeState} selectedCardId={activeSelectedCardId} onSelectCard={(instanceId) => { setSelectedCardId(instanceId); playSound("ui"); }} onOpenWiki={() => setWikiOpen(true)} /></div>
       {activeState.phase === "tactic" && <TacticModal state={activeState} dispatch={wrappedDispatch} />}

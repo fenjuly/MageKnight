@@ -986,12 +986,14 @@ body {
 .model-license a { color:#ddc991; text-decoration:underline; pointer-events:auto; }
 .three-map-error { flex:none; margin:0; padding:5px 10px; background:#3b3022; color:#d8c8a0; font-size:9px; }
 .three-cell-picker { position:absolute; z-index:8; left:10px; bottom:9px; max-width:240px; color:#b3c2ad; font-size:7px; }
+.three-cell-picker[open] { z-index:26; }
 .three-cell-picker summary { width:max-content; padding:5px 7px; border:1px solid #b6ac7044; border-radius:4px; background:#15271fd9; cursor:pointer; }
 .three-cell-picker > div { position:absolute; bottom:100%; left:0; width:230px; max-height:250px; overflow:auto; padding:5px; background:#15271ff2; border:1px solid #b6ac7044; }
 .three-cell-picker button { display:block; width:100%; padding:6px; border:0; background:transparent; color:#c8d0b8; text-align:left; cursor:pointer; font-size:9px; }
 .three-cell-picker button:hover,.three-cell-picker button:focus-visible { background:#4a624155; }
 .map-tools .map-view-toggle { border-color:rgba(157,200,165,.56); color:#d1e5cb; background:rgba(53,88,65,.67); white-space:nowrap; }
 .map-3d-active .map-scroll { perspective:none; }
+.map-3d-active .map-scroll:has(.three-cell-picker[open]) { z-index:26; }
 .map-3d-active::before,.map-3d-active::after { display:none; }
 @media (max-width:1100px) { .map-3d-active .map-tools .map-seed,.map-3d-active .map-tools .drag-help { display:none; } .map-3d-active .map-heading { gap:5px; } }
 .model-gallery-backdrop { position:fixed; z-index:240; inset:0; display:grid; padding:16px; background:rgba(5,13,11,.88); backdrop-filter:blur(12px); place-items:center; }

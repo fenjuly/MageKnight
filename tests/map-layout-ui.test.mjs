@@ -15,11 +15,11 @@ test("desktop uses one tactical workbench instead of three competing rails", () 
   assert.match(gameSource, /<ResourceBar[\s\S]*<TurnPanel/);
 });
 
-test("terrain hover and focus update the persistent context", () => {
+test("terrain hover and focus update the persistent context while preserving explicit selection", () => {
   assert.match(gameSource, /const \[inspectedCellId, setInspectedCellId\] = useState/);
   assert.match(gameSource, /onMouseEnter=\{\(\) => showInspector\(cell\.id\)\}/);
   assert.match(gameSource, /onFocus=\{\(\) => showInspector\(cell\.id\)\}/);
-  assert.match(gameSource, /onInspectCell\(cellId\)/);
+  assert.match(gameSource, /onInspectCell\(targetId\)/);
   assert.match(gameSource, /inspectedCellId=\{activeInspectedCellId\}/);
 });
 
