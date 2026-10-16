@@ -226,3 +226,28 @@ test("retreating from spawning grounds locks newly replenished hidden defenders"
   assert.equal(history.past.length, 0);
   assert.match(history.boundaryReason, /新的敌人标记/);
 });
+
+test("summoning from a recycled single token locks even when both deck snapshots are empty", () => {
+  const state = battle("ranged", foe({ summon: true }));
+  state.enemyDiscards.brown = [state.enemyDecks.brown[0]];
+  state.enemyDecks.brown = [];
+  const history = applyGameActionWithRevert(createRevertHistory(state), { type: "COMBAT_ADVANCE" });
+  assert.deepEqual(history.present.enemyDecks.brown, []);
+  assert.ok(history.present.combat?.summonedTokenId);
+  assert.equal(history.past.length, 0);
+  assert.match(history.boundaryReason, /新的敌人标记/);
+});
+
+test("a second summon attack drawing the same recycled token is still a new draw boundary", () => {
+  const state = battle("ranged", foe({ summon: true, attackCount: 2 }));
+  state.turnBonus.coldfireBlock = 100;
+  state.enemyDiscards.brown = [state.enemyDecks.brown[0]];
+  state.enemyDecks.brown = [];
+  let history = applyGameActionWithRevert(createRevertHistory(state), { type: "COMBAT_ADVANCE" });
+  const tokenId = history.present.combat!.summonedTokenId;
+  history = applyGameActionWithRevert(history, { type: "COMBAT_BLOCK" });
+  assert.equal(history.present.combat?.summonedTokenId, tokenId);
+  assert.equal(history.present.combat?.attackIndex, 1);
+  assert.equal(history.past.length, 0);
+  assert.match(history.boundaryReason, /新的敌人标记/);
+});

@@ -4642,7 +4642,12 @@ function boundaryReason(action: GameAction, before: GameState, after: GameState)
 function combatInformationBoundary(before: GameState, action: GameAction, after: GameState): string | undefined {
   if (!before.combat) return undefined;
   const changed = (a: readonly string[], b: readonly string[]) => a.length !== b.length || a.some((id, i) => id !== b[i]);
-  if (ENEMY_COLORS.some((color) => changed(before.enemyDecks[color], after.enemyDecks[color]))) {
+  // A recycled one-token pile can be empty both before and after the draw.
+  // prepareSummonedAttack creates a new summoner encounter for every draw,
+  // including repeated attacks which happen to draw the very same token.
+  const summoned = after.combat?.summonedTokenId
+    && (before.combat.summonedTokenId !== after.combat.summonedTokenId || before.combat.summoner !== after.combat.summoner);
+  if (summoned || ENEMY_COLORS.some((color) => changed(before.enemyDecks[color], after.enemyDecks[color]))) {
     return "战斗抽取了新的敌人标记（召唤或地点补充）；不能回到标记公开之前。";
   }
   if (newlyRevealedMapInformation(before, after).length) return "战斗公开了新的地图或敌人信息；公开前的操作已经锁定。";
