@@ -6,6 +6,7 @@ import { createHash } from "node:crypto";
 test("builds a self-contained Capacitor web bundle", async () => {
   const html = await readFile(new URL("../dist-mobile/index.html", import.meta.url), "utf8");
   assert.ok(!(await readdir(new URL("../dist-mobile/", import.meta.url))).includes("combat-ui-test.html"), "the development-only combat fixture must not ship in the APK");
+  assert.ok(!(await readdir(new URL("../dist-mobile/", import.meta.url))).includes("hand-ui-test.html"), "the hand regression fixture must not ship in the APK");
   assert.match(html, /<div id="root"><\/div>/);
   assert.match(html, /\.\/assets\/[^"']+\.js/);
 

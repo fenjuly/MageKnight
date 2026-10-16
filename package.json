@@ -18,7 +18,7 @@
     "models:coverage": "node --import tsx scripts/report-model-coverage.ts",
     "models:assemble": "node scripts/assemble-realistic-models.mjs",
     "rules:coverage": "node --import tsx scripts/report-rule-coverage.ts",
-    "test:mobile": "npm run build:mobile && node --import tsx --test tests/mobile-build.test.mjs tests/android-single-screen-ui.test.mjs tests/combat-ui.test.tsx",
+    "test:mobile": "npm run build:mobile && node --import tsx --test tests/mobile-build.test.mjs tests/android-single-screen-ui.test.mjs tests/combat-ui.test.tsx tests/hand-ui.test.tsx",
     "test:official-assets": "node --test tests/official-assets.test.mjs",
     "assets:official": "node scripts/collect-official-assets.mjs",
     "android:sync": "bash scripts/sync-android.sh",
