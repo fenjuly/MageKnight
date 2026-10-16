@@ -89,7 +89,7 @@ import { RuinTokenBadge } from "./ruin-token";
 import { feedbackForAction, useGameAudio, type GameFeedbackKind } from "./game-audio";
 import { ThreeMap } from "./three-map";
 import type { Board3DHandle, BoardTarget } from "../lib/three-board";
-import { MAP_MANA_COLORS, mapSelectionContext, publicCellIntel } from "../lib/map-intel";
+import { MAP_MANA_COLORS, mapDisplaySite, mapSelectionContext, publicCellIntel } from "../lib/map-intel";
 import { THREE_QUALITY_LABELS, readThreeQuality, saveThreeQuality, type ThreeQuality } from "../lib/three-quality";
 import { readModelStyle, saveModelStyle, type ModelStyle } from "../lib/realistic-assets";
 import { ModelGallery } from "./model-gallery";
@@ -216,8 +216,8 @@ const SITE_HELP: Record<SiteType, { summary: string; actions: string[] }> = {
   city2: { summary: "第二座高等级城市遵循相同的抽取、相邻公开与城市加成规则。", actions: ["准备多支盟军与攻城攻击", "攻克后完成主要目标"] },
 };
 
-function hasSiteArt(cell: { terrain: string; site: SiteType }) {
-  return cell.terrain === "portal" || !["none", "rampager"].includes(cell.site);
+function hasSiteArt(cell: MapCell) {
+  return cell.terrain === "portal" || !["none", "rampager"].includes(mapDisplaySite(cell));
 }
 
 function enemyTraitDetails(enemy: NonNullable<MapCell["enemy"]>) {
@@ -626,7 +626,7 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
   const inspected = state.map.find((cell) => cell.id === inspectedCellId) ?? current;
   const inspectedEnemies = enemiesOnCell(inspected);
   const inspectedRuin = inspected.ruinTokenId ? ALL_RUIN_TOKEN_BY_ID[inspected.ruinTokenId] : undefined;
-  const inspectedHelp = SITE_HELP[inspected.site];
+  const inspectedHelp = SITE_HELP[mapDisplaySite(inspected)];
   const canChallengeInspected = state.phase === "planning" && !state.actionTaken && isRampagingEnemyCell(inspected) && isAdjacent(current, inspected);
   const currentRuin = current.ruinTokenId ? ALL_RUIN_TOKEN_BY_ID[current.ruinTokenId] : undefined;
   const currentAltarColor = current.site === "ruins" ? (current.ruinAltarColor ?? currentRuin?.altarColor) : undefined;
@@ -908,6 +908,7 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
             const actionable = adjacent && accessible && state.phase === "planning" && !state.actionTaken;
             const isChallenge = adjacent && isRampagingEnemyCell(cell);
             const placement = cell.tileId ? placements[cell.tileId] : undefined;
+            const displaySite = mapDisplaySite(cell);
             const actionLabel = isChallenge ? "挑战" : accessible ? `移动 ${cost}` : "不可进入";
             return (
               <button
@@ -925,17 +926,17 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
                 onBlur={scheduleInspectorHide}
                 onContextMenu={(event) => { event.preventDefault(); setInspectedCellId(cell.id); onInspectCell(cell.id); onOpenWiki(); }}
                 aria-disabled={!actionable}
-                aria-label={isChallenge ? `挑战${cell.enemy?.name ?? "游荡敌人"}；聚焦后可在信息面板查看公开信息` : `${TERRAIN_LABELS[cell.terrain]} ${SITE_LABELS[cell.site]}`}
+                aria-label={isChallenge ? `挑战${cell.enemy?.name ?? "游荡敌人"}；聚焦后可在信息面板查看公开信息` : `${TERRAIN_LABELS[cell.terrain]} ${publicCellIntel(cell,state.difficulty).name}`}
               >
                 <span className="hex-inner">
                   <>
                     <small className="terrain-name">{TERRAIN_LABELS[cell.terrain]}</small>
                     <span className="terrain-glyph" aria-hidden="true">{TERRAIN_GLYPHS[cell.terrain]}</span>
                     {hasSiteArt(cell) && <span className="map-model site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" />}
-                    {!hasSiteArt(cell) && cell.enemy && cell.tokenRevealed && <span className="map-enemy-model enemy-sprite" style={enemyArtStyle(cell.enemy)} aria-hidden="true" />}
-                    {!hasSiteArt(cell) && cell.enemy && !cell.tokenRevealed && <span className="map-enemy-model enemy-token-back" aria-label="未翻开的敌人标记">?</span>}
-                    {cell.site !== "none" && !hasSiteArt(cell) && !cell.enemy && <strong className="site-mark">{SITE_ICONS[cell.site]}</strong>}
-                    {cell.site !== "none" && <span className="site-name">{SITE_LABELS[cell.site]}</span>}
+                    {!hasSiteArt(cell) && cell.enemy && !cell.conquered && cell.tokenRevealed && <span className="map-enemy-model enemy-sprite" style={enemyArtStyle(cell.enemy)} aria-hidden="true" />}
+                    {!hasSiteArt(cell) && cell.enemy && !cell.conquered && !cell.tokenRevealed && <span className="map-enemy-model enemy-token-back" aria-label="未翻开的敌人标记">?</span>}
+                    {displaySite !== "none" && !hasSiteArt(cell) && !cell.enemy && <strong className="site-mark">{SITE_ICONS[displaySite]}</strong>}
+                    {displaySite !== "none" && <span className="site-name">{publicCellIntel(cell,state.difficulty).name}</span>}
                     {cell.enemy && !cell.conquered && <i className={`enemy-dot ${cell.tokenRevealed ? "" : "hidden"}`}>{cell.tokenRevealed ? (enemiesOnCell(cell).length > 1 ? enemiesOnCell(cell).length : "!") : "?"}</i>}
                     {cell.site === "ruins" && !cell.conquered && <RuinTokenBadge token={cell.ruinTokenId ? ALL_RUIN_TOKEN_BY_ID[cell.ruinTokenId] : undefined} hidden={!cell.tokenRevealed} compact />}
                     {cell.mineColor && <i className={`mine-gem mana-${cell.mineColor}`}>◆</i>}
@@ -990,7 +991,7 @@ export function MapBoard({ state, dispatch, mapFocus, onToggleMapFocus, onInspec
         }}
       >
         <>
-          {hasSiteArt(inspected) ? <i className="inspector-art site-model-sprite" style={siteArtStyle(inspected.site, inspected.terrain)} aria-hidden="true" /> : inspected.enemy && inspected.tokenRevealed ? <i className="inspector-art enemy-sprite" style={enemyArtStyle(inspected.enemy)} aria-hidden="true" /> : inspected.enemy ? <i className="inspector-art token-back">?</i> : <i className={`inspector-art terrain-preview-${inspected.terrain}`}>{SITE_ICONS[inspected.site] || "◇"}</i>}
+          {hasSiteArt(inspected) ? <i className="inspector-art site-model-sprite" style={siteArtStyle(inspected.site, inspected.terrain)} aria-hidden="true" /> : inspected.enemy && !inspected.conquered && inspected.tokenRevealed ? <i className="inspector-art enemy-sprite" style={enemyArtStyle(inspected.enemy)} aria-hidden="true" /> : inspected.enemy && !inspected.conquered ? <i className="inspector-art token-back">?</i> : <i className={`inspector-art terrain-preview-${inspected.terrain}`}>{SITE_ICONS[mapDisplaySite(inspected)] || "◇"}</i>}
           <div className="inspector-copy"><small>{TERRAIN_LABELS[inspected.terrain]} · 移动 {terrainMoveLabel(inspected.terrain, state.time)}</small><strong>{publicCellIntel(inspected,state.difficulty).name}</strong><p>{inspectedHelp.summary}</p><MapPublicIntel cell={inspected} difficulty={state.difficulty} /></div>
           <div className="inspector-actions">
             {inspected.site === "ruins" && inspectedRuin && inspected.tokenRevealed && !inspected.conquered ? <div className="token-intel ruin-token-intel"><RuinTokenBadge token={inspectedRuin} compact /><div className="ruin-token-copy"><small>黄色遗迹标记</small><strong>{inspectedRuin.name}</strong><span>{inspectedRuin.description}</span>{inspectedEnemies.map((enemy) => <EnemyMapIntel key={enemy.id} enemy={enemy} />)}</div></div> : inspected.enemy && !inspected.conquered ? inspected.tokenRevealed ? <div className="token-intel"><small>已公开标记 · {inspectedEnemies.length} 枚</small>{inspectedEnemies.map((enemy) => <EnemyMapIntel key={enemy.id} enemy={enemy} />)}{inspectedHelp.actions.map((action) => <span key={action}>• {action}</span>)}</div> : <div className="token-intel hidden"><small>{inspectedEnemies.length} 枚标记背面</small><strong>信息尚未公开</strong><span>{inspected.site === "keep" || inspected.site === "mageTower" ? "白昼移动至相邻格会自动翻开；夜晚强攻时翻开。" : inspected.site === "city1" || inspected.site === "city2" ? "无论昼夜，移动至城市相邻格都会公开整支守军。" : inspected.site === "ruins" ? "夜晚进入遗迹后翻开；下一次白昼也会自动公开。" : "进入并触发战斗时翻开。"}</span>{inspectedHelp.actions.map((action) => <span key={action}>• {action}</span>)}</div> : <><small>你可以在这里</small>{inspectedHelp.actions.map((action) => <span key={action}>• {action}</span>)}</>}
@@ -1148,7 +1149,7 @@ function SitePanel({ state, dispatch }: { state: GameState; dispatch: Dispatch<G
   const cell = state.map.find((item) => item.id === state.position)!;
   const adjacentRampagers = state.map.filter((candidate) => isRampagingEnemyCell(candidate) && isAdjacent(cell, candidate));
   const adjacentAssaults = state.map.filter((candidate) => isAdjacent(cell, candidate) && !candidate.conquered && enemiesOnCell(candidate).length > 0 && ["keep", "mageTower", "city1", "city2", "volkareCamp"].includes(candidate.site));
-  const help = SITE_HELP[cell.site];
+  const help = SITE_HELP[mapDisplaySite(cell)];
   const resources = availableResources(state);
   const friendly = !cell.enemy || cell.conquered;
   const burnedMonastery = cell.site === "monastery" && cell.conquered;
@@ -1164,8 +1165,8 @@ function SitePanel({ state, dispatch }: { state: GameState; dispatch: Dispatch<G
     <section className="panel site-panel">
       <div className="panel-title"><span>当前位置</span><small>{TERRAIN_LABELS[cell.terrain]}</small></div>
       <div className="site-identity">
-        {hasSiteArt(cell) ? <i className="site-preview site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" /> : cell.enemy ? <i className="site-preview enemy-sprite" style={enemyArtStyle(cell.enemy)} aria-hidden="true" /> : <i className={`terrain-preview terrain-preview-${cell.terrain}`}>{SITE_ICONS[cell.site] || "◇"}</i>}
-        <div><strong>{SITE_LABELS[cell.site]}</strong><small>{burnedMonastery ? "已焚毁 · 视为空地" : cell.conquered ? "已征服" : cell.enemy ? "敌军驻守" : "可安全行动"}</small></div>
+        {hasSiteArt(cell) ? <i className="site-preview site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" /> : cell.enemy && !cell.conquered ? <i className="site-preview enemy-sprite" style={enemyArtStyle(cell.enemy)} aria-hidden="true" /> : <i className={`terrain-preview terrain-preview-${cell.terrain}`}>{SITE_ICONS[mapDisplaySite(cell)] || "◇"}</i>}
+        <div><strong>{publicCellIntel(cell,state.difficulty).name}</strong><small>{burnedMonastery ? "已焚毁 · 视为空地" : cell.conquered ? mapDisplaySite(cell) === "none" ? "已清理" : "已征服" : cell.enemy ? "敌军驻守" : "可安全行动"}</small></div>
       </div>
       <div className="site-guide">
         <p>{help.summary}</p>
@@ -1701,12 +1702,12 @@ function TacticalContextSummary({ state, inspectedCellId, onOpenSite }: { state:
   const cell = state.map.find((candidate) => candidate.id === inspectedCellId) ?? current;
   if (!cell || !current) return null;
   const enemies = enemiesOnCell(cell);
-  const help = SITE_HELP[cell.site];
+  const help = SITE_HELP[mapDisplaySite(cell)];
   const status = cell.id === current.id ? "当前位置" : isAdjacent(current, cell) ? "相邻区域" : "地图情报";
   return <section className="tactical-summary">
     <div className="context-section-title"><span>{status}</span><small>{TERRAIN_LABELS[cell.terrain]} · 移动 {terrainMoveLabel(cell.terrain, state.time)}</small></div>
     <div className="tactical-summary-identity">
-      {hasSiteArt(cell) ? <i className="site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" /> : enemies[0] && cell.tokenRevealed ? <i className="enemy-sprite" style={enemyArtStyle(enemies[0])} aria-hidden="true" /> : <i className={`terrain-preview terrain-preview-${cell.terrain}`}>{SITE_ICONS[cell.site] || TERRAIN_GLYPHS[cell.terrain]}</i>}
+      {hasSiteArt(cell) ? <i className="site-model-sprite" style={siteArtStyle(cell.site, cell.terrain)} aria-hidden="true" /> : enemies[0] && cell.tokenRevealed && !cell.conquered ? <i className="enemy-sprite" style={enemyArtStyle(enemies[0])} aria-hidden="true" /> : <i className={`terrain-preview terrain-preview-${cell.terrain}`}>{SITE_ICONS[mapDisplaySite(cell)] || TERRAIN_GLYPHS[cell.terrain]}</i>}
       <div><strong>{publicCellIntel(cell,state.difficulty).name}</strong><p>{help.summary}</p><MapPublicIntel cell={cell} difficulty={state.difficulty} /></div>
       <button onClick={onOpenSite}>地点行动</button>
     </div>

@@ -1,9 +1,15 @@
-import { ALL_RUIN_TOKEN_BY_ID, MANA_LABELS, SITE_LABELS, TERRAIN_LABELS, type MapCell, type ManaColor } from "./game-data";
+import { ALL_RUIN_TOKEN_BY_ID, MANA_LABELS, SITE_LABELS, TERRAIN_LABELS, TERRAIN_COSTS, type MapCell, type ManaColor } from "./game-data";
 import { cityColorForCell, cityLevel, enemiesOnCell, type GameState } from "./game-engine";
 
 export type CrystalColor = Exclude<ManaColor, "gold" | "black">;
 export const MAP_MANA_COLORS: Record<CrystalColor, string> = { red: "#ff9285", blue: "#8bcfff", green: "#9ce5ae", white: "#fff1c7" };
 export type MapIntelBadge = { kind: "mine" | "city" | "ruin" | "enemy" | "state"; text: string; colors?: CrystalColor[] };
+
+/** Roaming enemies are removable tokens, not permanent buildings. Keep the
+ * original site in game state for scoring/undo; only its presentation changes. */
+export function mapDisplaySite(cell: MapCell): MapCell["site"] {
+  return (cell.site === "rampager" || cell.site === "dragon") && (cell.conquered || !enemiesOnCell(cell).length) ? "none" : cell.site;
+}
 
 /** Card/resource changes keep intent; movement, combat and a new turn do not. */
 export function mapSelectionContext(state: Pick<GameState, "seed" | "round" | "time" | "phase" | "position" | "dummyDeck" | "actionTaken">) {
@@ -26,7 +32,7 @@ export function publicSiteAccent(cell: MapCell): CrystalColor | undefined {
 /** Only public physical information. Never infer or expose hidden token content. */
 export function publicCellIntel(cell: MapCell, difficulty: GameState["difficulty"] = "standard") {
   const colors = mineColorsForCell(cell), badges: MapIntelBadge[] = [];
-  let name = cell.site === "none" ? TERRAIN_LABELS[cell.terrain] : SITE_LABELS[cell.site];
+  let name = mapDisplaySite(cell) === "none" ? TERRAIN_LABELS[cell.terrain] : SITE_LABELS[cell.site];
   if (colors.length) badges.push({ kind: "mine", text: `${cell.site === "deepMine" ? "任选产色" : "产出"}：${colors.map((color) => `${MANA_LABELS[color]}色水晶`).join(" / ")}`, colors });
   if (cell.site === "city1" || cell.site === "city2") {
     const color = cityColorForCell(cell);
@@ -40,6 +46,13 @@ export function publicCellIntel(cell: MapCell, difficulty: GameState["difficulty
   }
   const enemies = enemiesOnCell(cell);
   if (!cell.conquered && enemies.length) badges.push({ kind: "enemy", text: cell.tokenRevealed ? `已公开 ${enemies.length} 枚敌人：${enemies.map((enemy) => enemy.name).join("、")}` : `${enemies.length} 枚敌人标记 · 未公开` });
-  if (cell.conquered) badges.push({ kind: "state", text: cell.site === "monastery" ? "已焚毁 · 不再提供服务" : ["ruins", "monsterDen", "spawningGrounds", "dungeon", "tomb", "maze", "labyrinth"].includes(cell.site) ? "✓ 已清理" : "✓ 已征服" });
+  if (cell.conquered) badges.push({ kind: "state", text: cell.site === "monastery" ? "已焚毁 · 不再提供服务" : ["rampager", "dragon", "ruins", "monsterDen", "spawningGrounds", "dungeon", "tomb", "maze", "labyrinth"].includes(cell.site) ? "✓ 已清理" : "✓ 已征服" });
   return { name, colors, badges, shortMineLabel: colors.length ? `${colors.map((color) => MANA_LABELS[color]).join("/")}晶` : "" };
+}
+
+/** The number under a token is terrain movement cost, never enemy strength. */
+export function publicCellMapLabel(cell: MapCell, time: GameState["time"], difficulty: GameState["difficulty"] = "standard") {
+  const intel = publicCellIntel(cell, difficulty), cost = TERRAIN_COSTS[cell.terrain][time];
+  const count = cell.tokenRevealed && !cell.conquered ? enemiesOnCell(cell).length : 0;
+  return `${intel.name}${intel.shortMineLabel ? ` · ${intel.shortMineLabel}` : ""} · ${Number.isFinite(cost) ? `移动 ${cost}` : "不可进入"}${count > 1 ? ` · 守军 ${count}` : ""}`;
 }

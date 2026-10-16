@@ -1,12 +1,12 @@
 import * as T from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { ALL_HEROES, ALL_RUIN_TOKEN_BY_ID, SITE_LABELS, TERRAIN_LABELS, TERRAIN_COSTS, getUnit, type MapCell, type HeroDef, type Enemy, type UnitDef, type Terrain, type SiteType } from "./game-data";
+import { ALL_HEROES, ALL_RUIN_TOKEN_BY_ID, TERRAIN_COSTS, getUnit, type MapCell, type HeroDef, type Enemy, type UnitDef, type Terrain, type SiteType } from "./game-data";
 import { availableTileExplorations, enemiesOnCell, isAdjacent, tileCenterCoordinates, type GameState } from "./game-engine";
 import { ModelKit, MANA_3D, TERRAIN_3D, cellWorldPosition, disposeModel } from "./three-models";
 import { readThreeQuality, threeRenderResolution, visibleScreenLabels, type ScreenLabel, type ThreeQuality } from "./three-quality";
 import { readModelStyle, realisticModelFor, type ModelStyle } from "./realistic-assets";
 import { RealisticModelPool, createStudioEnvironment } from "./three-realistic";
-import { MAP_MANA_COLORS, publicCellIntel, publicSiteAccent } from "./map-intel";
+import { MAP_MANA_COLORS, mapDisplaySite, publicCellIntel, publicCellMapLabel, publicSiteAccent } from "./map-intel";
 
 export type BoardTarget = { kind: "cell"; cellId: string } | { kind: "explore"; tq: number; tr: number };
 export interface BoardCallbacks { select(target: BoardTarget): void; inspect(cellId: string): void; openWiki(cellId: string): void; zoom(value: number): void; fail(message: string): void }
@@ -15,7 +15,7 @@ export type ModelPreviewEntry = { kind: "hero"; value: HeroDef } | { kind: "enem
 
 /** A rule-aware render description never exposes a face-down defender. */
 export function visibleCellModelData(cell: MapCell) {
-  return { terrain: cell.terrain, site: cell.site, enemies: cell.tokenRevealed && !cell.conquered ? enemiesOnCell(cell) : [], concealed: !cell.tokenRevealed && Boolean(cell.enemy) && !cell.conquered, ruin: cell.site === "ruins" && cell.tokenRevealed && !cell.conquered ? ALL_RUIN_TOKEN_BY_ID[cell.ruinTokenId ?? ""] : undefined };
+  return { terrain: cell.terrain, site: mapDisplaySite(cell), enemies: cell.tokenRevealed && !cell.conquered ? enemiesOnCell(cell) : [], concealed: !cell.tokenRevealed && Boolean(cell.enemy) && !cell.conquered, ruin: cell.site === "ruins" && cell.tokenRevealed && !cell.conquered ? ALL_RUIN_TOKEN_BY_ID[cell.ruinTokenId ?? ""] : undefined };
 }
 
 export function resolveBoardHit(intersections: Array<{ object: T.Object3D }>): BoardTarget | undefined {
@@ -173,14 +173,14 @@ export function createThreeBoard(host: HTMLElement, initial: GameState, callback
       if (existing) removeGroup(existing.group);
       const group = new T.Group(), data = visibleCellModelData(cell), position = cellWorldPosition(cell.q, cell.r), height = TERRAIN_3D[cell.terrain].height;
       group.position.set(position.x, 0, position.z); group.userData.boardTarget = { kind: "cell", cellId: cell.id } satisfies BoardTarget;
-      group.add(detailed({ kind: "terrain", value: cell.terrain }, kit.terrain(cell.terrain, cell.id, cell.site !== "none" || Boolean(cell.enemy))));
+      group.add(detailed({ kind: "terrain", value: cell.terrain }, kit.terrain(cell.terrain, cell.id, data.site !== "none" || data.enemies.length > 0 || data.concealed)));
       if (!["none", "rampager", "dragon"].includes(cell.site)) { const site = detailed({ kind: "site", value: cell.site }, kit.site(cell.site, { id: cell.id, mineColor: cell.mineColor, ruinAltarColor: cell.tokenRevealed ? cell.ruinAltarColor : undefined }), publicSiteAccent(cell)); site.position.y = height; group.add(site); }
       if (data.concealed) { const back = new T.Group(); kit.cylinder(back, "#596a61", [0, height + .31, .15], .21, .26, .56, 6); kit.ring(back, "#b4b498", [0, height + .58, .15], .18, .025); const model = kit.finish(back, `concealed-${cell.id}`, "token-back"); group.add(model); group.add(label("? 未公开", [0, height + 1.05, .08])); }
       else data.enemies.slice(0, 6).forEach((enemy, index) => { const model = detailed({ kind: "enemy", value: enemy }, kit.enemy(enemy)); const count = Math.min(6, data.enemies.length); model.scale.setScalar(count > 1 ? .53 : cell.site === "rampager" || cell.site === "dragon" ? .92 : .6); model.position.set(count === 1 ? 0 : Math.sin(index / count * Math.PI * 2) * .47, height + .04, count === 1 ? .08 : Math.cos(index / count * Math.PI * 2) * .42); if (cell.site !== "rampager" && cell.site !== "dragon") model.position.z += .18; group.add(model); });
       const cost = TERRAIN_COSTS[cell.terrain][state.time];
       const intel=publicCellIntel(cell,state.difficulty);
-      const cellText = `${intel.name}${intel.shortMineLabel ? ` · ${intel.shortMineLabel}` : ""} · ${Number.isFinite(cost) ? cost : "×"}${data.enemies.length > 1 ? ` · 守军 ${data.enemies.length}` : ""}`;
-      group.add(label(cellText, [0, height + .21, .75], cell.id === state.position ? "#f8d694" : intel.colors.length === 1 ? MAP_MANA_COLORS[intel.colors[0]] : "#e3ddc9", cell.id === state.position ? 100 : intel.colors.length ? 85 : cell.site === "none" ? 10 : 60));
+      const cellText = publicCellMapLabel(cell,state.time,state.difficulty);
+      group.add(label(cellText, [0, height + .21, .75], cell.id === state.position ? "#f8d694" : intel.colors.length === 1 ? MAP_MANA_COLORS[intel.colors[0]] : "#e3ddc9", cell.id === state.position ? 100 : intel.colors.length ? 85 : data.site === "none" ? 10 : 60));
       const marker = intel.badges.find((badge)=>badge.kind==="ruin" || badge.kind==="state" || badge.kind==="city");
       if (marker) group.add(label(marker.kind==="ruin" ? cell.tokenRevealed && data.ruin ? `遗迹 · ${data.ruin.name}` : marker.text : marker.text, [0,height+1.4,0], "#eed18b", 75));
       if (current && isAdjacent(current, cell) && Number.isFinite(cost) && state.phase === "planning" && !state.actionTaken) { const ring = new T.Mesh(new T.RingGeometry(.87, .905, 6), new T.MeshBasicMaterial({ color: "#d4bf84", side: T.DoubleSide, transparent: true, opacity: .46 })); ring.rotation.x = -Math.PI / 2; ring.rotation.z = Math.PI / 6; ring.position.y = height + .035; ring.userData.ownedGeometry = true; ring.userData.ownedMaterial = true; group.add(ring); }
