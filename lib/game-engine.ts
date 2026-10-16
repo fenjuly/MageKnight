@@ -2100,7 +2100,7 @@ function playCard(state: GameState, action: Extract<GameAction, { type: "PLAY_CA
 function unplayCard(state: GameState, instanceId: string): GameState {
   const play = state.played.find((item) => item.instanceId === instanceId || item.linkedCard?.instanceId === instanceId);
   if (!play) return state;
-  if (play.lockedByCombat) return log(state, "这张牌在战斗开始前已经打出；战斗公开信息后不能再收回。 ");
+  if (play.lockedByCombat) return log(state, "这张牌已被战斗起点或公开的新信息锁定，不能直接收回；尚未锁定的步骤请使用逐步撤回。 ");
   const nextPlayed = state.played.filter((item) => item.instanceId !== play.instanceId);
   const currentManaTokens = { ...EMPTY_MANA_TOKENS, ...state.manaTokens };
   if (play.generatedMana && currentManaTokens[play.generatedMana.color] < play.generatedMana.count) {

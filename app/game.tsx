@@ -1307,14 +1307,14 @@ function PublicOffersPanel({ state, dispatch }: { state: GameState; dispatch: Di
   );
 }
 
-function TurnPanel({ state, dispatch, revertHistory, onRevert }: { state: GameState; dispatch: Dispatch<GameAction>; revertHistory: RevertHistoryState; onRevert: () => void }) {
+export function TurnPanel({ state, dispatch, revertHistory, onRevert }: { state: GameState; dispatch: Dispatch<GameAction>; revertHistory: RevertHistoryState; onRevert: () => void }) {
   const mapBonus = mapHandLimitBonus(state);
   const hasTurnActivity = state.played.length > 0 || state.actionTaken || Object.values(state.spent).some(Boolean) || (state.turnDiscardCount ?? 0) > 0;
   const reversible = revertHistory.past.at(-1);
   return (
     <section className="turn-panel">
       <div className="turn-status">
-        <span className={state.actionTaken ? "done" : "active"}>{state.interactionSite ? "当地互动进行中" : state.actionTaken ? "本回合行动已完成" : "移动与行动阶段"}</span>
+        <span className={state.actionTaken ? "done" : "active"}>{state.combat ? "战斗进行中" : state.interactionSite ? "当地互动进行中" : state.actionTaken ? "本回合行动已完成" : "移动与行动阶段"}</span>
         <small>牌库 {state.deck.length} · 手牌上限 {handLimit(state)}{mapBonus > 0 ? `（地点 +${mapBonus}）` : ""}</small>
       </div>
       <button className="rest-button" disabled={state.phase !== "planning" || state.actionTaken || state.played.length > 0 || woundCount(state) === 0} onClick={() => dispatch({ type: "REST" })}>休整</button>
@@ -1539,7 +1539,7 @@ export function SelectedCardPanel({ state, dispatch, instanceId }: { state: Game
               <div className={`card-effect basic-effect ${isArtifact ? "artifact-effect" : ""}`}><small>{isArtifact ? "圣器能力 · 使用后保留" : "基础效果"}</small><strong>{card.basicLabel}</strong></div>
               <div className="card-effect powered-effect"><small>{isArtifact ? "圣器强效 · 使用后移出游戏" : card.tier === "spell" ? `强效 · 夜晚：${MANA_LABELS[card.color]} + 黑` : `强化 · ${MANA_LABELS[card.color]}色`}</small><strong>{card.poweredLabel}</strong></div>
         </div>
-              {play ? <button className="unplay" disabled={play.lockedByCombat} title={play.lockedByCombat ? "战斗开始后，此前打出的牌已经锁定" : undefined} onClick={() => dispatch({ type: "UNPLAY_CARD", instanceId })}>已打出：{play.mode === "basic" ? "基础" : play.mode === "powered" ? "强化" : `横置 ${RESOURCE_LABELS[play.sideResource!]}`}{playedChoice ? ` · ${playedChoice}` : ""}{play.discardedInstanceId ? ` · 弃掉「${getCard(play.discardedInstanceId)?.name ?? "行动牌"}」` : ""} · {play.lockedByCombat ? "已锁定" : "撤回"}</button> : (
+              {play ? <button className="unplay" disabled={play.lockedByCombat} title={play.lockedByCombat ? "此出牌已被战斗起点或新信息锁定；尚未锁定的步骤可用逐步撤回" : undefined} onClick={() => dispatch({ type: "UNPLAY_CARD", instanceId })}>已打出：{play.mode === "basic" ? "基础" : play.mode === "powered" ? "强化" : `横置 ${RESOURCE_LABELS[play.sideResource!]}`}{playedChoice ? ` · ${playedChoice}` : ""}{play.discardedInstanceId ? ` · 弃掉「${getCard(play.discardedInstanceId)?.name ?? "行动牌"}」` : ""} · {play.lockedByCombat ? "已锁定" : "撤回"}</button> : (
                 <div className="card-actions">
                   {playModeButtons("basic")}
                   {playModeButtons("powered")}
@@ -1668,7 +1668,7 @@ function RulesDrawer({ open, onClose }: { open: boolean; onClose: () => void }) 
     <h3>声誉与公开标记</h3>
     <p className="drawer-copy">顶部同时显示声誉轨位与它当前提供的影响力修正；轨位到 X 时无法与居民互动。兽人和巨龙是游荡敌人，地图地形揭示时就正面公开，英雄不能进入其所在格；在相邻格可把挑战作为本回合行动，从一个相邻格移动到另一个相邻格则会激怒它并强制开战。要塞与法师塔守军在白昼相邻时翻开，夜晚则到强攻时才翻开；遗迹黄色标记白昼公开，夜晚要进入遗迹或等到下一个白昼才公开。</p>
     <h3>反悔与回退</h3>
-    <p className="drawer-copy">规则允许你在本回合内撤回尚未产生新信息的选择。普通移动、出牌、确定性资源支付、盟军发动与不刷新供应的招募可用“撤回”或 ⌘/Ctrl + Z 逐步回退；主动挑战、激怒游荡敌人或对已公开守军发动强攻，也可在首次战斗结算前撤回。探索新板块、实际翻开敌人或遗迹标记、进入会随机抽取守卫的地点、抽牌、刷新供应、掷骰或结算战斗后，此前选择才会锁定。</p>
+    <p className="drawer-copy">规则允许你在本回合内撤回尚未产生新信息的选择。普通移动、出牌、确定性资源支付、盟军发动与不刷新供应的招募可用“撤回”或 ⌘/Ctrl + Z 逐步回退。战斗内也一样：跳过远程进入格挡、格挡、分配伤害、攻击和撤退，只要没有公开新信息，都可逐步回退；资源、伤势、敌人和队列会一起恢复。召唤新敌人、抽牌、公开新奖励/供应牌、随机升级或掷骰会锁定此前选择。锁定后新做的确定性操作仍可撤回，但不能越过该信息边界；结束回合或载入存档前的历史不能恢复。</p>
     <h3>遗迹奖励</h3>
     <p className="drawer-copy">古代遗迹会从基础版 12 枚黄色标记中随机抽取：四色祭坛需要支付 3 份对应魔力并获得 7 名望，其余标记会组合两枚敌人并给出圣器、法术、进阶行动或水晶奖励。获得的圣器置于牌库顶；使用强效后会移出游戏。</p>
     <h3>公共供应区</h3>
